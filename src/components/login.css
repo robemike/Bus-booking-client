@@ -1,0 +1,73 @@
+/* Bordered form */
+body {
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center;     /* Center vertically */
+    height: 100vh;           /* Full viewport height */
+    margin: 0;               /* Remove default margin */
+    background-color: #f2f2f2; /* Background color */
+}
+form {
+    border: 3px solid #cc7722;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    background-color: #f2f2f2;
+    border-radius: 15px;
+    width: 700px;
+  }
+  
+  /* Full-width inputs */
+  input[type=text], input[type=password] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+  }
+  
+  /* Set a style for all buttons */
+  button {
+    background-color: #cc7722;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+  }
+  
+  /* Add a hover effect for buttons */
+  button:hover {
+    opacity: 0.8;
+  }
+  
+  /* Center the avatar image inside this container */
+  .imgcontainer {
+    text-align: center;
+    margin: 24px 0 12px 0;
+  }
+  
+  /* Add padding to containers */
+  .container {
+    padding: 16px;
+  }
+
+  .cancelbtn {
+    width: auto;
+    padding: 8px 12px; /* Reduce button padding */
+    background-color: #f44336;
+    border: none; /* Remove default border */
+    border-radius: 5px; /* Curvature for button */
+  }
+
+  .cancelbtn, .signupbtn {
+    float: left;
+    width: 50%;
+  }
+  
+  
+  
+ 
