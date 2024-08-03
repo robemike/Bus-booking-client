@@ -11,12 +11,9 @@ function CustomerList() {
   ];
 
   return (
-    <div className="container">
-      <header>
-        <h1>BUSLINK</h1>
-        <h2>CUSTOMER'S LIST</h2>
-      </header>
-     
+    <div>
+         <header>CUSTOMERS LIST</header>
+    <div className="container">    
       <ul id="customer-list">
         {customers.map((customer, index) => (
           <li key={index}>
@@ -29,6 +26,7 @@ function CustomerList() {
           </li>
         ))}
       </ul>
+    </div>
     </div>
   );
 }

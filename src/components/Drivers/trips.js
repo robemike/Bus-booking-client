@@ -25,32 +25,30 @@ function Trips() {
             price: 3000,
             status: "FULLY BOOKED"
         },
-        {
-            name: "Starbus",
-            departureTime: "8:30 PM",
-            arrivalTime: "6:15 AM",
-            price: 3500,
-            status: "12 SEATS AVAILABLE"
-        }
+        // {
+        //     name: "Starbus",
+        //     departureTime: "8:30 PM",
+        //     arrivalTime: "6:15 AM",
+        //     price: 3500,
+        //     status: "12 SEATS AVAILABLE"
+        // }
     ];
 
-    const servicesJSX = services.map((service, index) => (
-        <div className="service" key={index}>
-            <h3>{service.name}</h3>
-            <p>Departure: {service.departureTime} | Arrival: {service.arrivalTime}</p>
-            <p>Price: KSH {service.price}</p>
-            <p className="status">{service.status}</p>
-        </div>
-    ));
-
     return (
-        <div>
+        <div className="container">
             <div className="schedule">
                 <div className="header">Bus Schedule - Nairobi to Sugoi (July 24, 2024)</div>
                 <div className="services">
-                    {servicesJSX} {/* Render the services JSX here */}
+                    {services.map((service, index) => (
+                        <div className="service" key={index}>
+                            <h3>{service.name}</h3>
+                            <p>Departure: {service.departureTime} | Arrival: {service.arrivalTime}</p>
+                            <p>Price: KSH {service.price}</p>
+                            <p className="status">{service.status}</p>
+                        </div>
+                    ))} {/* Render the services JSX here */}
                 </div>
-                {/* <div className="footer">All prices are in KSH</div> */}
+                {/* <div className="footer">All prices are in KSH</div> Uncommented footer */}
             </div>
         </div>
     );

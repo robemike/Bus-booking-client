@@ -1,16 +1,16 @@
 import React from "react";
 import './landing.css'; 
 import { useNavigate } from "react-router-dom";
+import Navbar from "./Navbar";
+
 
 function Landing() {
     const navigate = useNavigate();
     return (
+            <div>
+                <Navbar />
         <div className="container">
-            <div id="navbar"className="navbar">
-                 <h1>BUSLINK</h1>
-            </div>            
             <div className="sidebar">
-                <h1>BUSLINK</h1>
                 <ul>
                     {/* <li><a onClick={() => navigate("/dashboard")}>Dashboard</a></li> */}
                     <li><a onClick={() => navigate("/drivers/buses")}>Buses</a></li>
@@ -35,6 +35,8 @@ function Landing() {
                 </div>
             </div>
         </div>
+        </div>
+        
     );
 }
 

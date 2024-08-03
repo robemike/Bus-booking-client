@@ -14,7 +14,7 @@ body {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
 }
 
-header {  
+.buses-container header {  
     background-color: #ffa500;  
     color: #fff;  
     padding: 10px;  
@@ -43,5 +43,17 @@ header {
     border-bottom: 1px solid #eee;  
 }
 div{
-    font-size: 30px;
+    font-size: 25px;
 }
+.bus-code{
+    font-size: 20px;
+}
+
+.buses-container footer{
+    background-color: #ffa500;
+    height: 50px;
+    font-size: 20px;
+    padding-top: 10px;
+}
+
+

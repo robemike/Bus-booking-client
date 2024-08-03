@@ -1,4 +1,23 @@
 .navbar {
-    height: 70px;
-    background-color:aqua;
+  height: 70px;                   
+  background-color: aqua;        
+  width: 100%;                   
+  display: flex;                 
+  justify-content: space-around; 
+  align-items: center;           
+  position: fixed;               
+  top: 0;                        
+  left: 0;                       
+  z-index: 1000;                 
+}
+
+.nav-item {
+  text-decoration: none;         
+  color: black;                 
+  padding: 15px 20px;           
+  transition: background-color 0.3s; 
+}
+
+.nav-item:hover {
+  background-color: rgba(255, 255, 255, 0.5); 
 }

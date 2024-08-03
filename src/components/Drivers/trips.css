@@ -1,46 +1,51 @@
+.schedule {
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
 
- body {  
-    font-family: Arial, sans-serif;  
-    display: flex;  
-    justify-content: center;  
-    align-items: center;  
-    height: 100vh;  
-     margin: 0;  
-     }  
-.schedule {  
-  max-width: 500px;  
-   margin: 40px auto;  
-   padding: 20px;  
-   background-color: #f5f5f5;  
-   border: 1px solid #ddd;  
-   border-radius: 10px;  
-   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);  
-   }  
-.header {  
-   background-color: #ff69b4;  
-   color: #fff;  
-   padding: 10px;  
-   text-align: center;  
-   border-top-left-radius: 10px;  
-   border-top-right-radius: 10px;  
-   }  
-.service {  
-    background-color: #fff;  
-    padding-top: 10px;  
-    border-bottom: 1px solid #ddd;  
+.header {
+    font-size: 24px;
+    font-weight: bold;
+    margin: 20px 0; 
+    color: rgb(124, 5, 5);
+}
 
-}  
-.service:last-child {  
-    border-bottom: none;  
-}  
-.service.status {  
-    color: #ff69b4;  
-}  
-.footer {  
-    background-color: #ff69b4;  
-    color: #fff;  
-    padding: 10px;  
-    text-align: center;  
-    border-bottom-right-radius: 10px; 
-    height: 40px; 
- }  
+.services {
+    margin-bottom: 20px;
+}
+
+.service {
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    background-color: white;
+}
+
+.service h3 {
+    margin: 0 0 10px;
+    color: red;
+}
+
+.status {
+    font-weight: bold;
+    color: red; 
+}
+
+.footer {
+    text-align: center;
+    font-size: 14px;
+    color: gray;
+}
+
+p {
+    font-size: 15px;
+}
+
+.container {
+    max-width: 800px; 
+    margin: 0 auto;   
+    padding: 20px;    
+}
