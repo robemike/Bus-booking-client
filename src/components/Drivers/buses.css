@@ -1,0 +1,44 @@
+/* Ensure the navbar stays at the top of the page */
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000; /* Ensures it stays above other elements */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f8f9fa;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Add some padding to the top of the page content to account for the fixed navbar */
+.customer-list-container {
+    padding-top: 80px; /* Adjust this value as necessary to avoid content being hidden behind the navbar */
+}
+
+.d-flex {
+    display: flex;
+}
+
+.form-control {
+    margin-right: 10px;
+    padding: 10px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    width: 500px;
+}
+
+#searchbtn {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 40%;
+}
+
+#searchbtn:hover {
+    background-color: #218838;
+}
