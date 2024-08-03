@@ -3,11 +3,10 @@ body {
     background-color: #f0f0e0;  
   }  
 .container {
-    width: 70%;
+    width: 100%;
     max-width: 1200px;
     background-color: #fff; 
     margin: 0 auto;
-    
     padding: 2rem;
     border: 1px solid #ddd;  
     border-radius: 10px;  
@@ -26,6 +25,7 @@ body {
     padding: 10px;  
     text-align: center;  
     border-bottom: 1px solid #ccc;  
+    
   }  
     
   h1 {  
