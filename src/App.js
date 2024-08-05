@@ -1,10 +1,10 @@
 import './App.css';
-import HomePage from './components/HomePage';
+import FindBus1 from './Components/Findbus';
 
 function App() {
   return (
     <div>
-      <HomePage />
+      <FindBus1 />
     </div>
   );
 }
