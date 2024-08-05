@@ -5,17 +5,17 @@ import { useNavigate } from "react-router-dom";
 function Signup() {
     const navigate = useNavigate();
 
-    const handleCancel = () => {
-        navigate("/");
-    }
+    // const handleCancel = () => {
+    //     navigate("/login");
+    // }
     return (
         <form action="action_page.php" style={{ border: '1px solid #ccc' }}>
             <div className="container">
                 <h1>Sign Up</h1>
-                <p>Please fill in this form to create an account.</p>
+                <p>Please fill in the details below to create an account.</p>
 
                 <div class="dropdown">
-                    <button class="dropbtn">Dropdown</button>
+                    <button class="dropbtn">SIgn up as:</button>
                     <div class="dropdown-content">
                         <a href="#">Driver</a>
                         <a href="#">Customer</a>
@@ -49,19 +49,19 @@ function Signup() {
                     required
                 />
 
-                <label htmlFor='lisno'><b>License No.</b></label>
-                <input
-                    type = 'text'
-                    placeholder='Enter License No.'
-                    name='lisno'
-                    required
-                />
-
+            
                 <label htmlFor="PhoneNo"><b>Phone No.</b></label>
                 <input
                     type="text"
                     placeholder="Enter Phone No."
                     name="PhoneNo"
+                    required
+                />
+                <label htmlFor='ID'><b>ID/Passport No.</b></label>
+                <input
+                    type='text'
+                    placeholder='Enter ID/Passport No.'
+                    name='ID'
                     required
                 />
 
@@ -73,10 +73,10 @@ function Signup() {
                     required
                 />
 
-                <label htmlFor="psw-repeat"><b>Repeat Password</b></label>
+                <label htmlFor="psw-repeat"><b>Confirm Password</b></label>
                 <input
                     type="password"
-                    placeholder="Repeat Password"
+                    placeholder="Confirm Password"
                     name="psw-repeat"
                     required
                 />
@@ -84,8 +84,11 @@ function Signup() {
                 
 
                 <div className="clearfix">
-                    <button type="button" onClick={handleCancel} className="cancelbtn">Cancel</button>
                     <button type="submit" className="signupbtn">Sign Up</button>
+                    <div className="signin-link">
+                        <p>Already have an account? <a href="#" onClick={() => navigate("/login")}>Sign in</a>.</p>
+                    </div>
+                    
                 </div>
             </div>
         </form>
