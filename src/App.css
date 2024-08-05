@@ -174,3 +174,43 @@
   cursor: pointer;
   transition: background-color 0.3s;
 }
+
+
+@media (max-width: 992px) {
+  .sidebar {
+    width: 200px;
+    height: calc(100% - 50px); 
+  }
+
+  .content {
+    margin-left: 200px; 
+    width: calc(100% - 200px); 
+  }
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    width: 100%;
+    height: auto;
+    position: relative;
+    top: auto;
+    padding: 10px;
+  }
+
+  .content {
+    margin-left: 0;
+    width: 100%;
+    padding: 20px;
+  }
+}
+
+@media (max-width: 576px) {
+  .sidebar {
+    width: 100%;
+    padding: 10px;
+  }
+
+  .content {
+    padding: 10px;
+  }
+}

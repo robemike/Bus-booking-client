@@ -1,6 +1,8 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 
+
+
 function Customers() {
   const navigate = useNavigate();
 
@@ -32,14 +34,15 @@ function Customers() {
       <div className="navbar">
         <h1>BUSLINK</h1>
       </div>
+      
       <div className="row">
-        <div className="col-4 sidebar">
+        <div className="sidebar">
           <a href="dashboard" onClick={() => navigate("/dashboard")}>Dashboard</a>
           <a href="drivers" onClick={() => navigate("/drivers")}>Drivers</a>
           <a href="buses" onClick={() => navigate("/buses")}>Buses</a>
           <a href="customers" onClick={() => navigate("/customers")}>Customers</a>
         </div>
-        <div className="col-8 content">
+        <div className="content">
           <h1>Customers</h1>
           <div className="customers-list">
             {customers.map((customer, index) => (
