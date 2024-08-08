@@ -37,6 +37,178 @@
   }
 }
 
+:root {
+  --color-whitesmoke: #f5f5f5;
+  --color-lightgray: #d3d3d3;
+  --color-white: #ffffff;
+  --color-dimgray-100: #696969;
+  --color-dimgray-200: #a9a9a9;
+  --color-forestgreen: #228b22;
+  --color-tomato-100: #ff6347;
+  --color-orange: #ffa500;
+  --font-size-lg: 1.25rem;
+  --font-size-5xl: 3rem;
+  --font-size-xs: 0.75rem;
+  --font-size-3xl: 1.875rem;
+  --br-8xs: 2px;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+.find-bus {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: var(--color-whitesmoke);
+  border-radius: 2px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  max-width: 1200px;
+  margin: auto;
+  padding: 20px;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.header-image {
+  width: 100%;
+  max-width: 1200px;
+  border-radius: 2px;
+}
+
+.header-text {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.select-your-bus,
+.sugoi,
+.th-sep {
+  font-size: var(--font-size-lg);
+  color: var(--color-black);
+  background-color: var(--color-white);
+  padding: 5px 10px;
+  margin: 5px 0;
+}
+
+.sugoi {
+  font-size: var(--font-size-5xl);
+  font-weight: 500;
+  color: var(--color-white);
+}
+
+.bus-list {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.bus-item {
+  display: flex;
+  background: var(--color-white);
+  border-radius: var(--br-8xs);
+  margin: 10px 0;
+  padding: 10px;
+}
+
+.bus-item-image {
+  width: 100px;
+  height: 100px;
+  border-radius: var(--br-8xs);
+}
+
+.bus-info {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  padding-left: 10px;
+  background: white;
+}
+
+.bus-company {
+  font-size: var(--font-size-lg);
+  color: var(--color-dimgray-200);
+}
+
+.bus-details,
+.seats-left {
+  font-weight: 300;
+  color: var(--color-dimgray-100);
+}
+
+.seats-left {
+  color: var(--color-forestgreen);
+}
+
+.time {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 5px;
+}
+
+.travel-time,
+.duration {
+  font-size: var(--font-size-xs);
+  color: var(--color-dimgray-100);
+}
+
+.price {
+  font-size: var(--font-size-3xl);
+  color: var(--color-orange);
+  text-align: right;
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 10px;
+  background: var(--color-lightgray);
+  border-radius: var(--br-8xs);
+  margin-top: 20px;
+}
+
+.footer-item,
+.location {
+  font-size: var(--font-size-lg);
+  color: var(--color-dimgray-200);
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .bus-item {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .bus-item-image {
+    width: 100%;
+    height: auto;
+  }
+
+  .bus-info {
+    padding-left: 0;
+    text-align: center;
+  }
+
+  .time {
+    flex-direction: column;
+  }
+
+  .footer {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
 
 .sidebar {
   position: fixed;
