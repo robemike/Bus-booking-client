@@ -2,7 +2,7 @@
 
 
 import React from "react";
-import "./Seats.css";
+import "./seats.css";
 
 function Seats() {
   const rows = 9;
