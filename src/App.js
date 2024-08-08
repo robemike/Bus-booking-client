@@ -11,6 +11,7 @@ import Drivers from './components/Admin/drivers';
 import Customers from './components/Admin/customers';
 import Buses from './components/Admin/buses';
 import Seats from './components/customer/seats';
+import HomePage from "./components/customer/HomePage";
 
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
    
     <Router>
       <Routes>
+        <Route path="/" element={<HomePage />} />
         <Route path="/dashboard" element={<Admin />} />
         <Route path="/drivers" element={<Drivers />} />
         <Route path="/customers" element={<Customers />} />
