@@ -1,8 +1,5 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBus } from '@fortawesome/free-solid-svg-icons';
-import Navbar from "./navbar";
 
 function Buses() {
   const navigate = useNavigate();
@@ -14,7 +11,7 @@ function Buses() {
     "BUKINA",
     "MARALAL",
     "METRO TRANS",
-    "CIT HOPPA",
+    "CITI HOPPA",
     "METRO TRANS",
     "HOPPA TRANS",
     "YUNION",
@@ -22,31 +19,36 @@ function Buses() {
 
   return (
     <div className="container">
-     <div className="navbar">
+      <div className="navbar">
         <h1>BUSLINK</h1>
       </div>
       <div className="row">
         <div className="sidebar">
-          <a href="dashboard" onClick={() => navigate("/dashboard")}>Dashboard</a>
-          <a href="drivers" onClick={() => navigate("/drivers")}>Drivers</a>
-          <a href="buses" onClick={() => navigate("/buses")}>Buses</a>
-          <a href="customers" onClick={() => navigate("/customers")}>Customers</a>
+          <a href="#dashboard" onClick={() => navigate("/dashboard")}>
+            Dashboard
+          </a>
+          <a href="#drivers" onClick={() => navigate("/drivers")}>
+            Drivers
+          </a>
+          <a href="#buses" onClick={() => navigate("/buses")}>
+            Buses
+          </a>
+          <a href="#customers" onClick={() => navigate("/customers")}>
+            Customers
+          </a>
         </div>
         <div className=" content">
           <h1>Buses</h1>
-          
+
           <div className="buses-list">
             {buses.map((buses, index) => (
-              <ul key={index}
-               className="customer-item">
+              <ul key={index} className="customer-item">
                 <li className="customer-field">
                   <strong>{buses}</strong> {buses.name}
                 </li>
-
               </ul>
             ))}
           </div>
-          
         </div>
       </div>
     </div>
@@ -54,5 +56,3 @@ function Buses() {
 }
 
 export default Buses;
-
-
