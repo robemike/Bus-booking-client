@@ -1,10 +1,10 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import Login from "./components/customer login and signup/login";
-import Signup from "./components/customer login and signup/signup";
-import Logins from './components/drivers login and signup page/login'
-import TicketForm from "./components/Bus tickets/busticket";
-import Customer from "./components/customer's list/customerpage";
+import Login from "./components/auth/customerlogin";
+import Signup from "./components/auth/customersignup";
+import Logins from './components/auth/driverlogin'
+import TicketForm from "./components/customer/busticket";
+import Customer from "./components/customer/customerpage";
 
 function App() {
     return (
