@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./customerlist.css";
+import Navbar from "./Navbar.js";
 
 function CustomerList() {
   const customers = [
@@ -12,6 +13,7 @@ function CustomerList() {
 
   return (
     <div>
+       <Navbar />
          <header>CUSTOMERS LIST</header>
     <div className="container">    
       <ul id="customer-list">

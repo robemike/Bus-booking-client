@@ -1,6 +1,7 @@
 import React from "react";
 import './trips.css';
 import { useNavigate } from "react-router-dom";
+import Navbar from "./Navbar.js";
 
 function Trips() {
     const services = [
@@ -35,6 +36,8 @@ function Trips() {
     ];
 
     return (
+        <div>
+             <Navbar />
         <div className="container">
             <div className="schedule">
                 <div className="header">Bus Schedule - Nairobi to Sugoi (July 24, 2024)</div>
@@ -50,6 +53,7 @@ function Trips() {
                 </div>
                 {/* <div className="footer">All prices are in KSH</div> Uncommented footer */}
             </div>
+        </div>
         </div>
     );
 }

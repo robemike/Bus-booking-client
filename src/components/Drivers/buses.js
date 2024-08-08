@@ -1,5 +1,6 @@
 import React from "react";
 import './buses.css';
+import Navbar from "./Navbar.js";
 
 function Buses() {
     const busData = [
@@ -13,6 +14,8 @@ function Buses() {
     ];
 
     return (
+        <div>
+             <Navbar /> <br/>
         <div className="buses-container">
             <header className="header">BUSLINK BUSES</header>
             <div className="content">
@@ -34,6 +37,7 @@ function Buses() {
                 </ul>
             </div>
             <footer className="footer">© 2023 BUSLINK BUSES</footer>
+        </div>
         </div>
     );
 }
