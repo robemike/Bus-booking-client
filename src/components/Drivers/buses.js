@@ -2,7 +2,7 @@ import React from "react";
 import './buses.css';
 import Navbar from "./Navbar.js";
 
-function Buses() {
+function DriverBuses() {
     const busData = [
         { name: 'Super Metro', code: 'KZF 456F' },
         { name: 'The Guardian', code: 'KWT 654T' },
@@ -42,4 +42,4 @@ function Buses() {
     );
 }
 
-export default Buses;
+export default DriverBuses;
