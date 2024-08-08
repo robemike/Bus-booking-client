@@ -1,4 +1,4 @@
-import { destinations } from '../Data'
+import { destinations } from '../../Data'
 
 const Destinations = () => {
   return (
