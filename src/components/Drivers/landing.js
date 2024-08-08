@@ -8,11 +8,11 @@ function Landing() {
     const navigate = useNavigate();
     return (
             <div>
-                <Navbar /> <br/>
+                {/* <Navbar /> <br/> */}
         <div className="container">
             <div className="sidebar">
                 <ul>
-                    {/* <li><a onClick={() => navigate("/dashboard")}>Dashboard</a></li> */}
+                    <li><a onClick={() => navigate("/drivers/landing")}>Dashboard</a></li>
                     <li><a onClick={() => navigate("/drivers/buses")}>Buses</a></li>
                     <li><a onClick={() => navigate("/drivers/trips")}>Trips</a></li>
                     <li><a onClick={() => navigate("/drivers/customer-list")}>Customers</a></li>

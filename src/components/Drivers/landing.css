@@ -1,22 +1,13 @@
-body {  
+/* body {  
     font-family: Arial, sans-serif;  
     margin: 55px;  
     display: flex;  
     flex-direction: column;   
     height: 90vh;  
     background-color: #ecf0f1;  
-  }  
+  }   */
         
-  .navbar span {  
-    font-size: 80px;  
-    font-style: bold;  
-    color: white;  
-  }  
-    
-  .navbar h1{
-    font-size: 30px;
-    padding-top: 20px;
-  }
+ 
   
   .container {  
     display: flex;  

@@ -30,17 +30,17 @@ function Customers() {
   ];
 
   return (
-    <div className="container">
+    <div  id="din-class"  className="container">
       <div className="navbar">
         <h1>BUSLINK</h1>
       </div>
       
-      <div className="row">
+      <div id="din-class1"  className="row">
         <div className="sidebar">
-          <a href="dashboard" onClick={() => navigate("/dashboard")}>Dashboard</a>
-          <a href="drivers" onClick={() => navigate("/drivers")}>Drivers</a>
-          <a href="buses" onClick={() => navigate("/buses")}>Buses</a>
-          <a href="customers" onClick={() => navigate("/customers")}>Customers</a>
+          <a href="dashboard" onClick={() => navigate("/admin/dashboard")}>Dashboard</a>
+          <a href="drivers" onClick={() => navigate("/admin/drivers")}>Drivers</a>
+          <a href="buses" onClick={() => navigate("/admin/buses")}>Buses</a>
+          <a href="customers" onClick={() => navigate("/admin/customers")}>Customers</a>
         </div>
         <div className="content">
           <h1>Customers</h1>

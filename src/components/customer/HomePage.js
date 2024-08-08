@@ -7,7 +7,7 @@ import BookingForm from "./BookingForm";
 const HomePage = () => {
   return (
     <div>
-      <Navbar />
+      {/* <Navbar /> */}
       <div className="pt-16">
         <img
           src={buses}

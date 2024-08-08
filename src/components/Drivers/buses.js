@@ -1,8 +1,11 @@
 import React from "react";
 import './buses.css';
 import Navbar from "./Navbar.js";
+import { useNavigate } from "react-router-dom";
 
 function DriverBuses() {
+
+    const navigate = useNavigate ()
     const busData = [
         { name: 'Super Metro', code: 'KZF 456F' },
         { name: 'The Guardian', code: 'KWT 654T' },
@@ -15,7 +18,15 @@ function DriverBuses() {
 
     return (
         <div>
-             <Navbar /> <br/>
+             {/* <Navbar /> <br/> */}
+             <div className="sidebar">
+                <ul>
+                    <li><a onClick={() => navigate("/drivers/landing")}>Dashboard</a></li>
+                    <li><a onClick={() => navigate("/drivers/buses")}>Buses</a></li>
+                    <li><a onClick={() => navigate("/drivers/trips")}>Trips</a></li>
+                    <li><a onClick={() => navigate("/drivers/customer-list")}>Customers</a></li>
+                </ul>
+            </div>
         <div className="buses-container">
             <header className="header">BUSLINK BUSES</header>
             <div className="content">

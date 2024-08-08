@@ -4,6 +4,8 @@ import { useNavigate } from "react-router-dom";
 import Navbar from "./Navbar.js";
 
 function Trips() {
+
+    const navigate = useNavigate()
     const services = [
         {
             name: "Super Metro",
@@ -37,7 +39,16 @@ function Trips() {
 
     return (
         <div>
-             <Navbar />
+             {/* <Navbar /> */}
+
+             <div className="sidebar">
+                <ul>
+                    <li><a onClick={() => navigate("/drivers/landing")}>Dashboard</a></li>
+                    <li><a onClick={() => navigate("/drivers/buses")}>Buses</a></li>
+                    <li><a onClick={() => navigate("/drivers/trips")}>Trips</a></li>
+                    <li><a onClick={() => navigate("/drivers/customer-list")}>Customers</a></li>
+                </ul>
+            </div>
         <div className="container">
             <div className="schedule">
                 <div className="header">Bus Schedule - Nairobi to Sugoi (July 24, 2024)</div>

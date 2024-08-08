@@ -35,16 +35,16 @@ function Drivers() {
   ];
 
   return (
-    <div className="container">
+    <div id='din-class' className="container">
       <div className="navbar">
         <h1>BUSLINK</h1>
       </div>
     
       <div className="sidebar">
-        <a onClick={() => navigate('/dashboard')}>Dashboard</a>
-        <a onClick={() => navigate('/drivers')}>Drivers</a>
-        <a onClick={() => navigate('/buses')}>Buses</a>
-        <a onClick={() => navigate('/customers')}>Customers</a>
+        <a onClick={() => navigate('/admin/dashboard')}>Dashboard</a>
+        <a onClick={() => navigate('/admin/drivers')}>Drivers</a>
+        <a onClick={() => navigate('/admin/buses')}>Buses</a>
+        <a onClick={() => navigate('/admin/customers')}>Customers</a>
       </div>
 
       <div className="content">
