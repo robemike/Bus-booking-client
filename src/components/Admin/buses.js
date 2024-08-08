@@ -24,16 +24,16 @@ function Buses() {
       </div>
       <div className="row">
         <div className="sidebar">
-          <a href="#dashboard" onClick={() => navigate("/dashboard")}>
+          <a href="/admin/dashboard" onClick={() => navigate("/admin/dashboard")}>
             Dashboard
           </a>
-          <a href="#drivers" onClick={() => navigate("/drivers")}>
+          <a href="/admin/drivers" onClick={() => navigate("/admin/drivers")}>
             Drivers
           </a>
-          <a href="#buses" onClick={() => navigate("/buses")}>
+          <a href="/admin/buses" onClick={() => navigate("/admin/buses")}>
             Buses
           </a>
-          <a href="#customers" onClick={() => navigate("/customers")}>
+          <a href="/admin/customers" onClick={() => navigate("/admin/customers")}>
             Customers
           </a>
         </div>

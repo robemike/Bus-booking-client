@@ -37,10 +37,10 @@ function Customers() {
       
       <div className="row">
         <div className="sidebar">
-          <a href="dashboard" onClick={() => navigate("/dashboard")}>Dashboard</a>
-          <a href="drivers" onClick={() => navigate("/drivers")}>Drivers</a>
-          <a href="buses" onClick={() => navigate("/buses")}>Buses</a>
-          <a href="customers" onClick={() => navigate("/customers")}>Customers</a>
+          <a href="/admin/dashboard" onClick={() => navigate("/admin/dashboard")}>Dashboard</a>
+          <a href="/admin/drivers" onClick={() => navigate("/admin/drivers")}>Drivers</a>
+          <a href="/admin/buses" onClick={() => navigate("/admin/buses")}>Buses</a>
+          <a href="/admin/customers" onClick={() => navigate("/admin/customers")}>Customers</a>
         </div>
         <div className="content">
           <h1>Customers</h1>
