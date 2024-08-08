@@ -1,5 +1,5 @@
 import React from "react";
-import './signup.css'; 
+import './customersignup.css'; 
 import { useNavigate } from "react-router-dom";
 
 function Signup() {
@@ -14,14 +14,6 @@ function Signup() {
                 <h1>Sign Up</h1>
                 <p>Please fill in the details below to create an account.</p>
 
-                <div class="dropdown">
-                    <button class="dropbtn">SIgn up as:</button>
-                    <div class="dropdown-content">
-                        <a href="#">Driver</a>
-                        <a href="#">Customer</a>
-                        <a href="#">Admin</a>
-                    </div>
-                </div>
                 <hr />
 
                 

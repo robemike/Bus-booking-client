@@ -55,7 +55,7 @@ function BusTicket() {
                 <label htmlFor="total_price">Total Price:</label>
                 <input type="text" id="total_price" name="total_price" value={formData.total_price} onChange={handleChange} required/>
 
-                <button type="button" className="mpesa-btn">Lipa na Mpesa</button>
+                <button type="button" className="mpesa-btn">Pay with Mpesa</button>
 
                 <input type="submit" value="Submit"/>
             </form>

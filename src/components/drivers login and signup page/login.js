@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import './login.css'
+import './driverslogin.css'
 import { useNavigate } from "react-router-dom";
 
 function Logins() {
@@ -56,7 +56,7 @@ function Logins() {
                 <div>
                 <button type="submit">Login</button>
                 <div className="signin-link">
-                        <p>Don't have an account <a href="#" onClick={() => navigate("/signup-driver")}>Sign up</a>.</p>
+                       
                     </div>
                 </div>
                 
