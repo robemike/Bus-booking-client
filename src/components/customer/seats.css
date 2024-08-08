@@ -1,13 +1,12 @@
-
+/* 
 
   body {
-    background: radial-gradient(circle at 10% 20%, rgba(0, 149, 218, 0.85) 9.9%, rgb(56, 80, 114) 100.3%);
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
     margin: 0;
-  }
+  } */
   
   .container {
     display: flex;

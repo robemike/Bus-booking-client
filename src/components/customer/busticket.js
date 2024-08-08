@@ -37,7 +37,7 @@ function BusTicket() {
 
     return (
         <div>
-            <img className="img" src="https://www.shutterstock.com/image-photo/bus-traveling-on-asphalt-road-600nw-1345741577.jpg" alt="Bus"/>
+            <img id="ticketimg" className="img" src="https://www.shutterstock.com/image-photo/bus-traveling-on-asphalt-road-600nw-1345741577.jpg" alt="Bus"/>
             <h1 className="header">BUS TICKET</h1>
             <form className="container" onSubmit={handleSubmit}>
                 <label htmlFor="departure">Departure Time:</label>

@@ -5,11 +5,11 @@ function Admin() {
   const navigate = useNavigate();
 
   return (
-    <div className="container">
-      <div className="navbar">
+    <div  id="din-class" className="container">
+      <div >
         <h1>BUSLINK</h1>
       </div>
-      <div className="row">
+      <div  id="din-class1"   className="row">
         <div className="sidebar">
           <a onClick={() => navigate("/admin/dashboard")}>Dashboard</a>
           <a onClick={() => navigate("/admin/drivers")}>Drivers</a>

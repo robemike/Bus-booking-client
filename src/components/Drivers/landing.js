@@ -7,19 +7,19 @@ import Navbar from "./Navbar.js";
 function Landing() {
     const navigate = useNavigate();
     return (
-            <div>
-                <Navbar /> <br/>
-        <div className="container">
-            <div className="sidebar">
+            <div className="">
+                {/* <Navbar /> <br/> */}
+        
+            <div id="side-landing" className="sidebar">
                 <ul>
-                    {/* <li><a onClick={() => navigate("/dashboard")}>Dashboard</a></li> */}
+                    <li><a onClick={() => navigate("/drivers/landing")}>Dashboard</a></li>
                     <li><a onClick={() => navigate("/drivers/buses")}>Buses</a></li>
                     <li><a onClick={() => navigate("/drivers/trips")}>Trips</a></li>
                     <li><a onClick={() => navigate("/drivers/customer-list")}>Customers</a></li>
                 </ul>
             </div>
-            <div className="content">
-                <div id="main-card"className="cards">
+            <div id="main-container" className="container">
+                <div id="main-card" className="cards">
                     <div className="card" onClick={() => navigate('/drivers/buses')}>
                         <h2>Buses</h2>
                         <p>View Buses.</p>
@@ -35,7 +35,7 @@ function Landing() {
                 </div>
             </div>
         </div>
-        </div>
+        
         
     );
 }

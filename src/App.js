@@ -1,5 +1,5 @@
-import Login from "./components/auth/customerlogin";
-import Signup from "./components/auth/customersignup";
+import CustomerLogin from "./components/auth/customerlogin";
+import CustomerSignup from "./components/auth/customersignup";
 import Logins from './components/auth/driverlogin'
 import TicketForm from "./components/customer/busticket";
 import Customer from "./components/customer/customerpage";
@@ -29,9 +29,9 @@ function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="/findbus" element={<FindBus1 />} />
         <Route path="/seats" element={<Seats />} />
-        <Route path="/signup" element={<Signup />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="busticket" element={<TicketForm />} />
+        <Route path="/signup" element={<CustomerSignup />} />
+        <Route path="/login" element={<CustomerLogin />} />
+        <Route path="/busticket" element={<TicketForm />} />
         <Route path="/customer" element={<Customer />} />
         <Route path="/drivers/login" element={<Logins />} />
         <Route path="/drivers/navbar" element={<Navbar />} />

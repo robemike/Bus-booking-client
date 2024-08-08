@@ -19,10 +19,11 @@ body {
     text-align: center;
 }
 
-.img {
+#ticketimg {
     width: 100%;
-    height: auto;
+    height: 300px;
     border-radius: 8px;
+    margin-top: 630px;
 }
 
 .header {

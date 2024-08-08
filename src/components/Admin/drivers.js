@@ -35,7 +35,7 @@ function Drivers() {
   ];
 
   return (
-    <div className="container">
+    <div id='din-class' className="container">
       <div className="navbar">
         <h1>BUSLINK</h1>
       </div>

@@ -2,8 +2,9 @@ import React from 'react';
 
 const FindBus1 = () => {
   return (
-    <div className="find-bus">
-      <div className="header">
+    <div className=''>
+    <div id='find_bus' className="find-bus">
+      <div id='headerfd' className="header">
         <img 
           className="header-image" 
           alt="" 
@@ -69,9 +70,8 @@ const FindBus1 = () => {
         </div>
       </div>
     </div>
+    </div>
   );
 };
 
 export default FindBus1;
-
-

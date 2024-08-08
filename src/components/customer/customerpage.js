@@ -9,9 +9,8 @@ function Customer() {
     ];
 
     return (
-        <div className="container">
+        <div id="customer-container" className="">
             <h1>Customer Bookings</h1>
-            <hr />
             <div>
                 <table>
                     <thead>

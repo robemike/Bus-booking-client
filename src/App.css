@@ -58,7 +58,7 @@ body {
   font-family: Arial, sans-serif;
 }
 
-.find-bus {
+#container find-bus {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -68,20 +68,26 @@ body {
   width: 100%;
   max-width: 1200px;
   margin: auto;
-  padding: 20px;
+  padding-top: 20px; 
+  height: 10px;
+  margin-top: 20px;
 }
 
-.header {
+
+#headerfd {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 100%;
+  /* width: 100%; */
+  
 }
 
 .header-image {
-  width: 100%;
-  max-width: 1200px;
+  width: 3500px;
+  max-width: 1456px;
   border-radius: 2px;
+  margin-top: 900px;
+   
 }
 
 .header-text {
@@ -89,9 +95,7 @@ body {
   margin-top: 10px;
 }
 
-.select-your-bus,
-.sugoi,
-.th-sep {
+.select-your-bus {
   font-size: var(--font-size-lg);
   color: var(--color-black);
   background-color: var(--color-white);
@@ -99,16 +103,11 @@ body {
   margin: 5px 0;
 }
 
-.sugoi {
-  font-size: var(--font-size-5xl);
-  font-weight: 500;
-  color: var(--color-white);
-}
-
 .bus-list {
   display: flex;
   flex-direction: column;
   width: 100%;
+  font-size: 70px;
 }
 
 .bus-item {
@@ -136,8 +135,14 @@ body {
 .bus-company {
   font-size: var(--font-size-lg);
   color: var(--color-dimgray-200);
+  height: 20px;
+  
 }
 
+.bus-details{
+  font-size: 20px;
+  padding-top: 50px;
+}
 .bus-details,
 .seats-left {
   font-weight: 300;
@@ -208,7 +213,7 @@ body {
     align-items: center;
   }
 }
-
+/*End of Findbus*/
 
 .sidebar {
   position: fixed;
@@ -267,7 +272,7 @@ body {
   border-radius: 5px;
 }
 
-.row {
+#din-class1 {
   display: flex;
   margin-top: 50px; 
   height: calc(100% - 50px); 
@@ -322,7 +327,7 @@ body {
   background-color: #b7be8e; 
 }
 
-.container {
+#din-class {
   display: flex;
   flex-direction: column;
   height: 100vh;

@@ -2,7 +2,7 @@ import React from "react";
 import './customersignup.css'; 
 import { useNavigate } from "react-router-dom";
 
-function Signup() {
+function CustomerSignup() {
     const navigate = useNavigate();
 
     // const handleCancel = () => {
@@ -87,4 +87,4 @@ function Signup() {
     );
 }
 
-export default Signup;
+export default CustomerSignup;
