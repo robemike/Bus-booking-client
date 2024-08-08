@@ -1,13 +1,12 @@
 import './App.css';
-import FindBus1 from './Components/Findbus';
-import Navbar from './Components/Navbar';
+import FindBus1 from './components/customer/Findbus';
 
 function App() {
   return (
     <div>
-      <Navbar />
       <FindBus1 />
     </div>
+    
   );
 }
 

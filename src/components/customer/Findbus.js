@@ -10,9 +10,7 @@ const FindBus1 = () => {
           src="https://media.cnn.com/api/v1/images/stellar/prod/230202121804-basigo-electric-bus-nairobi-kenya-1.jpg?q=w_1110,c_fill/f_webp" 
         />
         <div className="header-text">
-          <div className="select-your-bus">Select your bus!</div>
-          <div className="th-sep">12th - SEP - 2024 | THURSDAY</div>
-          {/* <div className="sugoi">NAIROBI - SUGOI</div> */}
+          <div className="select-your-bus">Find bus!</div>
         </div>
       </div>
       <div className="bus-list">
