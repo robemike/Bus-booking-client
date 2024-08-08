@@ -6,11 +6,12 @@ import Logins from './components/auth/driverlogin'
 import TicketForm from "./components/customer/busticket";
 import Customer from "./components/customer/customerpage";
 import './App.css';
-import Admin from './Components/Admin/admin';
-import Drivers from './Components/Admin/drivers';
-import Customers from './Components/Admin/customers';
-import Buses from './Components/Admin/buses';
-import Seats from './Components/Customer/seats';
+import Admin from './components/Admin/admin';
+import Drivers from './components/Admin/drivers';
+import Customers from './components/Admin/customers';
+import Buses from './components/Admin/buses';
+import Seats from './components/customer/seats';
+
 
 function App() {
 
