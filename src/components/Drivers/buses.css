@@ -1,0 +1,60 @@
+body {  
+    font-family: Arial, sans-serif;  
+    background-color: #f0f0e0;  
+}  
+
+.buses-container {
+    width: 100%;
+    max-width: 1200px;
+    background-color: #fff; 
+    margin: 0 auto;
+    padding: 2rem;
+    border: 1px solid #ddd;  
+    border-radius: 10px;  
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
+}
+
+.buses-container header {  
+    background-color: #ffa500;  
+    color: #fff;  
+    padding: 10px;  
+    text-align: center;  
+    border-bottom: 1px solid #ccc;  
+}  
+
+.search-bar {  
+    display: flex;  
+    padding: 10px;  
+    background-color: #f0f0f0;  
+    border: 1px solid #ccc;  
+    border-radius: 5px;  
+}  
+
+.bus-list {
+    list-style-type: none;  
+    padding: 0;  
+    margin: 0;  
+}
+
+.bus-item {
+    display: flex;  
+    justify-content: space-between;  
+    padding: 10px;  
+    border-bottom: 1px solid #eee;  
+}
+div{
+    font-size: 25px;
+}
+.bus-code{
+    font-size: 20px;
+}
+
+.buses-container footer{
+    background-color: #ffa500;
+    height: 50px;
+    font-size: 20px;
+    padding-top: 10px;
+    margin-top: -4login0px;
+}
+
+
