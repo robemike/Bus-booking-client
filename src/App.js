@@ -1,10 +1,10 @@
 import './App.css';
-import Admin from './Components/Admin/admin';
+import Admin from './components/Admin/admin';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Drivers from './Components/Admin/drivers';
-import Customers from './Components/Admin/customers';
-import Buses from './Components/Admin/buses';
-import Seats from './Components/Customer/seats';
+import Drivers from './components/Admin/drivers';
+import Customers from './components/Admin/customers';
+import Buses from './components/Admin/buses';
+import Seats from '../components/customer/seats';
 
 
 
