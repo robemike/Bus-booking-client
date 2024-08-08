@@ -2,6 +2,7 @@ import React from "react";
 import Navbar from "./Navbar";
 import Destinations from "./Destinations";
 import buses from "../assets/buses.jpg";
+import BookingForm from "./BookingForm";
 
 const HomePage = () => {
   return (
@@ -14,6 +15,7 @@ const HomePage = () => {
           className="w-full h-[600px] object-cover"
         />
       </div>
+      <BookingForm />
       <Destinations />
     </div>
   );
