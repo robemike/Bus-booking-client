@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import './login.css'
+import './customerlogin.css'
 import { useNavigate } from "react-router-dom";
 
 function Login() {
@@ -14,19 +14,23 @@ function Login() {
 
     const navigate = useNavigate();
 
-    const handleCancel = () => {
-        navigate("/");
-    }
+    // const handleCancel = () => {
+    //     navigate("/signup");
+    // }
 
     return (
         <form onSubmit={handleSubmit}>
 
             <div className="container">
-                <label htmlFor="uname"><b>Username</b></label>
+                <h1>Welcome to Buslink</h1>
+                <p>You are just one step away!</p>
+                <h2>Fill in the details below to access your account.</h2>
+                <hr></hr>
+                <label htmlFor="Email"><b>Email</b></label>
                 <input
                     type="text"
-                    placeholder="Enter Username"
-                    name="uname"
+                    placeholder="Enter Email Address"
+                    name="Email"
                     value={username}
                     onChange={(e) => setUsername(e.target.value)}
                     required
@@ -43,7 +47,9 @@ function Login() {
                 />
                 <div>
                 <button type="submit">Login</button>
-                <button type="button" onClick={handleCancel} className="cancelbtn">Cancel</button>
+                <div className="signin-link">
+                        <p>Don't have an account <a href="#" onClick={() => navigate("/signup")}>Sign up</a>.</p>
+                    </div>
                 </div>
                 
             </div>

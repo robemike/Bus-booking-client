@@ -1,0 +1,82 @@
+
+
+
+import React from "react";
+import "./seats.css";
+
+function Seats() {
+  const rows = 9;
+  const seatsPerRow = 4;
+
+  const seats = [];
+  for (let row = 1; row <= rows; row++) {
+    for (let seat = 1; seat <= seatsPerRow; seat++) {
+      seats.push(`${row}${String.fromCharCode(64 + seat)}`);
+    }
+  }
+
+  const createSeats = () => {
+    const seatRows = [];
+    for (let row = 1; row <= rows; row++) {
+      const rowSeats = [];
+      for (let seat = 1; seat <= seatsPerRow; seat++) {
+        if (seat === 3) {
+          rowSeats.push(
+            <div key={`space-${row}`} className="vertical-space" />
+          );
+        }
+        rowSeats.push(
+          <div key={`${row}${String.fromCharCode(64 + seat)}`} className="seat">
+            {`${row}${String.fromCharCode(64 + seat)}`}
+          </div>
+        );
+      }
+      seatRows.push(
+        <div key={row} className="seat-row">
+          {rowSeats}
+        </div>
+      );
+    }
+    return seatRows;
+  };
+
+  const createDestinationTable = () => {
+    return (
+      <table className="destination-table">
+        <thead>
+          <tr>
+            <th>From: NAIROBI</th>
+            <th>To: KISUMU</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <div className="rectangle"/>
+               <span>Occupied</span>
+              
+              <div className="rectangle" />
+              <span>Available</span>
+              <div className="rectangle" />
+              <span>Selected</span>
+            </td>
+           
+          </tr>
+        </tbody>
+      </table>
+    );
+  };
+
+  return (
+    <div className="container">
+      <div className="seating-container">
+        {createSeats()}
+      </div>
+      <div className="table-container">
+        {createDestinationTable()}
+      </div>
+    </div>
+  );
+}
+
+export default Seats;

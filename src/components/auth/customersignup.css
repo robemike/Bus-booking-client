@@ -45,22 +45,23 @@ button:hover {
 }
 
 
-.cancelbtn {
+.cancelbtn1 {
   padding: 14px 20px;
   background-color: #f44336;
+
 }
 
 
-.cancelbtn, .signupbtn {
+.cancelbtn1, .signupbtn {
   float: left;
   width: 100%;
 }
 
 
-/* .container {
+.container {
   padding: 16px;
   background-color: #f9f9f9;
-} */
+}
 
 
 .clearfix::after {
@@ -77,7 +78,7 @@ button:hover {
 }
 
 .dropbtn {
-    background-color: #04AA6D;
+    background-color: #cc7722;
     color: white;
     padding: 16px;
     font-size: 16px;
@@ -93,11 +94,12 @@ button:hover {
  
   .dropdown-content {
     display: none;
-    position: absolute;
+    position: relative;
     background-color: #f1f1f1;
     min-width: 160px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
+    text-align: center;
   }
   
   
