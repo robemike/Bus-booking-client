@@ -5,7 +5,7 @@ const Destinations = () => {
     <div className='flex flex-wrap justify-center gap-6 p-6'>
       {destinations.map(({ id, destination, image, route }) => (
         <div 
-          className='w-64 h-80 bg-white border rounded-lg shadow-lg overflow-hidden flex flex-col'
+          className='w-64 h-80 bg-white border rounded-lg shadow-lg overflow-hidden flex flex-col transform transition duration-300 ease-in-out hover:scale-105 hover:shadow-2xl'
           key={id}
         >
           <img 

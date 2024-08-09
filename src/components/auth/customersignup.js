@@ -10,7 +10,7 @@ function Signup() {
     // }
     return (
         <form action="action_page.php" style={{ border: '1px solid #ccc' }}>
-            <div className="container">
+            <div className="customer-signup">
                 <h1>Sign Up</h1>
                 <p>Please fill in the details below to create an account.</p>
 

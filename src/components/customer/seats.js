@@ -1,6 +1,3 @@
-
-
-
 import React from "react";
 import "./seats.css";
 
@@ -42,6 +39,8 @@ function Seats() {
 
   const createDestinationTable = () => {
     return (
+    <div className="container-tickets">
+      
       <table className="destination-table">
         <thead>
           <tr>
@@ -52,28 +51,31 @@ function Seats() {
         <tbody>
           <tr>
             <td>
-              <div className="rectangle"/>
+              <div className="rectangle occupied"/>
                <span>Occupied</span>
-              
-              <div className="rectangle" />
+              <div className="rectangle available" />
               <span>Available</span>
-              <div className="rectangle" />
+              <div className="rectangle selected" />
               <span>Selected</span>
             </td>
            
           </tr>
         </tbody>
       </table>
+
+    </div>  
     );
   };
 
   return (
-    <div className="container">
-      <div className="seating-container">
-        {createSeats()}
-      </div>
-      <div className="table-container">
-        {createDestinationTable()}
+    <div className="container-seats">
+      <div className="seats-customer">
+        <div className="seating-customer">
+          {createSeats()}
+        </div>
+        <div className="seating-destination">
+          {createDestinationTable()}
+        </div>
       </div>
     </div>
   );
