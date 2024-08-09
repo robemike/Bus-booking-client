@@ -16,7 +16,7 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import DriverBuses from "./components/Drivers/buses";
 import Landing from "./components/Drivers/landing";
 import CustomerList from "./components/Drivers/customerlist";
-import Navbar from "./components/Drivers/Navbar";
+// import Navbar from "./components/Drivers/Navbar";
 import Trips from "./components/Drivers/trips";
 
 
@@ -28,17 +28,17 @@ function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/findbus" element={<FindBus1 />} />
-        <Route path="/dashboard" element={<Admin />} />
-        <Route path="/drivers" element={<Drivers />} />
-        <Route path="/customers" element={<Customers />} />
-        <Route path="/buses" element={<Buses />} />
+        <Route path="/admin/dashboard" element={<Admin />} />
+        <Route path="/admin/drivers" element={<Drivers />} />
+        <Route path="/admin/customers" element={<Customers />} />
+        <Route path="/admin/buses" element={<Buses />} />
         <Route path="/seats" element={<Seats />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/login" element={<Login />} />
         <Route path="/login-driver" element={<Logins />} />
         <Route path="busticket" element={<TicketForm />} />
         <Route path="/customer" element={<Customer />} />
-        <Route path="/drivers/navbar" element={<Navbar />} />
+        {/* <Route path="/drivers/navbar" element={<Navbar />} /> */}
         <Route path="/drivers/landing" element={<Landing />} />
         <Route path="/drivers/buses" element={<DriverBuses />} />
         <Route path="/drivers/customer-list" element={<CustomerList/>} />

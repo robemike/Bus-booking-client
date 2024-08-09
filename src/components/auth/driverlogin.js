@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import './driverslogin.css'
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 
 function Logins() {
     const [username, setUsername] = useState('');
@@ -12,7 +12,7 @@ function Logins() {
         console.log('Password:', password);
     };
 
-    const navigate = useNavigate();
+    // const navigate = useNavigate();
 
     // const handleCancel = () => {
     //     navigate("/signup");
@@ -21,7 +21,7 @@ function Logins() {
     return (
         <form onSubmit={handleSubmit}>
 
-            <div className="container">
+            <div className="drivers-login">
                 <h1>Welcome to Buslink</h1>
                 <p>You are just one step away!</p>
                 <h2>Fill in the details below to access your account.</h2>

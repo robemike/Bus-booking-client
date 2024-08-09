@@ -9,8 +9,8 @@ function Signup() {
     //     navigate("/login");
     // }
     return (
-        <form action="action_page.php" style={{ border: '1px solid #ccc' }}>
-            <div className="container">
+        <form action="action_page.php" >
+            <div className="customer-signup">
                 <h1>Sign Up</h1>
                 <p>Please fill in the details below to create an account.</p>
 
@@ -78,7 +78,7 @@ function Signup() {
                 <div className="clearfix">
                     <button type="submit" className="signupbtn">Sign Up</button>
                     <div className="signin-link">
-                        <p>Already have an account? <a href="#" onClick={() => navigate("/login")}>Sign in</a>.</p>
+                        <p>Already have an account? <a  onClick={() => navigate("/login")}>Sign in</a>.</p>
                     </div>
                     
                 </div>

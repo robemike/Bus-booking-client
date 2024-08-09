@@ -21,7 +21,7 @@ function Login() {
     return (
         <form onSubmit={handleSubmit}>
 
-            <div className="container">
+            <div className="customer-login">
                 <h1>Welcome to Buslink</h1>
                 <p>You are just one step away!</p>
                 <h2>Fill in the details below to access your account.</h2>
