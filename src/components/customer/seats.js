@@ -1,6 +1,3 @@
-
-
-
 import React from "react";
 import "./seats.css";
 
@@ -54,7 +51,6 @@ function Seats() {
             <td>
               <div className="rectangle"/>
                <span>Occupied</span>
-              
               <div className="rectangle" />
               <span>Available</span>
               <div className="rectangle" />
@@ -68,11 +64,11 @@ function Seats() {
   };
 
   return (
-    <div className="container">
-      <div className="seating-container">
+    <div className="seats-customer">
+      <div className="seating-customer">
         {createSeats()}
       </div>
-      <div className="table-container">
+      <div className="seating-destination">
         {createDestinationTable()}
       </div>
     </div>

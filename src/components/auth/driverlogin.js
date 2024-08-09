@@ -1,70 +1,68 @@
 import React, { useState } from "react";
-import './driverslogin.css'
+import "./driverslogin.css";
 import { useNavigate } from "react-router-dom";
 
 function Logins() {
-    const [username, setUsername] = useState('');
-    const [password, setPassword] = useState('');
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
 
-    const handleSubmit = (event) => {
-        event.preventDefault();
-        console.log('Username:', username);
-        console.log('Password:', password);
-    };
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    console.log("Username:", username);
+    console.log("Password:", password);
+  };
 
-    const navigate = useNavigate();
+  const navigate = useNavigate();
 
-    // const handleCancel = () => {
-    //     navigate("/signup");
-    // }
+  // const handleCancel = () => {
+  //     navigate("/signup");
+  // }
 
-    return (
-        <form onSubmit={handleSubmit}>
+  return (
+    <form onSubmit={handleSubmit}>
+        <div className="drivers-login">
+            <h1>Welcome to Buslink</h1>
+            <p>You are just one step away!</p>
+            <h2>Fill in the details below to access your account.</h2>
+            <hr></hr>
+            <label htmlFor="Email">
+            <b>Email</b>
+            </label>
+            <input
+            type="text"
+            placeholder="Enter Email Address"
+            name="Email"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+            required
+            />
 
-            <div className="container">
-                <h1>Welcome to Buslink</h1>
-                <p>You are just one step away!</p>
-                <h2>Fill in the details below to access your account.</h2>
-                <hr></hr>
-                <label htmlFor="Email"><b>Email</b></label>
-                <input
-                    type="text"
-                    placeholder="Enter Email Address"
-                    name="Email"
-                    value={username}
-                    onChange={(e) => setUsername(e.target.value)}
-                    required
-                />
+            <label htmlFor="Lisno">License No.</label>
+            <input
+            type="text"
+            placeholder="Enter License No."
+            name="Lisno"
+            required
+            />
 
-                <label htmlFor='Lisno'>License No.</label>
-                <input
-                    type="text"
-                    placeholder="Enter License No."
-                    name="Lisno"
-                    required
-                />
-
-                <label htmlFor="psw"><b>Password</b></label>
-                <input
-                    type="password"
-                    placeholder="Enter Password"
-                    name="psw"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                    required
-                />
-                <div>
-                <button type="submit">Login</button>
-                <div className="signin-link">
-                       
-                    </div>
-                </div>
-                
+            <label htmlFor="psw">
+            <b>Password</b>
+            </label>
+            <input
+            type="password"
+            placeholder="Enter Password"
+            name="psw"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
+            />
+            <div>
+            <button type="submit">Login</button>
+            <div className="signin-link"></div>
             </div>
-        </form>
-    );
+        </div>
+    </form>
+  );
 }
 
 export default Logins;
-
-

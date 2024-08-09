@@ -1,7 +1,7 @@
 import React from "react";
+import './customer.css';
+
 import { useNavigate } from "react-router-dom";
-
-
 
 function Customers() {
   const navigate = useNavigate();
@@ -26,25 +26,35 @@ function Customers() {
     { name: "Matthew Young", seatNo: "9A", numberPlate: "KCV 522M" },
     { name: "Nancy Allen", seatNo: "9B", numberPlate: "KBM 362D" },
     { name: "Andrew King", seatNo: "10A", numberPlate: "KLM 223" },
-    { name: "Amanda Wright", seatNo: "10B", numberPlate: "KCT 130E" }
+    { name: "Amanda Wright", seatNo: "10B", numberPlate: "KCT 130E" },
   ];
 
   return (
-    <div  id="din-class"  className="container">
-      <div className="navbar">
+    <div className="customer-container">
+      {/* <div className="navbar">
         <h1>BUSLINK</h1>
-      </div>
-      
-      <div id="din-class1"  className="row">
-        <div className="sidebar">
-          <a href="dashboard" onClick={() => navigate("/admin/dashboard")}>Dashboard</a>
-          <a href="drivers" onClick={() => navigate("/admin/drivers")}>Drivers</a>
-          <a href="buses" onClick={() => navigate("/admin/buses")}>Buses</a>
-          <a href="customers" onClick={() => navigate("/admin/customers")}>Customers</a>
+      </div> */}
+
+      <div className="customer-row">
+        <div className="customer-sidebar">
+          <a href="dashboard" onClick={() => navigate("/admin/dashboard")}>
+            Dashboard
+          </a>
+          <a href="drivers" onClick={() => navigate("/admin/drivers")}>
+            Drivers
+          </a>
+          <a href="buses" onClick={() => navigate("/admin/buses")}>
+            Buses
+          </a>
+          <a href="customers" onClick={() => navigate("/admin/customers")}>
+            Customers
+          </a>
         </div>
-        <div className="content">
+
+
+        <div className="customer-content">
           <h1>Customers</h1>
-          <div className="customers-list">
+          <div className="customer-list">
             {customers.map((customer, index) => (
               <div key={index} className="customer-item">
                 <div className="customer-field">

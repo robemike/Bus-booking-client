@@ -1,4 +1,5 @@
 import React from "react";
+import './buses.css';
 import { useNavigate } from "react-router-dom";
 
 function Buses() {
@@ -18,12 +19,15 @@ function Buses() {
   ];
 
   return (
-    <div id="din-class" className="container">
-      <div className="navbar">
+    <div className="adminbuses-container">
+
+      {/* <div className="navbar">
         <h1>BUSLINK</h1>
-      </div>
-      <div  id="din-class1"  className="row">
-        <div className="sidebar">
+      </div> */}
+
+
+      <div className="adminbuses-row">
+        <div className="adminbuses-sidebar">
           <a href="dashboard" onClick={() => navigate("/admin/dashboard")}>
             Dashboard
           </a>
@@ -37,10 +41,12 @@ function Buses() {
             Customers
           </a>
         </div>
-        <div className="content">
+
+
+        <div className="adminbuses-content">
           <h1>Buses</h1>
 
-          <div className="buses-list">
+          <div className="adminbuses-list">
             {buses.map((buses, index) => (
               <ul key={index} className="customer-item">
                 <li className="customer-field">
@@ -49,6 +55,7 @@ function Buses() {
               </ul>
             ))}
           </div>
+
         </div>
       </div>
     </div>

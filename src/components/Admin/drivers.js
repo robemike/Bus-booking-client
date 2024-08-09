@@ -1,5 +1,6 @@
-import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import React from "react";
+import "./drivers.css";
+import { useNavigate } from "react-router-dom";
 
 function Drivers() {
   const navigate = useNavigate();
@@ -31,24 +32,26 @@ function Drivers() {
     { name: "Diana Scott", numberPlate: "KNN012X" },
     { name: "Frank Carter", numberPlate: "KOO345Y" },
     { name: "Sophia Evans", numberPlate: "KPP678Z" },
-    { name: "Tom Lewis", numberPlate: "KQQ901A" }
+    { name: "Tom Lewis", numberPlate: "KQQ901A" },
   ];
 
   return (
-    <div id='din-class' className="container">
-      <div className="navbar">
+    <div className="drivers-container">
+
+      {/* <div className="navbar">
         <h1>BUSLINK</h1>
-      </div>
-    
-      <div className="sidebar">
-        <a onClick={() => navigate('/admin/dashboard')}>Dashboard</a>
-        <a onClick={() => navigate('/admin/drivers')}>Drivers</a>
-        <a onClick={() => navigate('/admin/buses')}>Buses</a>
-        <a onClick={() => navigate('/admin/customers')}>Customers</a>
+      </div> */}
+
+      <div className="driversidebar">
+        <a onClick={() => navigate("/admin/dashboard")}>Dashboard</a>
+        <a onClick={() => navigate("/admin/drivers")}>Drivers</a>
+        <a onClick={() => navigate("/admin/buses")}>Buses</a>
+        <a onClick={() => navigate("/admin/customers")}>Customers</a>
       </div>
 
-      <div className="content">
+      <div className="driverscontent">
         <h1>Drivers</h1>
+
         <ul className="drivers-list">
           {drivers.map((driver, index) => (
             <li key={index} className="driver-item">
