@@ -82,7 +82,7 @@
 
 .buses-bus-code {
     font-weight: bold;
-    color: #333;
+    color: #ff0000;
 }
 
 .buses-footer {
@@ -92,4 +92,99 @@
     border-top: 1px solid #ddd;
     color: #888;
     background-color: #f4f4f4;
+}
+
+
+
+
+
+/* Modal styling */
+.buses-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.buses-modal-content {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 8px;
+    width: 400px;
+    max-width: 90%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.buses-modal-content h2 {
+    margin-bottom: 20px;
+    font-size: 22px;
+    color: #333;
+}
+
+.buses-modal-content input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    font-size: 16px;
+}
+
+.buses-modal-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.buses-save-button, .buses-cancel-button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.buses-save-button {
+    background-color: #28a745;
+    color: #fff;
+    transition: background-color 0.3s ease;
+}
+
+.buses-save-button:hover {
+    background-color: #218838;
+}
+
+.buses-cancel-button {
+    background-color: #dc3545;
+    color: #fff;
+    transition: background-color 0.3s ease;
+}
+
+.buses-cancel-button:hover {
+    background-color: #c82333;
+}
+
+/* Add Bus Button */
+.buses-add-bus-button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    float: right;
+    margin-right: 10px;
+}
+
+.buses-add-bus-button:hover {
+    background-color: #0056b3;
 }

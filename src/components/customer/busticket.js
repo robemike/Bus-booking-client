@@ -79,3 +79,4 @@ function BusTicket() {
 }
 
 export default BusTicket;
+

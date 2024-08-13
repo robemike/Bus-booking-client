@@ -14,9 +14,7 @@ function Login() {
 
     const navigate = useNavigate();
 
-    // const handleCancel = () => {
-    //     navigate("/signup");
-    // }
+  
 
     return (
         <form onSubmit={handleSubmit}>
@@ -58,5 +56,4 @@ function Login() {
 }
 
 export default Login;
-
 
