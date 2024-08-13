@@ -14,8 +14,8 @@ function Drivers() {
         .catch((error) => console.error("Error fetching drivers:", error));
     };
 
-    fetchDrivers(); // Call the fetch function
-  }, []); // Empty dependency array ensures this runs once after initial render
+    fetchDrivers(); 
+  }, []); 
 
   return (
     <div className="drivers-container">
