@@ -18,6 +18,7 @@ import Landing from "./components/Drivers/landing";
 import CustomerList from "./components/Drivers/customerlist";
 // import Navbar from "./components/Drivers/Navbar";
 import Trips from "./components/Drivers/trips";
+import BusDetails from "./components/Drivers/busdetails";
 
 
 function App() {
@@ -43,6 +44,7 @@ function App() {
         <Route path="/drivers/buses" element={<DriverBuses />} />
         <Route path="/drivers/customer-list" element={<CustomerList/>} />
         <Route path="/drivers/trips" element={<Trips />} />
+        <Route path="/drivers/busdetails" element={<BusDetails />} />
           
       </Routes>
   </Router>

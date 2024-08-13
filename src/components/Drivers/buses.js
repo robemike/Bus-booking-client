@@ -106,12 +106,7 @@ function DriverBuses() {
                             value={newBus.code}
                             onChange={(e) => setNewBus({ ...newBus, code: e.target.value })}
                         />
-                        <input
-                            type="text"
-                            placeholder="Add Username"
-                            value={newBus.username}
-                            onChange={(e) => setNewBus({ ...newBus, username: e.target.value })}
-                        />
+                       
                         <input
                             type="number"
                             placeholder="Add Cost Per Seat"
@@ -136,12 +131,7 @@ function DriverBuses() {
                             value={newBus.travel_time}
                             onChange={(e) => setNewBus({ ...newBus, travel_time: e.target.value })}
                         />
-                        <input
-                            type="text"
-                            placeholder="Add Number Plate"
-                            value={newBus.number_plate}
-                            onChange={(e) => setNewBus({ ...newBus, number_plate: e.target.value })}
-                        />
+                     
 
                         <div className="buses-modal-actions">
                              <button className="buses-cancel-button" onClick={() => setShowModal(false)}>Cancel</button>

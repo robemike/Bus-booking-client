@@ -1,0 +1,57 @@
+bus-details-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+  }
+  
+  .bus-details-card {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-width: 400px;
+  }
+  
+  .bus-details-title {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  .bus-details-item {
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .bus-details-item strong {
+    margin-right: 10px;
+  }
+  
+  .bus-details-item input {
+    padding: 5px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    flex-grow: 1;
+  }
+  
+  .bus-details-edit-button,
+  .bus-details-save-button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 20px;
+    width: 100%;
+    text-align: center;
+  }
+  
+  .bus-details-edit-button:hover,
+  .bus-details-save-button:hover {
+    background-color: #0056b3;
+  }
