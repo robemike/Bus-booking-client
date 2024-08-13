@@ -18,6 +18,7 @@ import Landing from "./components/Drivers/landing";
 import CustomerList from "./components/Drivers/customerlist";
 import Navbar from "./components/Drivers/Navbar";
 import Trips from "./components/Drivers/trips";
+import BusDetails from "./components/Drivers/busdetails";
 
 
 function App() {
@@ -28,7 +29,7 @@ function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />  
         <Route path="/findbus" element={<FindBus1 />} />
-        <Route path="/seats" element={<Seats />} />
+        <Route path="/seats/:busId" element={<Seats />} />
         <Route path="/signup" element={<CustomerSignup />} />
         <Route path="/login" element={<CustomerLogin />} />
         <Route path="busticket" element={<TicketForm />} />
@@ -37,6 +38,7 @@ function App() {
         <Route path="/drivers/navbar" element={<Navbar />} />
         <Route path="/drivers/landing" element={<Landing />} />
         <Route path="/drivers/buses" element={<DriverBuses />} />
+        <Route path="/drivers/buses/:busName" element={<BusDetails />} />
         <Route path="/drivers/customer-list" element={<CustomerList/>} />
         <Route path="/drivers/trips" element={<Trips />} />
         <Route path="/admin/dashboard" element={<Admin />} />

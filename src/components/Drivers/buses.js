@@ -68,20 +68,22 @@ function DriverBuses() {
 
                     <ul className="buses-bus-list">
                         {busData.map((bus, index) => (
-                            <li className="buses-bus-item" key={index}>
-                                <div className="buses-bus-info">
-                                    <span className="buses-bus-icon">🚌</span>
-                                    <span>{bus.name}  </span>
-
-                                    <span className="buses-bus-code">{bus.code}</span>
-                                </div>
-                                <button
-                                    className="buses-delete-button"
-                                    onClick={() => handleDeleteBus(index)}
-                                >
-                                    Delete
-                                </button>
-                            </li>
+                            <li className="buses-bus-item" key={index} onClick={() => navigate(`/drivers/buses/${bus.name}`)}>
+                            <div className="buses-bus-info">
+                                <span className="buses-bus-icon">🚌</span>
+                                <span>{bus.name}  </span>
+                                <span className="buses-bus-code">{bus.code}</span>
+                            </div>
+                            <button
+                                className="buses-delete-button"
+                                onClick={(e) => {
+                                    e.stopPropagation();
+                                    handleDeleteBus(index);
+                                }}
+                            >
+                                Delete
+                            </button>
+                        </li>
                         ))}
                     </ul>
                 </div>
@@ -106,12 +108,12 @@ function DriverBuses() {
                             value={newBus.code}
                             onChange={(e) => setNewBus({ ...newBus, code: e.target.value })}
                         />
-                        <input
+                        {/* <input
                             type="text"
                             placeholder="Add Username"
                             value={newBus.username}
                             onChange={(e) => setNewBus({ ...newBus, username: e.target.value })}
-                        />
+                        /> */}
                         <input
                             type="number"
                             placeholder="Add Cost Per Seat"
@@ -136,12 +138,12 @@ function DriverBuses() {
                             value={newBus.travel_time}
                             onChange={(e) => setNewBus({ ...newBus, travel_time: e.target.value })}
                         />
-                        <input
+                        {/* <input
                             type="text"
                             placeholder="Add Number Plate"
                             value={newBus.number_plate}
                             onChange={(e) => setNewBus({ ...newBus, number_plate: e.target.value })}
-                        />
+                        /> */}
 
                         <div className="buses-modal-actions">
                              <button className="buses-cancel-button" onClick={() => setShowModal(false)}>Cancel</button>

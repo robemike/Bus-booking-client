@@ -1,32 +1,27 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./customerpage.css";
 
 function Customer() {
-  const data = [
-    {
-      from_to: "Nairobi - Sugoi",
-      seat_no: "3A",
-      bus_no: "Bus 45",
-      travel_date: "24-08-2024",
-      time: "20:30",
-    },
-    {
-      from_to: "Nairobi - Mombasa",
-      age: 22,
-      seat_no: "2B",
-      bus_no: "Bus 21",
-      travel_date: "25-07-2024",
-      time: "21:00",
-    },
-    {
-      from_to: "Nairobi - Kisumu",
-      age: 22,
-      seat_no: "4A",
-      bus_no: "Bus 12",
-      travel_date: "30-07-2024",
-      time: "18:00",
-    },
-  ];
+  const [bookings, setBookings] = useState([]);
+
+  useEffect(() => {
+    const fetchBookings = async () => {
+      try {
+        
+        const response = await fetch('https://bus-booking-server.onrender.com/bookings');
+        if (response.ok) {
+          const data = await response.json();
+          setBookings(data);
+        } else {
+          console.error('Failed to fetch bookings');
+        }
+      } catch (error) {
+        console.error('Error fetching bookings:', error);
+      }
+    };
+
+    fetchBookings();
+  }, []);
 
   return (
     <div className="page-wrapper">
@@ -46,15 +41,21 @@ function Customer() {
                 </tr>
               </thead>
               <tbody>
-                {data.map((customer, index) => (
-                  <tr key={index}>
-                    <td>{customer.from_to}</td>
-                    <td>{customer.bus_no}</td>
-                    <td>{customer.seat_no}</td>
-                    <td>{customer.travel_date}</td>
-                    <td>{customer.time}</td>
+                {bookings.length > 0 ? (
+                  bookings.map((booking, index) => (
+                    <tr key={index}>
+                      <td>{`${booking.current_address} - ${booking.destination}`}</td>
+                      <td>{`Bus ${booking.bus_id}`}</td>
+                      <td>{booking.seat_no || 'N/A'}</td> 
+                      <td>{new Date(booking.booking_date).toLocaleDateString()}</td>
+                      <td>{new Date(booking.depature_time).toLocaleTimeString()}</td>
+                    </tr>
+                  ))
+                ) : (
+                  <tr>
+                    <td colSpan="5">No bookings found</td>
                   </tr>
-                ))}
+                )}
               </tbody>
             </table>
           </div>
