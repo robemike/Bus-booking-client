@@ -1,5 +1,5 @@
 import React from "react";
-import Navbar from "./Navbar";
+// import Navbar from "./Navbar";
 import Destinations from "./Destinations";
 import buses from "../../assets/buses.jpg";
 import BookingForm from "./BookingForm";

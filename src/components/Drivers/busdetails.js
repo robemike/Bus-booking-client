@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from "react";
 import "./busdetails.css";
 import { useParams } from "react-router-dom";
