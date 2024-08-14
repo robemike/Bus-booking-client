@@ -1,0 +1,82 @@
+
+ .customer-signup {
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 8px;
+  width: 100%;
+  height: 900px;
+  max-width: 600px;
+  margin: 0 auto;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-top: 15px;
+}
+
+.customer-signup h1 {
+  text-align: center;
+  font-size: 24px;
+  color: #333;
+}
+
+.customer-signup p {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #666;
+}
+
+.customer-signup hr {
+  margin-bottom: 20px;
+  border: none;
+  border-top: 1px solid #ddd;
+}
+
+.customer-signup label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+  color: #333;
+}
+
+.customer-signup input[type="text"],
+.customer-signup input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.customer-signup .clearfix {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.customer-signup .signupbtn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  width: 100%;
+}
+
+.customer-signup .signupbtn:hover {
+  background-color: #45a049;
+}
+
+.customer-signup .signin-link {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.customer-signup .signin-link a {
+  color: #4CAF50;
+  text-decoration: none;
+}
+
+.customer-signup .signin-link a:hover {
+  text-decoration: underline;
+}
