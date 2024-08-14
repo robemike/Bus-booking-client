@@ -1,9 +1,50 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 import './landing.css';
 import { useNavigate } from "react-router-dom";
 
 function Landing() {
+    const [buses, setBuses] = useState([]);
+    const [trips, setTrips] = useState([]);
+    const [customers, setCustomers] = useState([]);
+    
     const navigate = useNavigate();
+
+    useEffect(() => {
+        const fetchBuses = async () => {
+            try {
+                const response = await fetch('https://bus-booking-server.onrender.com/buses');
+                const data = await response.json();
+                setBuses(data);
+            } catch (error) {
+                console.error('Error fetching buses:', error);
+            }
+        };
+
+        const fetchTrips = async () => {
+            try {
+                const response = await fetch('https://bus-booking-server.onrender.com/trips');
+                const data = await response.json();
+                setTrips(data);
+            } catch (error) {
+                console.error('Error fetching trips:', error);
+            }
+        };
+
+        const fetchCustomers = async () => {
+            try {
+                const response = await fetch('https://bus-booking-server.onrender.com/customers');
+                const data = await response.json();
+                setCustomers(data);
+            } catch (error) {
+                console.error('Error fetching customers:', error);
+            }
+        };
+
+        fetchBuses();
+        fetchTrips();
+        fetchCustomers();
+    }, []);
+
     return (
         <div>
             <div className="landing-container">

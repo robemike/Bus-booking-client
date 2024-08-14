@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./customerlist.css";
 // import Navbar from "./Navbar.js";
 import { useNavigate } from "react-router-dom";
@@ -47,3 +47,6 @@ function CustomerList() {
 }
 
 export default CustomerList;
+
+
+

@@ -1,4 +1,10 @@
 
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+  }
+  
+
   .customer-container {
     display: flex;
     flex-direction: column; 
@@ -68,3 +74,4 @@
   .customer-field {
     font-size: 16px;
   }
+  

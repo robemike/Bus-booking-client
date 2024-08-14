@@ -1,8 +1,13 @@
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+  }
+  
   .container {
     display: flex;
     height: 100vh; 
   }
-  
   
   .driversidebar {
     width: 250px; 
@@ -31,7 +36,6 @@
     background-color: #34495e; 
   }
   
-  
   .driverscontent {
     margin-left: 250px; 
     padding: 20px;
@@ -43,7 +47,6 @@
   .driverscontent h1 {
     margin-top: 0;
   }
-  
   
   .drivers-list {
     list-style-type: none;
@@ -62,3 +65,4 @@
   .driver-field {
     font-size: 16px;
   }
+  

@@ -1,40 +1,39 @@
-import React from "react";
-import './customer.css';
 
+import React, { useState, useEffect } from "react";
+import './customer.css';
 import { useNavigate } from "react-router-dom";
 
 function Customers() {
+  const [customers, setCustomers] = useState([]); 
   const navigate = useNavigate();
 
-  const customers = [
-    { name: "John Doe", seatNo: "1A", numberPlate: "KDD 154T" },
-    { name: "Jane Smith", seatNo: "1B", numberPlate: "KBY 112P" },
-    { name: "Michael Johnson", seatNo: "2A", numberPlate: "KDK 272A" },
-    { name: "Emily Davis", seatNo: "2B", numberPlate: "KDL 699P" },
-    { name: "Robert Brown", seatNo: "3A", numberPlate: "KCC 123A" },
-    { name: "Linda Wilson", seatNo: "3B", numberPlate: "KDP 222Q" },
-    { name: "James Taylor", seatNo: "4A", numberPlate: "KAA 123A" },
-    { name: "Barbara Anderson", seatNo: "4B", numberPlate: "KBV 456P" },
-    { name: "William Thomas", seatNo: "5A", numberPlate: "KCC 777F" },
-    { name: "Susan Martinez", seatNo: "5B", numberPlate: "KBM 263S" },
-    { name: "David Lee", seatNo: "6A", numberPlate: "KCR 272A" },
-    { name: "Jessica Harris", seatNo: "6B", numberPlate: "KAY 234P" },
-    { name: "Charles Clark", seatNo: "7A", numberPlate: "KAL 133E" },
-    { name: "Sarah Lewis", seatNo: "7B", numberPlate: "KTZ 223" },
-    { name: "Daniel Walker", seatNo: "8A", numberPlate: "KBV 676Y" },
-    { name: "Karen Hall", seatNo: "8B", numberPlate: "KDF 222L" },
-    { name: "Matthew Young", seatNo: "9A", numberPlate: "KCV 522M" },
-    { name: "Nancy Allen", seatNo: "9B", numberPlate: "KBM 362D" },
-    { name: "Andrew King", seatNo: "10A", numberPlate: "KLM 223" },
-    { name: "Amanda Wright", seatNo: "10B", numberPlate: "KCT 130E" },
-  ];
+  useEffect(() => {
+    fetch("https://bus-booking-server.onrender.com/customers")
+      .then(response => {
+        if (!response.ok) {
+          throw new Error("Network response was not ok");
+        }
+        return response.json();
+      })
+      .then(data => {
+        const arraydata = data.customers
+        console.log('Fetched data:', arraydata); 
+        if (Array.isArray(arraydata)) {
+          setCustomers(arraydata); 
+        } else {
+          console.error("Fetched data is not an array:", arraydata);
+          setCustomers([]); 
+        }
+      })
+      .catch(error => {
+        console.error("Error fetching customers:", error);
+        setCustomers([]); 
+      });
+  }, 
+  []);
 
   return (
     <div className="customer-container">
-      {/* <div className="navbar">
-        <h1>BUSLINK</h1>
-      </div> */}
-
       <div className="customer-row">
         <div className="customer-sidebar">
           <a href="dashboard" onClick={() => navigate("/admin/dashboard")}>
@@ -51,23 +50,26 @@ function Customers() {
           </a>
         </div>
 
-
         <div className="customer-content">
           <h1>Customers</h1>
           <div className="customer-list">
-            {customers.map((customer, index) => (
-              <div key={index} className="customer-item">
-                <div className="customer-field">
-                  <strong>Name:</strong> {customer.name}
+            {Array.isArray(customers) && customers.length > 0 ? (
+              customers.map((customer, index) => (
+                <div key={index} className="customer-item">
+                  <div className="customer-field">
+                    <strong>First Name:</strong> {customer.firstname || "N/A"}
+                  </div>
+                  <div className="customer-field">
+                    <strong>Last Name:</strong> {customer.lastname || "N/A"}
+                  </div>
+                  <div className="customer-field">
+                    <strong>Email:</strong> {customer.email || "N/A"}
+                  </div>
                 </div>
-                <div className="customer-field">
-                  <strong>Seat No:</strong> {customer.seatNo}
-                </div>
-                <div className="customer-field">
-                  <strong>Number Plate:</strong> {customer.numberPlate}
-                </div>
-              </div>
-            ))}
+              ))
+            ) : (
+              <div>No customer data available</div>
+            )}
           </div>
         </div>
       </div>

@@ -29,6 +29,7 @@ const FindBus1 = () => {
   return (
     <div className="find-bus">
       <div id="headerfd">
+      <div id="headerfd">
         <img 
           className="header-image" 
           alt="Bus Header" 
@@ -53,6 +54,7 @@ const FindBus1 = () => {
           </div>
         ))}
       </div>
+    </div>
     </div>
   );
 };
