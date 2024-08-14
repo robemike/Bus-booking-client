@@ -1,34 +1,30 @@
 import React, { useEffect, useState } from 'react';
-import { useNavigate, useLocation } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const FindBus1 = () => {
   const [busData, setBusData] = useState([]);
   const navigate = useNavigate();
-  const location = useLocation();
-  const { formData } = location.state; 
 
   useEffect(() => {
     const fetchBusData = async () => {
       try {
         const response = await fetch('https://bus-booking-server.onrender.com/buses');
         const data = await response.json();
-        const filteredBuses = data.filter(bus => bus.travel_time === formData.depature_time); 
-        setBusData(filteredBuses);
+        setBusData(data);
       } catch (error) {
         console.error('Error fetching bus data:', error);
       }
     };
 
     fetchBusData();
-  }, [formData.depature_time]);
+  }, []);
 
   const handleBusSelection = (bus) => {
-    navigate(`/seats/${bus.id}`, { state: { formData, bus } }); 
+    navigate(`/seats/${bus.id}`);
   };
 
   return (
     <div className="find-bus">
-      <div id="headerfd">
       <div id="headerfd">
         <img 
           className="header-image" 
@@ -54,7 +50,6 @@ const FindBus1 = () => {
           </div>
         ))}
       </div>
-    </div>
     </div>
   );
 };

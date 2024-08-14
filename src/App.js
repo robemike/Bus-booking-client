@@ -16,7 +16,6 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import DriverBuses from "./components/Drivers/buses";
 import Landing from "./components/Drivers/landing";
 import CustomerList from "./components/Drivers/customerlist";
-// import Navbar from "./components/Drivers/Navbar";
 import Trips from "./components/Drivers/trips";
 import BusDetails from "./components/Drivers/busdetails";
 
@@ -40,7 +39,6 @@ function App() {
         <Route path="busticket" element={<TicketForm />} />
         <Route path="/customer" element={<Customer />} />
         <Route path="/drivers/login" element={<Logins />} />
-        <Route path="/drivers/navbar" element={<Navbar />} />
         <Route path="/drivers/landing" element={<Landing />} />
         <Route path="/drivers/buses" element={<DriverBuses />} />
         <Route path="/drivers/buses/:busName" element={<BusDetails />} />
