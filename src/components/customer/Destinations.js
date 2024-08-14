@@ -1,3 +1,5 @@
+
+
 import { destinations } from '../../Data'
 
 const Destinations = () => {

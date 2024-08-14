@@ -28,7 +28,6 @@ function BusTicket() {
     const handleConfirm = () => {
         setShowPopup(false);
         console.log("Order confirmed:", formData);
-        // Handle order confirmation logic here
     };
 
     const handleCancel = () => {
@@ -79,3 +78,4 @@ function BusTicket() {
 }
 
 export default BusTicket;
+

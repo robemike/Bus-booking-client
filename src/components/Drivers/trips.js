@@ -3,22 +3,18 @@ import './trips.css';
 import { useNavigate } from "react-router-dom";
 
 function Trips() {
-    const [services, setServices] = useState([]); 
-    const navigate = useNavigate(); 
+    const [services, setServices] = useState([]);
+    const navigate = useNavigate();
 
-   
     useEffect(() => {
-        const fetchServices = async () => {
-            try {
-                const response = await fetch('https://bus-booking-server.onrender.com/');
-                const data = await response.json();
-                setServices(data); 
-            } catch (error) {
-                console.error("Error fetching services:", error);
-            }
-        };
-
-        fetchServices();
+       
+        fetch('https://bus-booking-server.onrender.com/trips')
+            .then(response => response.json())
+            .then(data => {
+               
+                setServices(data);
+            })
+            .catch(error => console.error('Error fetching trip data:', error));
     }, []);
 
     return (
@@ -31,24 +27,21 @@ function Trips() {
             </div>
             <div className="trips-container">
                 <div className="trips-schedule">
-                    <div className="trips-header">Bus Schedule - Nairobi to Sugoi (July 24, 2024)</div>
+                    <div className="trips-header">Bus Schedule</div>
                     <div className="trips-services">
                         {services.length > 0 ? (
                             services.map((service, index) => (
                                 <div className="trips-service" key={index}>
                                     <h3>{service.name}</h3>
-                                    <p>Departure: {service.departureTime} | Arrival: {service.arrivalTime}</p>
+                                    <p>Departure: {service.departure_time} | Arrival: {service.arrivalTime}</p>
                                     <p>Price: KSH {service.price}</p>
-                                    <p className={`trips-status ${service.status === "FULLY BOOKED" ? "full" : "available"}`}>
-                                        {service.status}
-                                    </p>
+                                    <p className="trips-status">{service.status}</p>
                                 </div>
                             ))
                         ) : (
-                            <p>Loading services...</p>
+                            <p>No trips available</p>
                         )}
                     </div>
-                   
                 </div>
             </div>
         </div>

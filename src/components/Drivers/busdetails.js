@@ -19,7 +19,7 @@ function BusDetails() {
         return response.json();
       })
       .then((data) => {
-        const bus = data.find((bus) => bus.name === busName);
+        const bus = data.find((bus) => bus.username === busName);
         if (bus) {
           setBusData(bus);
           setEditedBus({ ...bus });

@@ -14,16 +14,19 @@ function CustomerList() {
       fetch("https://bus-booking-server.onrender.com/customers")
         .then(response => {
           if (!response.ok) {
-            throw new Error(`HTTP error! Status: ${response.status}`);
+            setError(`HTTP error! Status: ${response.status}`);
+            setLoading(false);
+            return;
           }
           return response.json();
         })
         .then(data => {
           console.log("Fetched data:", data); 
-          if (Array.isArray(data)) {
-            setCustomers(data);
+          const arraydata = data.customers
+          if (Array.isArray(arraydata)) {
+            setCustomers(arraydata);
           } else {
-            throw new Error("Unexpected data format");
+            setError("Unexpected data format");
           }
         })
         .catch(err => {
@@ -61,6 +64,7 @@ function CustomerList() {
                   <span className="customerlist-number">{customer.email}</span>
                   <span className="customerlist-number">{customer.number}</span>
                 </div>
+               
               </li>
             ))}
           </ul>
@@ -71,3 +75,6 @@ function CustomerList() {
 }
 
 export default CustomerList;
+
+
+
