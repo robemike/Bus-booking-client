@@ -29,11 +29,15 @@ function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />  
         <Route path="/findbus" element={<FindBus1 />} />
+<<<<<<< HEAD
+        <Route path="/seats/:busId" element={<Seats />} />
+=======
         <Route path="/admin/dashboard" element={<Admin />} />
         <Route path="/admin/drivers" element={<Drivers />} />
         <Route path="/admin/customers" element={<Customers />} />
         <Route path="/admin/buses" element={<Buses />} />
         <Route path="/seats" element={<Seats />} />
+>>>>>>> merge
         <Route path="/signup" element={<CustomerSignup />} />
         <Route path="/login" element={<CustomerLogin />} />
         <Route path="busticket" element={<TicketForm />} />

@@ -1,5 +1,16 @@
+/* .navbar-gradient {
+  background: linear-gradient(to left, #c8102e 0%, #ffb6c1 100%);
+}
 
-/* 
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  color: white;
+  background: linear-gradient(to right, #b91c1c, #dc2626, #fca5a5);
+}
+
 .container {
   max-width: 1200px;
   margin: 0 auto;
@@ -74,3 +85,7 @@
 .nav-link:hover {
   color: #d1d5db;
 } */
+<<<<<<< HEAD
+ 
+=======
+>>>>>>> merge

@@ -4,50 +4,46 @@ import { useNavigate } from "react-router-dom";
 
 function DriverBuses() {
     const navigate = useNavigate(); 
-    const [busData, setBusData] = useState([]);
+    const [busData, setBusData] = useState([
+        { name: 'SUPER METRO', code: 'KZF 456F' },
+        { name: 'THE GUARDIAN', code: 'KWT 654T' },
+        { name: 'LOPHA TRAVELERS', code: 'KDA 214K'},
+        { name: 'STARBUS', code: 'KDB 676U' },
+        { name: 'MORDERN BUS', code: 'KBQ 678U' },
+        { name: 'EMBASSAVA', code: 'KDC 766O'},
+        { name: 'MURANGA SHUTTLE', code: 'KAA 567Y'}
+    ]);
+
     const [showModal, setShowModal] = useState(false);
     const [newBus, setNewBus] = useState({
+        name: "",
+        code: "",
         username: "",
         cost_per_seat: "",
         number_of_seats: "",
         route: "",
         travel_time: "",
-        number_plate: "",
-        image: ""
+        number_plate: ""
     });
 
-    useEffect(() => {
-        fetch('https://bus-booking-server.onrender.com/buses')
-            .then(response => response.json())
-            .then(data => setBusData(data))
-            .catch(error => {
-                console.error('Error fetching bus data:', error);
-            });
-    }, []);
-
     const handleAddBus = () => {
-        console.log(newBus);
         setBusData([...busData, newBus]);
         setShowModal(false);
         setNewBus({
+            name: "",
+            code: "",
             username: "",
             cost_per_seat: "",
             number_of_seats: "",
             route: "",
             travel_time: "",
-            number_plate: "",
-            image: ""
+            number_plate: ""
         });
-        
     };
 
     const handleDeleteBus = (index) => {
         const updatedBusData = busData.filter((_, i) => i !== index);
         setBusData(updatedBusData);
-    };
-
-    const handleBusClick = (busName) => {
-        navigate(`/drivers/buses/${busName}`);
     };
 
     return (
@@ -72,27 +68,22 @@ function DriverBuses() {
 
                     <ul className="buses-bus-list">
                         {busData.map((bus, index) => (
-                            <li 
-                                className="buses-bus-item" 
-                                key={index}
-                                onClick={() => handleBusClick(bus.username)}
+                            <li className="buses-bus-item" key={index} onClick={() => navigate(`/drivers/buses/${bus.name}`)}>
+                            <div className="buses-bus-info">
+                                <span className="buses-bus-icon">🚌</span>
+                                <span>{bus.name}  </span>
+                                <span className="buses-bus-code">{bus.code}</span>
+                            </div>
+                            <button
+                                className="buses-delete-button"
+                                onClick={(e) => {
+                                    e.stopPropagation();
+                                    handleDeleteBus(index);
+                                }}
                             >
-                                <div className="buses-bus-info">
-                                    <span className="buses-bus-icon">🚌</span>
-                                    <span>{bus.username}</span>
-                                    <span className="buses-bus-code">{bus.number_plate}</span>
-                                    
-                                </div>
-                                <button
-                                    className="buses-delete-button"
-                                    onClick={(e) => {
-                                        e.stopPropagation();
-                                        handleDeleteBus(index);
-                                    }}
-                                >
-                                    Delete
-                                </button>
-                            </li>
+                                Delete
+                            </button>
+                        </li>
                         ))}
                     </ul>
                 </div>
@@ -108,15 +99,21 @@ function DriverBuses() {
                         <input
                             type="text"
                             placeholder="Add Bus Name"
-                            value={newBus.username}
-                            onChange={(e) => setNewBus({ ...newBus, username: e.target.value })}
+                            value={newBus.name}
+                            onChange={(e) => setNewBus({ ...newBus, name: e.target.value })}
                         />
                         <input
                             type="text"
                             placeholder="Add Number Plate"
-                            value={newBus.number_plate}
-                            onChange={(e) => setNewBus({ ...newBus, number_plate: e.target.value })}
+                            value={newBus.code}
+                            onChange={(e) => setNewBus({ ...newBus, code: e.target.value })}
                         />
+                        {/* <input
+                            type="text"
+                            placeholder="Add Username"
+                            value={newBus.username}
+                            onChange={(e) => setNewBus({ ...newBus, username: e.target.value })}
+                        /> */}
                         <input
                             type="number"
                             placeholder="Add Cost Per Seat"
@@ -141,16 +138,17 @@ function DriverBuses() {
                             value={newBus.travel_time}
                             onChange={(e) => setNewBus({ ...newBus, travel_time: e.target.value })}
                         />
-                        <input
+                        {/* <input
                             type="text"
-                            placeholder="Add Image URL"
-                            value={newBus.image}
-                            onChange={(e) => setNewBus({ ...newBus, image: e.target.value })}
-                        />
+                            placeholder="Add Number Plate"
+                            value={newBus.number_plate}
+                            onChange={(e) => setNewBus({ ...newBus, number_plate: e.target.value })}
+                        /> */}
 
                         <div className="buses-modal-actions">
                              <button className="buses-cancel-button" onClick={() => setShowModal(false)}>Cancel</button>
                             <button className="buses-save-button" onClick={handleAddBus}>Add</button>
+                           
                         </div>
                     </div>
                 </div>
