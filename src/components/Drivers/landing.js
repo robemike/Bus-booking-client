@@ -22,7 +22,7 @@ function Landing() {
 
         const fetchTrips = async () => {
             try {
-                const response = await fetch('https://bus-booking-server.onrender.com/trips');
+                const response = await fetch('https://bus-booking-server.onrender.com/view_scheduled_buses');
                 const data = await response.json();
                 setTrips(data);
             } catch (error) {
@@ -51,7 +51,7 @@ function Landing() {
                 <div className="landing-sidebar">
                     <li><a onClick={() => navigate("/drivers/landing")}>Dashboard</a></li>
                     <li><a onClick={() => navigate("/drivers/buses")}>Buses</a></li>
-                    <li><a onClick={() => navigate("/drivers/trips")}>Trips</a></li>
+                    <li><a onClick={() => navigate("/drivers/view_scheduled_buses")}>Trips</a></li>
                     <li><a onClick={() => navigate("/drivers/customer-list")}>Customers</a></li>
                 </div>
                 <div className="landing-content">
@@ -60,7 +60,7 @@ function Landing() {
                             <h2>Buses</h2>
                             <p>View Buses.</p>
                         </div>
-                        <div className="landing-card" onClick={() => navigate('/drivers/trips')}>
+                        <div className="landing-card" onClick={() => navigate('/drivers/view_scheduled_buses')}>
                             <h2>Trips</h2>
                             <p>View Scheduled Trips.</p>
                         </div>
