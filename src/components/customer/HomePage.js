@@ -1,4 +1,8 @@
 import React from "react";
+<<<<<<< HEAD
+=======
+// import Navbar from "./Navbar";
+>>>>>>> merge
 import Destinations from "./Destinations";
 import buses from "../../assets/buses.jpg";
 import BookingForm from "./BookingForm";

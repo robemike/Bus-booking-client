@@ -1,29 +1,55 @@
 import React, { useState } from "react";
-import './customerlogin.css'
+import './customerlogin.css';
 import { useNavigate } from "react-router-dom";
 
 function Login() {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
-
-    const handleSubmit = (event) => {
-        event.preventDefault();
-        console.log('Username:', username);
-        console.log('Password:', password);
-    };
-
+    const [error, setError] = useState('');
     const navigate = useNavigate();
 
-  
+    const handleSubmit = async (event) => {
+        event.preventDefault();
+
+        try {
+           
+            const response = await fetch('https://bus-booking-server.onrender.com/login', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    email: username,
+                    password: password,
+                }),
+            });
+
+            const data = await response.json();
+
+            if (response.ok) {
+               
+                localStorage.setItem('token', data.token);
+
+               
+                navigate('/');
+            } else {
+              
+                setError(data.message || 'Invalid credentials. Please try again.');
+            }
+        } catch (error) {
+            console.error('Error during login:', error);
+            setError('An unexpected error occurred. Please try again later.');
+        }
+    };
 
     return (
         <form onSubmit={handleSubmit}>
-
             <div className="customer-login">
                 <h1>Welcome to Buslink</h1>
                 <p>You are just one step away!</p>
                 <h2>Fill in the details below to access your account.</h2>
-                <hr></hr>
+                <hr />
+                {error && <div className="error-message">{error}</div>}
                 <label htmlFor="Email"><b>Email</b></label>
                 <input
                     type="text"
@@ -44,16 +70,14 @@ function Login() {
                     required
                 />
                 <div>
-                <button type="submit">Login</button>
-                <div className="signin-link">
-                        <p>Don't have an account <a href="#" onClick={() => navigate("/signup")}>Sign up</a>.</p>
+                    <button type="submit">Login</button>
+                    <div className="signin-link">
+                        <p>Don't have an account? <a href="#" onClick={() => navigate("/signup")}>Sign up</a>.</p>
                     </div>
                 </div>
-                
             </div>
         </form>
     );
 }
 
 export default Login;
-

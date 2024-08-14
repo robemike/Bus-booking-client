@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 import React, { useState } from "react";
+=======
+import React, { useState, useEffect } from "react";
+>>>>>>> merge
 import "./busdetails.css";
 import { useParams } from "react-router-dom";
 
