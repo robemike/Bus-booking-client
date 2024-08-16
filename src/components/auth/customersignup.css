@@ -3,6 +3,7 @@
   background-color: #f9f9f9;
   padding: 20px;
   border-radius: 8px;
+ }
  .customer-signup {
   background-color: #f9f9f9;
   padding: 20px;
@@ -60,6 +61,7 @@
   margin-bottom: 8px;
   font-weight: bold;
   color: #333;
+}
 .customer-signup label {
   display: block;
   margin-bottom: 8px;
@@ -81,6 +83,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+}
 .customer-signup input[type="text"],
 .customer-signup input[type="password"] {
   width: 100%;
@@ -99,6 +102,7 @@
 
 .customer-signup .signupbtn {
   background-color: #4CAF50;
+}
 .customer-signup .signupbtn {
   background-color: #4CAF50;
   color: white;
