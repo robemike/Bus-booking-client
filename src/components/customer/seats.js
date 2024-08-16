@@ -3,7 +3,7 @@ import "./seats.css";
 
 function Seats() {
   const [seatsData, setSeatsData] = useState([]);
-  const [selectedSeats, setSelectedSeats] = useState([]);
+  const [selectedSeat, setSelectedSeat] = useState(null);
   const [route, setRoute] = useState('');
 
   useEffect(() => {
@@ -12,8 +12,8 @@ function Seats() {
         const response = await fetch(`https://bus-booking-server.onrender.com/seats`);
         const data = await response.json();
         console.log(data);
-        setSeatsData(data);  // Assuming the API returns an array of seat objects
-        setRoute(data.route); // Assuming route is part of the response
+        setSeatsData(data); 
+        setRoute(data.route); 
       } catch (error) {
         console.error("Error fetching bus data:", error);
       }
@@ -23,10 +23,10 @@ function Seats() {
   }, []);
 
   const handleSeatClick = (seatNumber) => {
-    if (selectedSeats.includes(seatNumber)) {
-      setSelectedSeats(selectedSeats.filter((s) => s !== seatNumber));
+    if (selectedSeat === seatNumber) {
+      setSelectedSeat(null); 
     } else {
-      setSelectedSeats([...selectedSeats, seatNumber]);
+      setSelectedSeat(seatNumber); 
     }
   };
 
@@ -37,23 +37,23 @@ function Seats() {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ seats: selectedSeats }),
+        body: JSON.stringify({ seats: [selectedSeat] }),
       });
 
       if (response.ok) {
-        alert("Seats booked successfully!");
+        alert("Seat booked successfully!");
         const updatedSeats = seatsData.map((seat) =>
-          selectedSeats.includes(seat.seatNumber)
+          seat.seatNumber === selectedSeat
             ? { ...seat, status: "booked" }
             : seat
         );
         setSeatsData(updatedSeats);
-        setSelectedSeats([]);
+        setSelectedSeat(null); 
       } else {
-        console.error("Failed to book seats");
+        console.error("Failed to book seat");
       }
     } catch (error) {
-      console.error("Error booking seats:", error);
+      console.error("Error booking seat:", error);
     }
   };
 
@@ -75,7 +75,7 @@ function Seats() {
               className={`seat ${
                 seat.status === "booked"
                   ? "occupied"
-                  : selectedSeats.includes(seat.seatNumber)
+                  : selectedSeat === seat.seatNumber
                   ? "selected"
                   : "available"
               }`}
@@ -129,8 +129,8 @@ function Seats() {
           {viewDestinationTable()}
         </div>
       </div>
-      <button onClick={handleBooking} disabled={selectedSeats.length === 0}>
-        Book Selected Seats
+      <button onClick={handleBooking} disabled={!selectedSeat}>
+        Book Selected Seat
       </button>
     </div>
   );
