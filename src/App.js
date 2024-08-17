@@ -18,6 +18,7 @@ import Landing from "./components/Drivers/landing";
 import CustomerList from "./components/Drivers/customerlist";
 import Trips from "./components/Drivers/trips";
 import BusDetails from "./components/Drivers/busdetails";
+import Signup from "./components/auth/driversignup";
 
 
 function App() {
@@ -48,6 +49,7 @@ function App() {
         <Route path="/admin/drivers" element={<Drivers />} />
         <Route path="/admin/customers" element={<Customers />} />
         <Route path="/admin/buses" element={<Buses />} />
+        <Route path="/drivers/signup" element={<Signup />} />
           
       </Routes>
   </Router>

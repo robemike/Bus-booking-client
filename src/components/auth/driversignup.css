@@ -1,0 +1,133 @@
+
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f4f4f9;
+}
+
+/* Form Container */
+form {
+    width: 100%;
+    max-width: 400px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Container inside the form */
+.container {
+    display: flex;
+    flex-direction: column;
+}
+
+h1 {
+    font-size: 24px;
+    color: #333;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+p {
+    color: #666;
+    font-size: 14px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+hr {
+    border: 0;
+    height: 1px;
+    background: #ddd;
+    margin-bottom: 20px;
+}
+
+/* Label Styles */
+label {
+    color: #333;
+    font-weight: bold;
+    margin-bottom: 5px;
+    display: inline-block;
+}
+
+/* Input Styles */
+input[type="text"], input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    transition: border-color 0.3s;
+}
+
+input[type="text"]:focus, input[type="password"]:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+/* Button Styles */
+.signupbtn {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    font-size: 16px;
+    margin-top: 10px;
+    transition: background-color 0.3s;
+}
+
+.signupbtn:hover {
+    background-color: #0056b3;
+}
+
+.clearfix {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Sign-in Link */
+.signin-link {
+    margin-top: 20px;
+    font-size: 14px;
+}
+
+.signin-link a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.signin-link a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    form {
+        padding: 15px;
+        margin: 10px;
+    }
+
+    h1 {
+        font-size: 20px;
+    }
+
+    p {
+        font-size: 12px;
+    }
+
+    input[type="text"], input[type="password"] {
+        padding: 8px;
+    }
+
+    .signupbtn {
+        padding: 8px 15px;
+        font-size: 14px;
+    }
+}
