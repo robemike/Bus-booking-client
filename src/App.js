@@ -19,7 +19,6 @@ import CustomerList from "./components/Drivers/customerlist";
 import Trips from "./components/Drivers/trips";
 import BusDetails from "./components/Drivers/busdetails";
 import UploadWidget from "./components/UploadWidget";
-import BusTicket from "./components/customer/busticket";
 
 
 function App() {
@@ -50,7 +49,6 @@ function App() {
         <Route path="/admin/drivers" element={<Drivers />} />
         <Route path="/admin/customers" element={<Customers />} />
         <Route path="/admin/buses" element={<Buses />} />
-        <Route path="/bus-ticket" element={<BusTicket />} />
         <Route path="/upload-widget" element={<UploadWidget />} />
       </Routes>
   </Router>

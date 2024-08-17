@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from "react";
 import './buses.css';
 import { useNavigate } from "react-router-dom";
@@ -82,8 +81,6 @@ function DriverBuses() {
             number_of_seats: "",
             route: "",
             travel_time: "",
-            number_plate: "",
-            image: ""
             number_plate: "",
             image: ""
         });
@@ -221,15 +218,10 @@ function DriverBuses() {
                             placeholder="Add Bus Name"
                             value={newBus.username}
                             onChange={(e) => setNewBus({ ...newBus, username: e.target.value })}
-                            value={newBus.username}
-                            onChange={(e) => setNewBus({ ...newBus, username: e.target.value })}
                         />
                         <input
                             type="text"
                             placeholder="Add Number Plate"
-                            value={newBus.number_plate}
-                            onChange={(e) => setNewBus({ ...newBus, number_plate: e.target.value })}
-                        />
                             value={newBus.number_plate}
                             onChange={(e) => setNewBus({ ...newBus, number_plate: e.target.value })}
                         />
@@ -258,16 +250,12 @@ function DriverBuses() {
                             onChange={(e) => setNewBus({ ...newBus, travel_time: e.target.value })}
                         />
                         <input
-                        <input
                             type="text"
                             placeholder="Add Image URL"
                             value={newBus.image}
                             onChange={(e) => setNewBus({ ...newBus, image: e.target.value })}
                         />
-                            placeholder="Add Image URL"
-                            value={newBus.image}
-                            onChange={(e) => setNewBus({ ...newBus, image: e.target.value })}
-                        />
+                            
 
                         <div className="buses-modal-actions">
                             <button className="buses-cancel-button" onClick={() => setShowBusModal(false)}>Cancel</button>
