@@ -72,7 +72,7 @@ function Login() {
                 <div>
                     <button type="submit">Login</button>
                     <div className="signin-link">
-                        <p>Don't have an account? <a href="#" onClick={() => navigate("/signup")}>Sign up</a>.</p>
+                        <p>Don't have an account? <a href="signup" onClick={() => navigate("/signup")}>Sign up</a>.</p>
                     </div>
                 </div>
             </div>

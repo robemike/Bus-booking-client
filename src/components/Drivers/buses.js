@@ -305,10 +305,14 @@ function DriverBuses() {
                     </div>
                 </div>
             )}
-                            <footer className="buses-footer">© 2024 BUSLINK BUSES</footer>
 
         </div>
     );
 }
 
 export default DriverBuses;
+
+
+
+
+

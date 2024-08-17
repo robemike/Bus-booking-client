@@ -12,6 +12,7 @@ const Navbar = () => {
         <Link to={'/signup'} className='link'>Sign Up</Link>
         <Link className='link'>Contact Us</Link>
         <Link to={'/login'} className='link'>Log In</Link>
+        {/* <Link to={'/logout'} className='link'>Log Out</Link> */}
         {/* <Link to={`/buses/${bus.id}/seats`}></Link> */}
       </div>
     </nav>
