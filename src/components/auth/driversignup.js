@@ -10,7 +10,7 @@ function Signup() {
     // }
     return (
         <form action="action_page.php" style={{ border: '1px solid #ccc' }}>
-            <div className="container">
+            <div className="driversignup-container">
                 <h1>Sign Up</h1>
                 <p>Please fill in the details below to create an account.</p>
                 <hr />
@@ -82,9 +82,9 @@ function Signup() {
 
 
 
-                <div className="clearfix">
-                    <button type="submit" className="signupbtn">Sign Up</button>
-                    <div className="signin-link">
+                <div className="driversignup-clearfix">
+                    <button type="submit" className="driversignup-btn">Sign Up</button>
+                    <div className="driversignup-signin-link">
                         <p>Already have an account? <a href="#" onClick={() => navigate("/drivers/login")}>Sign in</a>.</p>
                     </div>
 
