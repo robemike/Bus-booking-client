@@ -16,6 +16,7 @@ function Trips() {
             })
             .catch(error => console.error('Error fetching trip data:', error));
     }, []);
+   
 
     return (
         <div>
@@ -47,6 +48,7 @@ function Trips() {
             </div>
         </div>
     );
+          
 }
 
 export default Trips;

@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from "react";
 import './buses.css';
 import { useNavigate } from "react-router-dom";
@@ -84,6 +83,7 @@ function DriverBuses() {
             image: ""
         });
         setEditMode(false);
+        setEditMode(false);
     };
 
     const handleEditBus = (index) => {
@@ -155,12 +155,14 @@ function DriverBuses() {
                 <li><a onClick={() => navigate("/drivers/landing")}>Dashboard</a></li>
                 <li><a onClick={() => navigate("/drivers/buses")}>Buses</a></li>
                 <li><a onClick={() => navigate("/drivers/view_scheduled_buses")}>Trips</a></li>
+                <li><a onClick={() => navigate("/drivers/view_scheduled_buses")}>Trips</a></li>
                 <li><a onClick={() => navigate("/drivers/customer-list")}>Customers</a></li>
             </div>
 
             <div className="buses-content-container">
                 <header className="buses-header">
                     BUSLINK BUSES
+                    <button className="buses-add-bus-button" onClick={() => setShowBusModal(true)}>Add Bus</button>
                     <button className="buses-add-bus-button" onClick={() => setShowBusModal(true)}>Add Bus</button>
                 </header>
 
@@ -170,6 +172,7 @@ function DriverBuses() {
                     </div>
 
                     <ul className="buses-bus-list">
+            
                         {datatodisplay.map((bus, index) => (
                             <li 
                                 className="buses-bus-item" 
@@ -209,6 +212,7 @@ function DriverBuses() {
             {showBusModal && (
                 <div className="buses-modal">
                     <div className="buses-modal-content">
+                        <h2>{editMode ? "Edit Bus" : "Add New Bus"}</h2>
                         <h2>{editMode ? "Edit Bus" : "Add New Bus"}</h2>
                         
                         <input

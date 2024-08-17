@@ -38,6 +38,7 @@ function Customer() {
                   <th>SEAT NO.</th>
                   <th>TRAVEL DATE</th>
                   <th>TIME</th>
+                  <th>ACTIONS</th>
                 </tr>
               </thead>
               <tbody>

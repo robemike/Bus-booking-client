@@ -6,7 +6,7 @@ const FindBus1 = () => {
   const [busData, setBusData] = useState([]);
   const navigate = useNavigate();
   const location=useLocation()
-  const { formData } = location.state;
+  const {formData}=location.state
   useEffect(() => {
     const fetchBusData = async () => {
       try {

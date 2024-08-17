@@ -6,6 +6,7 @@ function Landing() {
     const [buses, setBuses] = useState([]);
     const [trips, setTrips] = useState([]);
     const [customers, setCustomers] = useState([]);
+
     
     const navigate = useNavigate();
 
@@ -52,6 +53,7 @@ function Landing() {
                     <li><a onClick={() => navigate("/drivers/landing")}>Dashboard</a></li>
                     <li><a onClick={() => navigate("/drivers/buses")}>Buses</a></li>
                     <li><a onClick={() => navigate("/drivers/view_scheduled_buses")}>Trips</a></li>
+                    <li><a onClick={() => navigate("/drivers/view_scheduled_buses")}>Trips</a></li>
                     <li><a onClick={() => navigate("/drivers/customer-list")}>Customers</a></li>
                 </div>
                 <div className="landing-content">
@@ -61,6 +63,7 @@ function Landing() {
                             <p>View Buses.</p>
                         </div>
                         <div className="landing-card" onClick={() => navigate('/drivers/view_scheduled_buses')}>
+    
                             <h2>Trips</h2>
                             <p>View Scheduled Trips.</p>
                         </div>
@@ -75,4 +78,4 @@ function Landing() {
     );
 }
 
-export default Landing;
+export default Landing

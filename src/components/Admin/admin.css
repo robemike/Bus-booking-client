@@ -1,77 +1,78 @@
 
-.admin-container {
-  display: flex;
-  flex-direction: column; 
-  height: 100vh; 
-}
+  .admin-container {
+    display: flex;
+    flex-direction: column; 
+    height: 100vh; 
+  }
+  
+  
+  .admin-row {
+    display: flex;
+    flex: 1; 
+  }
+  
+ 
+  .admin-sidebar {
+    width: 250px; 
+    background-color: #34495e;
+    color: #fff;
+    padding: 20px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+  }
+  
+  .admin-sidebar a {
+    display: block;
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .admin-sidebar a:hover {
+    background-color: #2c3e50; 
+  }
+  
+ 
+  .admin-content {
+    flex: 1;
+    padding: 20px;
+    background-color: #ecf0f1;
+    overflow-y: auto; 
+    box-sizing: border-box;
+  }
+  
 
-
-.admin-row {
-  display: flex;
-  flex: 1; 
-}
-
-
-.admin-sidebar {
-  width: 250px; 
-  background-color: #34495e;
-  color: #fff;
-  padding: 20px;
-  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
-  box-sizing: border-box;
-}
-
-.admin-sidebar a {
-  display: block;
-  color: #fff;
-  text-decoration: none;
-  font-size: 16px;
-  font-weight: bold;
-  padding: 10px;
-  margin-bottom: 10px;
-  border-radius: 4px;
-  transition: background-color 0.3s ease;
-}
-
-.admin-sidebar a:hover {
-  background-color: #2c3e50; 
-}
-
-
-.admin-content {
-  flex: 1;
-  padding: 20px;
-  background-color: #ecf0f1;
-  overflow-y: auto; 
-  box-sizing: border-box;
-}
-
-
-.admin-cards-container {
-  display: flex;
-  flex-wrap: wrap; 
-  gap: 20px; 
-}
-
-.admin-card {
-  background-color: #fff;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  flex: 1;
-  min-width: 200px; 
-  cursor: pointer;
-  transition: transform 0.3s ease;
-}
-
-.admin-card:hover {
-  transform: scale(1.05); 
-}
-
-.admin-card h2 {
-  margin-top: 0;
-}
-
-.admin-card p {
-  margin-bottom: 0;
-}
+  .admin-cards-container {
+    display: flex;
+    flex-wrap: wrap; 
+    gap: 20px; 
+  }
+  
+  .admin-card {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    flex: 1;
+    min-width: 200px; 
+    cursor: pointer;
+    transition: transform 0.3s ease;
+  }
+  
+  .admin-card:hover {
+    transform: scale(1.05); 
+  }
+  
+  .admin-card h2 {
+    margin-top: 0;
+  }
+  
+  .admin-card p {
+    margin-bottom: 0;
+  }
+  

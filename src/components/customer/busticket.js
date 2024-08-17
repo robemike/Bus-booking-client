@@ -1,5 +1,8 @@
 import React from "react";
 import { useLocation } from "react-router-dom";
+import { useState,useEffect } from "react";
+
+
 import './busticket.css';
 
 function BusTicket() {
@@ -7,7 +10,22 @@ function BusTicket() {
     const { formData, bus, selectedSeats } = location.state;
     const totalCost = bus.cost_per_seat * selectedSeats.length;
     const selectedSeatsString = selectedSeats.join(", ");
-    console.log(formData);
+    const [phoneNumber, setPhoneNumber] = useState("");
+
+    useEffect(() => {
+        const fetchPhoneNumber = async () => {
+            try {
+                const response = await fetch(`https://bus-booking-server.onrender.com/customers/${formData.customer_id}`);
+                const customerData = await response.json();
+                console.log(customerData);
+                setPhoneNumber(customerData.phone_number);
+;            } catch (error) {
+                console.error("Error fetching phone number:", error);
+            }
+        };
+
+        fetchPhoneNumber();
+    }, [formData.customer_id]);
 
     const handleConfirm = () => {
         console.log("Order confirmed:", formData);
@@ -21,7 +39,7 @@ function BusTicket() {
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify({
-                    phoneNumber: formData.phone_number,  // Using the phone_number from formData
+                    phoneNumber: formData.phone_number,  
                     amount: totalCost,
                 }),
             });
@@ -51,7 +69,7 @@ function BusTicket() {
                 <p><strong>Booking Date:</strong> {formData.departure_date}</p>
                 <p><strong>Departure Time:</strong> {formData.departure_time}</p>
                 <p><strong>Selected Seats:</strong> {selectedSeatsString}</p>
-                <p><strong>Phone Number:</strong> {formData.phone_number}</p>  {/* Displaying the phone number */}
+                <p><strong>Phone Number:</strong> {setPhoneNumber}</p>              
                 <p><strong>Total Cost:</strong> Ksh{totalCost}</p>
                 <button className="btn confirm" onClick={handleConfirm}>Confirm</button>
                 <button className="btn mpesa" onClick={handleMpesaPayment}>Mpesa</button>
@@ -61,3 +79,4 @@ function BusTicket() {
 }
 
 export default BusTicket;
+
