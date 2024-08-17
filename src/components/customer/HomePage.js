@@ -1,8 +1,5 @@
 import React from "react";
-<<<<<<< HEAD
-=======
-// import Navbar from "./Navbar";
->>>>>>> merge
+import Navbar from "../Navbar";
 import Destinations from "./Destinations";
 import buses from "../../assets/buses.jpg";
 import BookingForm from "./BookingForm";
@@ -10,6 +7,7 @@ import BookingForm from "./BookingForm";
 const HomePage = () => {
   return (
     <div>
+      <Navbar />
       <div className="pt-16">
         <img
           src={buses}

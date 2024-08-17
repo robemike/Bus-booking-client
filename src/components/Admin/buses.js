@@ -42,7 +42,9 @@ function Buses() {
             <ul>
               {buses.map((bus, index) => (
                 <li key={index} className="buses-item">
-                  <strong>{bus.username}</strong> 
+                  <strong>{bus.username} - {bus.number_plate}</strong> 
+                  
+                  
                   {/* <strong>{bus}</strong> */}
                 </li>
               ))}

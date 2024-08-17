@@ -1,119 +1,238 @@
+
 import React, { useState, useEffect } from "react";
 import './buses.css';
 import { useNavigate } from "react-router-dom";
 
 function DriverBuses() {
-    const navigate = useNavigate(); 
-    const [busData, setBusData] = useState([
-        { name: 'SUPER METRO', code: 'KZF 456F' },
-        { name: 'THE GUARDIAN', code: 'KWT 654T' },
-        { name: 'LOPHA TRAVELERS', code: 'KDA 214K'},
-        { name: 'STARBUS', code: 'KDB 676U' },
-        { name: 'MORDERN BUS', code: 'KBQ 678U' },
-        { name: 'EMBASSAVA', code: 'KDC 766O'},
-        { name: 'MURANGA SHUTTLE', code: 'KAA 567Y'}
-    ]);
-
-    const [showModal, setShowModal] = useState(false);
+    const navigate = useNavigate();
+    const [busData, setBusData] = useState([]);
+    const [showBusModal, setShowBusModal] = useState(false);
+    const [showScheduleModal, setShowScheduleModal] = useState(false);
+    const [editMode, setEditMode] = useState(false);
+    const [search, setSearch] = useState("");
     const [newBus, setNewBus] = useState({
-        name: "",
-        code: "",
         username: "",
         cost_per_seat: "",
         number_of_seats: "",
         route: "",
         travel_time: "",
-        number_plate: ""
+        number_plate: "",
+        image: ""
+    });
+    const [editingIndex, setEditingIndex] = useState(null);
+    const [schedule, setSchedule] = useState({
+        bus_id: "",
+        departure_time: "",
+        arrival_time: "",
+        travel_date: ""
     });
 
-    const handleAddBus = () => {
-        setBusData([...busData, newBus]);
-        setShowModal(false);
+    useEffect(() => {
+        fetch('https://bus-booking-server.onrender.com/buses')
+            .then(response => response.json())
+            .then(data => setBusData(data))
+            .catch(error => {
+                console.error('Error fetching bus data:', error);
+            });
+    }, []);
+
+    const handleAddEditBus = () => {
+        if (editMode) {
+            // Update existing bus
+            fetch(`https://bus-booking-server.onrender.com/edit-buses/${newBus.id}`, {
+                method: 'PATCH',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(newBus),
+            })
+            .then(response => response.json())
+            .then(updatedBus => {
+                console.log(updatedBus)
+                const updatedBusData = [...busData];
+                updatedBusData[editingIndex] = newBus;
+                setBusData(updatedBusData);
+            })
+            .catch(error => {
+                console.error('Error updating bus data:', error);
+            });
+        } else {
+            console.log(newBus)
+            // Create new bus
+            fetch('https://bus-booking-server.onrender.com/register/buses', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(newBus),
+            })
+            .then(response => response.json())
+            .then(addedBus => {
+                setBusData([...busData, newBus]);
+            })
+            .catch(error => {
+                console.error('Error adding new bus:', error);
+            });
+        }
+
+        setShowBusModal(false);
         setNewBus({
-            name: "",
-            code: "",
             username: "",
             cost_per_seat: "",
             number_of_seats: "",
             route: "",
             travel_time: "",
-            number_plate: ""
+            number_plate: "",
+            image: ""
+            number_plate: "",
+            image: ""
+        });
+        setEditMode(false);
+    };
+
+    const handleEditBus = (index) => {
+        setNewBus(busData[index]);
+        setEditingIndex(index);
+        setEditMode(true);
+        setShowBusModal(true);
+    };
+
+    // const handleDeleteBus = (index) => {
+    //     console.log(busData[index].id)
+    //     fetch(`https://bus-booking-server.onrender.com/buses/${busData[index].id}`, {
+    //         method: 'DELETE',
+    //     })
+    //     .then(() => {
+    //         const updatedBusData = busData.filter((_, i) => i !== index);
+    //         setBusData(updatedBusData);
+    //     })
+    //     .catch(error => {
+    //         console.error('Error deleting bus:', error);
+    //     });
+    // };
+
+    const handleScheduleBus = () => {
+        fetch('https://bus-booking-server.onrender.com/schedule_buses', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({...schedule,bus_id: newBus.id, available_seats: newBus.number_of_seats, occupied_seats:0}),
+        })
+        .then(response => response.json())
+        .then(addedSchedule => {
+            alert('Bus scheduled successfully!');
+        })
+        .catch(error => {
+            console.error('Error scheduling bus:', error);
+        });
+
+        setShowScheduleModal(false);
+        setSchedule({
+            bus_id: "",
+            departure_time: "",
+            arrival_time: "",
+            travel_date: ""
         });
     };
 
-    const handleDeleteBus = (index) => {
-        const updatedBusData = busData.filter((_, i) => i !== index);
-        setBusData(updatedBusData);
-    };
+   
+
+   const datatodisplay = busData.filter(bus => {
+    if (search.length > 0) {
+        return (bus.username.toLowerCase().includes(search.toLowerCase()))
+    }
+    else {
+        return bus
+    }
+   });
+
+   const handlebusschedule = (index) => {
+    setNewBus(busData[index]);
+    setShowScheduleModal(true)
+   }
+
 
     return (
         <div className="buses-container">
             <div className="buses-sidebar">
                 <li><a onClick={() => navigate("/drivers/landing")}>Dashboard</a></li>
                 <li><a onClick={() => navigate("/drivers/buses")}>Buses</a></li>
-                <li><a onClick={() => navigate("/drivers/trips")}>Trips</a></li>
+                <li><a onClick={() => navigate("/drivers/view_scheduled_buses")}>Trips</a></li>
                 <li><a onClick={() => navigate("/drivers/customer-list")}>Customers</a></li>
             </div>
 
             <div className="buses-content-container">
                 <header className="buses-header">
                     BUSLINK BUSES
-                    <button className="buses-add-bus-button" onClick={() => setShowModal(true)}>Add Bus</button>
+                    <button className="buses-add-bus-button" onClick={() => setShowBusModal(true)}>Add Bus</button>
                 </header>
 
                 <div className="buses-content">
                     <div className="buses-search-bar">
-                        <input type="search" placeholder="Search Bus" />
+                        <input type="search" placeholder="Search Bus" onChange={(e) => setSearch(e.target.value)} />
                     </div>
 
                     <ul className="buses-bus-list">
-                        {busData.map((bus, index) => (
-                            <li className="buses-bus-item" key={index} onClick={() => navigate(`/drivers/buses/${bus.name}`)}>
-                            <div className="buses-bus-info">
-                                <span className="buses-bus-icon">🚌</span>
-                                <span>{bus.name}  </span>
-                                <span className="buses-bus-code">{bus.code}</span>
-                            </div>
-                            <button
-                                className="buses-delete-button"
-                                onClick={(e) => {
-                                    e.stopPropagation();
-                                    handleDeleteBus(index);
-                                }}
+                        {datatodisplay.map((bus, index) => (
+                            <li 
+                                className="buses-bus-item" 
+                                key={index}
+                                
                             >
-                                Delete
-                            </button>
-                        </li>
+                                <div className="buses-bus-info">
+                                    <span className="buses-bus-icon">🚌</span>
+                                    <span>{bus.username}</span>
+                                    <br></br><br></br>
+                                    <span className="buses-bus-code">{bus.route}</span>
+                                    <br></br><br></br>
+                                    <span className="buses-bus-code">{bus.number_plate}</span>
+                                </div>
+                                <button
+                                    className="buses-edit-button"
+                                    onClick={(e) => {
+                                        e.stopPropagation();
+                                        handleEditBus(index);
+                                    }}
+                                >
+                                    Edit
+                                </button>
+                                <button
+                                    onClick={() => handlebusschedule(index) }
+                                    
+                                >
+                                    Schedule
+                                </button>
+                            </li>
                         ))}
                     </ul>
                 </div>
 
-                <footer className="buses-footer">© 2023 BUSLINK BUSES</footer>
+                {/* <footer className="buses-footer">© 2024 BUSLINK BUSES</footer> */}
             </div>
 
-            {showModal && (
+            {showBusModal && (
                 <div className="buses-modal">
                     <div className="buses-modal-content">
-                        <h2>Add New Bus</h2>
+                        <h2>{editMode ? "Edit Bus" : "Add New Bus"}</h2>
                         
                         <input
                             type="text"
                             placeholder="Add Bus Name"
-                            value={newBus.name}
-                            onChange={(e) => setNewBus({ ...newBus, name: e.target.value })}
+                            value={newBus.username}
+                            onChange={(e) => setNewBus({ ...newBus, username: e.target.value })}
+                            value={newBus.username}
+                            onChange={(e) => setNewBus({ ...newBus, username: e.target.value })}
                         />
                         <input
                             type="text"
                             placeholder="Add Number Plate"
-                            value={newBus.code}
-                            onChange={(e) => setNewBus({ ...newBus, code: e.target.value })}
+                            value={newBus.number_plate}
+                            onChange={(e) => setNewBus({ ...newBus, number_plate: e.target.value })}
                         />
-                        {/* <input
-                            type="text"
-                            placeholder="Add Username"
-                            value={newBus.username}
-                            onChange={(e) => setNewBus({ ...newBus, username: e.target.value })}
-                        /> */}
+                            value={newBus.number_plate}
+                            onChange={(e) => setNewBus({ ...newBus, number_plate: e.target.value })}
+                        />
                         <input
                             type="number"
                             placeholder="Add Cost Per Seat"
@@ -138,17 +257,60 @@ function DriverBuses() {
                             value={newBus.travel_time}
                             onChange={(e) => setNewBus({ ...newBus, travel_time: e.target.value })}
                         />
-                        {/* <input
+                        <input
+                        <input
                             type="text"
-                            placeholder="Add Number Plate"
-                            value={newBus.number_plate}
-                            onChange={(e) => setNewBus({ ...newBus, number_plate: e.target.value })}
-                        /> */}
+                            placeholder="Add Image URL"
+                            value={newBus.image}
+                            onChange={(e) => setNewBus({ ...newBus, image: e.target.value })}
+                        />
+                            placeholder="Add Image URL"
+                            value={newBus.image}
+                            onChange={(e) => setNewBus({ ...newBus, image: e.target.value })}
+                        />
 
                         <div className="buses-modal-actions">
-                             <button className="buses-cancel-button" onClick={() => setShowModal(false)}>Cancel</button>
-                            <button className="buses-save-button" onClick={handleAddBus}>Add</button>
-                           
+                            <button className="buses-cancel-button" onClick={() => setShowBusModal(false)}>Cancel</button>
+                            <button className="buses-save-button" onClick={handleAddEditBus}>
+                                {editMode ? "Save Changes" : "Add Bus"}
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            )}
+
+            {showScheduleModal && (
+                <div className="buses-modal">
+                    <div className="buses-modal-content">
+                        <h2>Schedule Bus</h2>
+
+                        <label>departure</label>
+                        <input
+                            type="input"
+                            placeholder="Departure Time"
+                            value={schedule.departure_time}
+                            onChange={(e) => setSchedule({ ...schedule, departure_time: e.target.value })}
+                        />
+                        <label>arrival time</label>
+                        <input
+                            type="input"
+                            placeholder="Arrival Time"
+                            value={schedule.arrival_time}
+                            onChange={(e) => setSchedule({ ...schedule, arrival_time: e.target.value })}
+                        />
+                        <label>Date</label>
+                        <input
+                            type="date"
+                            placeholder="Date"
+                            value={schedule.date}
+                            onChange={(e) => setSchedule({ ...schedule, travel_date: e.target.value })}
+                        />
+
+                        <div className="buses-modal-actions ">
+                            <button className="buses-cancel-button" onClick={() => setShowScheduleModal(false)}>Cancel</button>
+                            <button className="buses-save-button" onClick={handleScheduleBus}>
+                                Schedule Bus
+                            </button>
                         </div>
                     </div>
                 </div>

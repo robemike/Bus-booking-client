@@ -16,13 +16,14 @@
     font-weight: bold;
 }
 
-.navbar-right a {
+.navbar-right .link {
     color: white;
     text-decoration: none;
     margin-left: 20px;
     font-size: 1em;
 }
 
-.navbar-right a:hover {
+.navbar-right .link:hover {
     text-decoration: underline;
+    color: blue;
 }

@@ -2,10 +2,6 @@ body {
   background: linear-gradient(68.6deg, rgb(252, 165, 241) 1.8%, rgb(181, 255, 255) 100.5%);
 }
 
-body {
-  background: linear-gradient(68.6deg, rgb(252, 165, 241) 1.8%, rgb(181, 255, 255) 100.5%);
-}
-
 .find-bus {
   background-color: #f5f5f5; 
   padding: 20px; 
