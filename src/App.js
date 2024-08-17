@@ -1,6 +1,7 @@
 import CustomerLogin from "./components/auth/customerlogin";
 import CustomerSignup from "./components/auth/customersignup";
 import Logins from './components/auth/driverlogin'
+import BusTicket from "./components/customer/busticket";
 import Customer from "./components/customer/customerpage";
 import './App.css';
 import FindBus1 from './components/customer/Findbus';
@@ -17,8 +18,8 @@ import Landing from "./components/Drivers/landing";
 import CustomerList from "./components/Drivers/customerlist";
 import Trips from "./components/Drivers/trips";
 import BusDetails from "./components/Drivers/busdetails";
-import BusTicket from "./components/customer/BusTicket"
 import UploadWidget from "./components/UploadWidget";
+import BusTicket from "./components/customer/busticket";
 
 
 function App() {
@@ -37,6 +38,7 @@ function App() {
         <Route path="/buses/:id/seats" element={<Seats />} />
         <Route path="/signup" element={<CustomerSignup />} />
         <Route path="/login" element={<CustomerLogin />} />
+        <Route path="busticket" element={<BusTicket />} />
         <Route path="/customer" element={<Customer />} />
         <Route path="/drivers/login" element={<Logins />} />
         <Route path="/drivers/landing" element={<Landing />} />
