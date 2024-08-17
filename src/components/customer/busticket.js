@@ -10,8 +10,35 @@ function BusTicket() {
     console.log(formData);
 
     const handleConfirm = () => {
-        
         console.log("Order confirmed:", formData);
+    };
+
+    const handleMpesaPayment = async () => {
+        try {
+            const response = await fetch('/pay', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    phoneNumber: formData.phoneNumber,
+                    amount: totalCost,
+                }),
+            });
+
+            const data = await response.json();
+
+            if (response.ok) {
+                console.log("M-Pesa STK Push initiated:", data);
+                alert('M-Pesa STK Push has been sent. Please complete the payment on your phone.');
+            } else {
+                console.error('M-Pesa STK Push failed:', data);
+                alert('Failed to initiate M-Pesa payment. Please try again.');
+            }
+        } catch (error) {
+            console.error('Error:', error);
+            alert('An error occurred. Please try again.');
+        }
     };
 
     return (
@@ -24,8 +51,10 @@ function BusTicket() {
                 <p><strong>Booking Date:</strong> {formData.departure_date}</p>
                 <p><strong>Departure Time:</strong> {formData.departure_time}</p>
                 <p><strong>Selected Seats:</strong> {selectedSeatsString}</p>
+                <p><strong>Phone Number:</strong> {formData.phoneNumber}</p>
                 <p><strong>Total Cost:</strong> ${totalCost}</p>
-                <button className="btn confirm" onClick={handleConfirm}>Confirm </button>
+                <button className="btn confirm" onClick={handleConfirm}>Confirm</button>
+                <button className="btn mpesa" onClick={handleMpesaPayment}>Mpesa</button>
             </div>
         </div>
     );
