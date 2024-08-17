@@ -1,64 +1,67 @@
-  .container {
-    display: flex;
-    height: 100vh; 
-  }
-  
-  
-  .driversidebar {
-    width: 250px; 
-    background-color: #2c3e50;
-    color: #fff;
-    padding: 20px;
-    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
-    box-sizing: border-box;
-    height: 100vh;
-    position: fixed; 
-  }
-  
-  .driversidebar a {
-    display: block;
-    color: #fff;
-    text-decoration: none;
-    font-size: 16px;
-    font-weight: bold;
-    padding: 10px;
-    margin-bottom: 10px;
-    border-radius: 4px;
-    transition: background-color 0.3s ease;
-  }
-  
-  .driversidebar a:hover {
-    background-color: #34495e; 
-  }
-  
-  
-  .driverscontent {
-    margin-left: 250px; 
-    padding: 20px;
-    background-color: #ecf0f1;
-    overflow-y: auto; 
-    box-sizing: border-box;
-  }
-  
-  .driverscontent h1 {
-    margin-top: 0;
-  }
-  
-  
-  .drivers-list {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-  }
-  
-  .driver-item {
-    margin-bottom: 10px;
-    background-color: #fff;
-    padding: 10px;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  }
-  
-  .driver-field {
-    font-size: 16px;
-  }
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+.container {
+  display: flex;
+  height: 100vh; 
+}
+
+.driversidebar {
+  width: 250px; 
+  background-color: #2c3e50;
+  color: #fff;
+  padding: 20px;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
+  height: 100vh;
+  position: fixed; 
+}
+
+.driversidebar a {
+  display: block;
+  color: #fff;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.driversidebar a:hover {
+  background-color: #34495e; 
+}
+
+.driverscontent {
+  margin-left: 250px; 
+  padding: 20px;
+  background-color: #ecf0f1;
+  overflow-y: auto; 
+  box-sizing: border-box;
+}
+
+.driverscontent h1 {
+  margin-top: 0;
+}
+
+.drivers-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.driver-item {
+  margin-bottom: 10px;
+  background-color: #fff;
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.driver-field {
+  font-size: 16px;
+}

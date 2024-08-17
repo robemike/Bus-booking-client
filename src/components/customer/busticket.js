@@ -21,7 +21,7 @@ function BusTicket() {
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify({
-                    phoneNumber: formData.phoneNumber,
+                    phoneNumber: formData.phone_number,  // Using the phone_number from formData
                     amount: totalCost,
                 }),
             });
@@ -51,8 +51,8 @@ function BusTicket() {
                 <p><strong>Booking Date:</strong> {formData.departure_date}</p>
                 <p><strong>Departure Time:</strong> {formData.departure_time}</p>
                 <p><strong>Selected Seats:</strong> {selectedSeatsString}</p>
-                <p><strong>Phone Number:</strong> {formData.phoneNumber}</p>
-                <p><strong>Total Cost:</strong> ${totalCost}</p>
+                <p><strong>Phone Number:</strong> {formData.phone_number}</p>  {/* Displaying the phone number */}
+                <p><strong>Total Cost:</strong> Ksh{totalCost}</p>
                 <button className="btn confirm" onClick={handleConfirm}>Confirm</button>
                 <button className="btn mpesa" onClick={handleMpesaPayment}>Mpesa</button>
             </div>

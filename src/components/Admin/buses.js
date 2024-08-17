@@ -1,30 +1,23 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import './buses.css';
 import { useNavigate } from "react-router-dom";
 
 function Buses() {
   const navigate = useNavigate();
+  const [buses, setBuses] = useState([]);
 
-  const buses = [
-    "SUPER METRO",
-    "GUARDIAN",
-    "LOPHA TRAVELS",
-    "BUKINA",
-    "MARALAL",
-    "METRO TRANS",
-    "CITI HOPPA",
-    "METRO TRANS",
-    "HOPPA TRANS",
-    "YUNION",
-  ];
+  // Fetch data from the backend
+  useEffect(() => {
+    fetch('https://bus-booking-server.onrender.com/admin/buses')
+      .then(response => response.json())
+      .then(data => setBuses(data))
+      .catch(error => {
+        console.error('Error fetching bus data:', error);
+      });
+  }, []);
 
   return (
     <div className="adminbuses-container">
-
-      {/* <div className="navbar">
-        <h1>BUSLINK</h1>
-      </div> */}
-
 
       <div className="adminbuses-row">
         <div className="adminbuses-sidebar">
@@ -42,18 +35,20 @@ function Buses() {
           </a>
         </div>
 
-
         <div className="adminbuses-content">
           <h1>Buses</h1>
 
           <div className="adminbuses-list">
-            {buses.map((buses, index) => (
-              <ul key={index} className="customer-item">
-                <li className="customer-field">
-                  <strong>{buses}</strong> {buses.name}
+            <ul>
+              {buses.map((bus, index) => (
+                <li key={index} className="buses-item">
+                  <strong>{bus.username} - {bus.number_plate}</strong> 
+                  
+                  
+                  {/* <strong>{bus}</strong> */}
                 </li>
-              </ul>
-            ))}
+              ))}
+            </ul>
           </div>
 
         </div>
