@@ -16,6 +16,7 @@ const BusTicket = () => {
         return response.json();
       })
       .then((data) => {
+        console.log(data);
         setTickets(data);
       })
       .catch((err) => {

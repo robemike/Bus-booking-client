@@ -8,7 +8,7 @@ import Admin from './components/Admin/admin';
 import Drivers from './components/Admin/drivers';
 import Customers from './components/Admin/customers';
 import Buses from './components/Admin/buses';
-import Seats from './components/customer/seats';
+import Seats from './components/customer/Seats';
 import HomePage from "./components/customer/HomePage";
 import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
@@ -18,6 +18,7 @@ import CustomerList from "./components/Drivers/customerlist";
 import Trips from "./components/Drivers/trips";
 import BusDetails from "./components/Drivers/busdetails";
 import BusTicket from "./components/customer/BusTicket"
+import UploadWidget from "./components/UploadWidget";
 
 
 function App() {
@@ -33,7 +34,7 @@ function App() {
         <Route path="/admin/drivers" element={<Drivers />} />
         <Route path="/admin/customers" element={<Customers />} />
         <Route path="/admin/buses" element={<Buses />} />
-        <Route path="/seats" element={<Seats />} />
+        <Route path="/buses/:id/seats" element={<Seats />} />
         <Route path="/signup" element={<CustomerSignup />} />
         <Route path="/login" element={<CustomerLogin />} />
         <Route path="/customer" element={<Customer />} />
@@ -48,7 +49,7 @@ function App() {
         <Route path="/admin/customers" element={<Customers />} />
         <Route path="/admin/buses" element={<Buses />} />
         <Route path="/bus-ticket" element={<BusTicket />} />
-          
+        <Route path="/upload-widget" element={<UploadWidget />} />
       </Routes>
   </Router>
   );
