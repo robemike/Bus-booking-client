@@ -1,0 +1,85 @@
+.customer-login {
+  background-color: #ffffff; 
+  padding: 30px; 
+  border-radius: 10px; 
+  width: 100%;
+  max-width: 400px; 
+  margin: 0 auto; 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+  margin-top: 40px;
+}
+
+.customer-login h1 {
+  text-align: center; 
+  font-size: 24px; 
+  margin-bottom: 10px; 
+  color: #333; 
+}
+
+.customer-login p {
+  text-align: center; 
+  font-size: 14px; 
+  margin-bottom: 10px; 
+  color: #666; 
+}
+
+.customer-login h2 {
+  text-align: center; 
+  font-size: 18px; 
+  margin-bottom: 20px; 
+  color: #444; 
+}
+
+.customer-login hr {
+  margin-bottom: 20px; 
+  border: none;
+  border-top: 1px solid #ddd; 
+}
+
+.customer-login label {
+  display: block; 
+  margin-bottom: 8px; 
+  font-weight: bold; 
+  color: #333;
+}
+
+.customer-login input[type="text"],
+.customer-login input[type="password"] {
+  width: 100%; 
+  padding: 10px; 
+  margin-bottom: 20px; 
+  border: 1px solid #ccc; 
+  border-radius: 4px; 
+  box-sizing: border-box; 
+}
+
+.customer-login button[type="submit"] {
+  width: 100%; 
+  padding: 12px; 
+  background-color: #4CAF50; 
+  color: white; 
+  border: none; 
+  border-radius: 4px; 
+  font-size: 16px; 
+  cursor: pointer; 
+}
+
+.customer-login button[type="submit"]:hover {
+  background-color: #45a049; 
+}
+
+.customer-login .signin-link {
+  margin-top: 20px; 
+  text-align: center; 
+}
+
+.customer-login .signin-link a {
+  color: #4CAF50; 
+  text-decoration: none; 
+}
+
+.customer-login .signin-link a:hover {
+  text-decoration: underline; 
+}
+
+  
