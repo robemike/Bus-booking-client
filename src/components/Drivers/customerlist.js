@@ -58,6 +58,7 @@ function CustomerList() {
           <ul>
             {customers.map((customer, index) => (
               <li key={index}>
+                
                 <div className="customerlist-info">
                   <span className="customerlist-name">{customer.firstname} {customer.lastname}</span>
                   <span className="customerlist-number">{customer.email}</span>
