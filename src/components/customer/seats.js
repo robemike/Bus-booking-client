@@ -1,60 +1,44 @@
 import React, { useState, useEffect } from "react";
+import { useParams, useLocation, useNavigate } from "react-router-dom";
 import "./seats.css";
 
 function Seats() {
+  const { busId } = useParams();
+  const location = useLocation();
+  const navigate = useNavigate();
+  const { formData, bus } = location.state;
   const [seatsData, setSeatsData] = useState([]);
-  const [selectedSeat, setSelectedSeat] = useState(null);
-  const [route, setRoute] = useState('');
+  const [selectedSeats, setSelectedSeats] = useState([]);
 
   useEffect(() => {
     const fetchBusData = async () => {
       try {
-        const response = await fetch(`https://bus-booking-server.onrender.com/seats`);
+        const response = await fetch(`http://127.0.0.1:5555/buses/${busId}/seats`);
         const data = await response.json();
         console.log(data);
-        setSeatsData(data); 
-        setRoute(data.route); 
+        setSeatsData(data);
       } catch (error) {
         console.error("Error fetching bus data:", error);
       }
     };
 
     fetchBusData();
-  }, []);
+  }, [busId]);
 
-  const handleSeatClick = (seatNumber) => {
-    if (selectedSeat === seatNumber) {
-      setSelectedSeat(null); 
+  const handleSeatClick = (seat) => {
+    console.log(seat);
+    
+    if (selectedSeats.includes(seat)) {
+      setSelectedSeats(selectedSeats.filter((s) => s !== seat));
     } else {
-      setSelectedSeat(seatNumber); 
+      setSelectedSeats([...selectedSeats, seat]);
     }
   };
+console.log(selectedSeats);
 
-  const handleBooking = async () => {
-    try {
-      const response = await fetch(`https://bus-booking-server.onrender.com/seats`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ seats: [selectedSeat] }),
-      });
-
-      if (response.ok) {
-        alert("Seat booked successfully!");
-        const updatedSeats = seatsData.map((seat) =>
-          seat.seatNumber === selectedSeat
-            ? { ...seat, status: "booked" }
-            : seat
-        );
-        setSeatsData(updatedSeats);
-        setSelectedSeat(null); 
-      } else {
-        console.error("Failed to book seat");
-      }
-    } catch (error) {
-      console.error("Error booking seat:", error);
-    }
+  const handleBooking = () => {
+    
+    navigate('/busticket', { state: { formData, bus, selectedSeats } });
   };
 
   const viewSeats = () => {
@@ -63,7 +47,7 @@ function Seats() {
     }
 
     const seatRows = [];
-    const seatsPerRow = 4; 
+    const seatsPerRow = 4;
 
     for (let i = 0; i < seatsData.length; i += seatsPerRow) {
       const rowSeats = seatsData.slice(i, i + seatsPerRow);
@@ -71,19 +55,19 @@ function Seats() {
         <div key={i} className="seat-row">
           {rowSeats.map((seat) => (
             <div
-              key={seat.seatNumber}
-              className={`seat ${
+              key={seat.seat_number}
+              className={
                 seat.status === "booked"
                   ? "occupied"
-                  : selectedSeat === seat.seatNumber
+                  : selectedSeats.includes(seat.seat_number)
                   ? "selected"
                   : "available"
-              }`}
+                }
               onClick={() =>
-                seat.status !== "booked" && handleSeatClick(seat.seatNumber)
+                seat.status !== "booked" && handleSeatClick(seat.seat_number)
               }
             >
-              {seat.seatNumber}
+              {seat.seat_number}
             </div>
           ))}
         </div>
@@ -91,14 +75,14 @@ function Seats() {
     }
     return seatRows;
   };
-
+  
   const viewDestinationTable = () => {
     return (
       <div className="container-tickets">
         <table className="destination-table">
           <thead>
             <tr>
-              <th>Route: {route}</th>
+              <th>Route: {bus.route}</th>
             </tr>
           </thead>
           <tbody>
@@ -116,21 +100,16 @@ function Seats() {
         </table>
       </div>
     );
-  };
+ }
 
   return (
     <div className="container-seats">
-      <h2>Select Your Seat</h2>
       <div className="seats-customer">
-        <div className="seating-customer">
-          {viewSeats()}
-        </div>
-        <div className="seating-destination">
-          {viewDestinationTable()}
-        </div>
+        <div className="seating-customer">{viewSeats()}</div>
+        <div className="seating-destination">{viewDestinationTable()}</div>
       </div>
-      <button onClick={handleBooking} disabled={!selectedSeat}>
-        Book Selected Seat
+      <button onClick={handleBooking} disabled={selectedSeats.length === 0}>
+        Book Selected Seats
       </button>
     </div>
   );
