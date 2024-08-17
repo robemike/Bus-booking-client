@@ -99,15 +99,17 @@ const FindBus1 = () => {
       try {
         const response = await fetch('https://bus-booking-server.onrender.com/buses');
         const data = await response.json();
-        const filteredBuses = data.filter(bus => bus.travel_time === formData.depature_time); 
+        const filteredBuses = data.filter(bus => bus.travel_time === formData.departure_time);
         setBusData(filteredBuses);
+        console.log(filteredBuses);
+        console.log(formData);
       } catch (error) {
         console.error('Error fetching bus data:', error);
       }
     };
 
     fetchBusData();
-  }, [formData.depature_time]);
+  }, [formData.departure_time]);
 
   const handleBusSelection = (bus) => {
     navigate(`/seats/${bus.id}`, { state: { formData, bus } }); 

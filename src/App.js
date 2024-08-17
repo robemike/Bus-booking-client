@@ -1,7 +1,7 @@
 import CustomerLogin from "./components/auth/customerlogin";
 import CustomerSignup from "./components/auth/customersignup";
 import Logins from './components/auth/driverlogin'
-import TicketForm from "./components/customer/busticket";
+import BusTicket from "./components/customer/busticket";
 import Customer from "./components/customer/customerpage";
 import './App.css';
 import FindBus1 from './components/customer/Findbus';
@@ -40,7 +40,7 @@ function App() {
 >>>>>>> merge
         <Route path="/signup" element={<CustomerSignup />} />
         <Route path="/login" element={<CustomerLogin />} />
-        <Route path="busticket" element={<TicketForm />} />
+        <Route path="busticket" element={<BusTicket />} />
         <Route path="/customer" element={<Customer />} />
         <Route path="/drivers/login" element={<Logins />} />
         <Route path="/drivers/navbar" element={<Navbar />} />

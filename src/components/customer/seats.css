@@ -59,38 +59,44 @@
 
 .occupied {
   background-color: #ff4c4c;
-  width: 20px;
-  height: 30px;
+  width: 40px;
+  height: 40px;
+  margin: 5px;
+  text-align: center;
+  line-height: 40px;
+  border-radius: 4px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s, transform 0.3s;
 }
 
 .available {
   background-color: #4caf50;
-  width: 25px;
-  height: 25px;
+  width: 40px;
+  height: 40px;
+  margin: 5px;
+  text-align: center;
+  line-height: 40px;
+  border-radius: 4px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s, transform 0.3s;
 }
 
 .selected {
   background-color: #ffd700;
-  width: 30px;
-  height: 30px;
+  width: 40px;
+  height: 40px;
+  margin: 5px;
+  text-align: center;
+  line-height: 40px;
+  border-radius: 4px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s, transform 0.3s;
 }
 
 .seat-row {
   display: flex;
   justify-content: center;
   margin: 10px 0;
-}
-
-.seat {
-  width: 40px;
-  height: 40px;
-  margin: 5px;
-  background-color: #c7c1c1;
-  text-align: center;
-  line-height: 40px;
-  border-radius: 4px;
-  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
-  transition: background-color 0.3s, transform 0.3s;
 }
 
 .seat:hover {
