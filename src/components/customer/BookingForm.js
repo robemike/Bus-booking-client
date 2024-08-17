@@ -6,9 +6,10 @@ const BookingForm = () => {
     current_address: '',
     destination: '',
     departure_date: '',
-    depature_time: '',
+    departure_time: '',
   });
 
+  const [errors, setErrors] = useState({});
   const navigate = useNavigate();
 
   const handleChange = (e) => {
@@ -16,11 +17,32 @@ const BookingForm = () => {
       ...formData,
       [e.target.id]: e.target.value,
     });
+    setErrors({
+      ...errors,
+      [e.target.id]: '', 
+    });
+  };
+
+  const validate = () => {
+    const newErrors = {};
+
+    if (!formData.current_address) newErrors.current_address = 'Required';
+    if (!formData.destination) newErrors.destination = 'Required';
+    if (!formData.departure_date) newErrors.departure_date = 'Required';
+    if (!formData.departure_time) newErrors.departure_time = 'Required';
+
+    return newErrors;
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    
+
+    const validationErrors = validate();
+    if (Object.keys(validationErrors).length > 0) {
+      setErrors(validationErrors);
+      return;
+    }
+
     navigate('/findbus', { state: { formData } });
   };
 
@@ -29,26 +51,57 @@ const BookingForm = () => {
       <form className='flex flex-col' onSubmit={handleSubmit}>
         <div className='mb-4'>
           <label htmlFor='current_address' className='block text-gray-700 font-bold mb-2'>From</label>
-          <input type='text' id='current_address' value={formData.current_address} onChange={handleChange} className='w-full px-4 py-2 border border-gray-300 rounded focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500' placeholder='Enter your starting point' />
+          <input
+            type='text'
+            id='current_address'
+            value={formData.current_address}
+            onChange={handleChange}
+            className={`w-full px-4 py-2 border ${errors.current_address ? 'border-red-500' : 'border-gray-300'} rounded focus:outline-none focus:ring-1 focus:ring-blue-500`}
+            placeholder='Enter your starting point'
+          />
+          {errors.current_address && <p className='text-red-500 text-sm mt-1'>{errors.current_address}</p>}
         </div>
         <div className='mb-4'>
           <label htmlFor='destination' className='block text-gray-700 font-bold mb-2'>To</label>
-          <input type='text' id='destination' value={formData.destination} onChange={handleChange} className='w-full px-4 py-2 border border-gray-300 rounded focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500' placeholder='Enter your destination' />
+          <input
+            type='text'
+            id='destination'
+            value={formData.destination}
+            onChange={handleChange}
+            className={`w-full px-4 py-2 border ${errors.destination ? 'border-red-500' : 'border-gray-300'} rounded focus:outline-none focus:ring-1 focus:ring-blue-500`}
+            placeholder='Enter your destination'
+          />
+          {errors.destination && <p className='text-red-500 text-sm mt-1'>{errors.destination}</p>}
         </div>
         <div className='mb-4'>
           <label htmlFor='departure_date' className='block text-gray-700 font-bold mb-2'>Date</label>
-          <input type='date' id='departure_date' value={formData.departure_date} onChange={handleChange} className='w-full px-4 py-2 border border-gray-300 rounded focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500' />
+          <input
+            type='date'
+            id='departure_date'
+            value={formData.departure_date}
+            onChange={handleChange}
+            className={`w-full px-4 py-2 border ${errors.departure_date ? 'border-red-500' : 'border-gray-300'} rounded focus:outline-none focus:ring-1 focus:ring-blue-500`}
+          />
+          {errors.departure_date && <p className='text-red-500 text-sm mt-1'>{errors.departure_date}</p>}
         </div>
         <div className='mb-4'>
-          <label htmlFor='travel_time' className='block text-gray-700 font-bold mb-2'>Travel Time</label>
-          <select id='depature_time' value={formData.depature_time} onChange={handleChange} className='w-full px-4 py-2 border border-gray-300 rounded focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500'>
+          <label htmlFor='departure_time' className='block text-gray-700 font-bold mb-2'>Travel Time</label>
+          <select
+            id='departure_time'
+            value={formData.departure_time}
+            onChange={handleChange}
+            className={`w-full px-4 py-2 border ${errors.departure_time ? 'border-red-500' : 'border-gray-300'} rounded focus:outline-none focus:ring-1 focus:ring-blue-500`}
+          >
             <option value=''>Select Time</option>
-            <option value='8am'>8:00 </option>
-            <option value='3pm'>3:00 </option>
-            <option value='10pm'>10:00 </option>
+            <option value='08:00'>08:00</option>
+            <option value='15:00'>15:00</option>
+            <option value='22:00'>22:00</option>
           </select>
+          {errors.departure_time && <p className='text-red-500 text-sm mt-1'>{errors.departure_time}</p>}
         </div>
-        <button type='submit' className='w-full py-2 bg-blue-600 text-white font-bold rounded hover:bg-blue-700'>Book Now</button>
+        <button type='submit' className='w-full py-2 bg-blue-600 text-white font-bold rounded hover:bg-blue-700'>
+          Book Now
+        </button>
       </form>
     </div>
   );

@@ -1,52 +1,34 @@
 import React from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useLocation } from "react-router-dom";
+import './busticket.css';
 
-const BusTicket = () => {
-  const location = useLocation();
-  const navigate = useNavigate();
-  const { formData, bus, selectedSeats } = location.state;
+function BusTicket() {
+    const location = useLocation();
+    const { formData, bus, selectedSeats } = location.state;
+    const totalCost = bus.cost_per_seat * selectedSeats.length;
+    const selectedSeatsString = selectedSeats.join(", ");
+    console.log(formData);
 
-  const handleConfirmBooking = async () => {
-    
-    const bookingData = {
-      ...formData,
-      bus_id: bus.id,
-      seats: selectedSeats,
+    const handleConfirm = () => {
+        
+        console.log("Order confirmed:", formData);
     };
 
-    try {
-      const response = await fetch("https://bus-booking-server.onrender.com/bookings", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(bookingData),
-      });
-
-      if (response.ok) {
-        alert("Booking successful!");
-        navigate("/"); 
-      } else {
-        alert("Booking failed. Please try again.");
-      }
-    } catch (error) {
-      console.error("Error submitting booking:", error);
-      alert("Booking failed. Please try again.");
-    }
-  };
-
-  return (
-    <div className="bus-ticket">
-      <h2>Booking Confirmation</h2>
-      <div>From: {formData.current_address}</div>
-      <div>To: {formData.destination}</div>
-      <div>Date: {formData.departure_date}</div>
-      <div>Travel Time: {formData.depature_time}</div>
-      <div>Bus: {bus.username}</div>
-      <div>Seats: {selectedSeats.join(", ")}</div>
-      <button onClick={handleConfirmBooking}>Confirm Booking</button>
-    </div>
-  );
-};
+    return (
+        <div className="bus-ticket">
+            <img className="img" src="https://www.shutterstock.com/image-photo/bus-traveling-on-asphalt-road-600nw-1345741577.jpg" alt="Bus" />
+            <h1 className="header">BUS TICKET</h1>
+            <div className="container">
+                <p><strong>Current Address:</strong> {formData.current_address}</p>
+                <p><strong>Destination:</strong> {formData.destination}</p>
+                <p><strong>Booking Date:</strong> {formData.departure_date}</p>
+                <p><strong>Departure Time:</strong> {formData.departure_time}</p>
+                <p><strong>Selected Seats:</strong> {selectedSeatsString}</p>
+                <p><strong>Total Cost:</strong> ${totalCost}</p>
+                <button className="btn confirm" onClick={handleConfirm}>Confirm</button>
+            </div>
+        </div>
+    );
+}
 
 export default BusTicket;
