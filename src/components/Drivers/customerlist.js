@@ -50,7 +50,6 @@ function CustomerList() {
           <li><a onClick={() => navigate("/drivers/landing")}>Dashboard</a></li>
           <li><a onClick={() => navigate("/drivers/buses")}>Buses</a></li>
           <li><a onClick={() => navigate("/drivers/view_scheduled_buses")}>Trips</a></li>
-          <li><a onClick={() => navigate("/drivers/view_scheduled_buses")}>Trips</a></li>
           <li><a onClick={() => navigate("/drivers/customer-list")}>Customers</a></li>
         </div>
 
@@ -62,9 +61,6 @@ function CustomerList() {
                 
                 
                 <div className="customerlist-info">
-                  <span className="customerlist-name">{customer.firstname} {customer.lastname}</span>
-                  <span className="customerlist-number">{customer.email}</span>
-                  <span className="customerlist-number">{customer.number}</span>
                   <span className="customerlist-name">{customer.firstname} {customer.lastname}</span>
                   <span className="customerlist-number">{customer.email}</span>
                   <span className="customerlist-number">{customer.number}</span>
