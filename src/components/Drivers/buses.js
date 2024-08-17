@@ -29,7 +29,7 @@ function DriverBuses() {
     useEffect(() => {
         fetch('https://bus-booking-server.onrender.com/drivers/buses')
             .then(response => response.json())
-            .then(data => setBusData(data.buses))
+            .then(data => setBusData(data))
             .catch(error => {
                 console.error('Error fetching bus data:', error);
             });
@@ -155,14 +155,12 @@ function DriverBuses() {
                 <li><a onClick={() => navigate("/drivers/landing")}>Dashboard</a></li>
                 <li><a onClick={() => navigate("/drivers/buses")}>Buses</a></li>
                 <li><a onClick={() => navigate("/drivers/view_scheduled_buses")}>Trips</a></li>
-                <li><a onClick={() => navigate("/drivers/view_scheduled_buses")}>Trips</a></li>
                 <li><a onClick={() => navigate("/drivers/customer-list")}>Customers</a></li>
             </div>
 
             <div className="buses-content-container">
                 <header className="buses-header">
                     BUSLINK BUSES
-                    <button className="buses-add-bus-button" onClick={() => setShowBusModal(true)}>Add Bus</button>
                     <button className="buses-add-bus-button" onClick={() => setShowBusModal(true)}>Add Bus</button>
                 </header>
 
