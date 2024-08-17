@@ -84,8 +84,6 @@ function DriverBuses() {
             travel_time: "",
             number_plate: "",
             image: ""
-            number_plate: "",
-            image: ""
         });
         setEditMode(false);
     };
@@ -208,7 +206,6 @@ function DriverBuses() {
                     </ul>
                 </div>
 
-                {/* <footer className="buses-footer">© 2024 BUSLINK BUSES</footer> */}
             </div>
 
             {showBusModal && (
@@ -221,8 +218,7 @@ function DriverBuses() {
                             placeholder="Add Bus Name"
                             value={newBus.username}
                             onChange={(e) => setNewBus({ ...newBus, username: e.target.value })}
-                            value={newBus.username}
-                            onChange={(e) => setNewBus({ ...newBus, username: e.target.value })}
+                            
                         />
                         <input
                             type="text"
@@ -230,9 +226,7 @@ function DriverBuses() {
                             value={newBus.number_plate}
                             onChange={(e) => setNewBus({ ...newBus, number_plate: e.target.value })}
                         />
-                            value={newBus.number_plate}
-                            onChange={(e) => setNewBus({ ...newBus, number_plate: e.target.value })}
-                        />
+                          
                         <input
                             type="number"
                             placeholder="Add Cost Per Seat"
@@ -258,12 +252,8 @@ function DriverBuses() {
                             onChange={(e) => setNewBus({ ...newBus, travel_time: e.target.value })}
                         />
                         <input
-                        <input
+                        
                             type="text"
-                            placeholder="Add Image URL"
-                            value={newBus.image}
-                            onChange={(e) => setNewBus({ ...newBus, image: e.target.value })}
-                        />
                             placeholder="Add Image URL"
                             value={newBus.image}
                             onChange={(e) => setNewBus({ ...newBus, image: e.target.value })}
@@ -315,6 +305,8 @@ function DriverBuses() {
                     </div>
                 </div>
             )}
+                            <footer className="buses-footer">© 2024 BUSLINK BUSES</footer>
+
         </div>
     );
 }
