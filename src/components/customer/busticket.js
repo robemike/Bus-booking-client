@@ -117,3 +117,4 @@ const BusTicket = () => {
 };
 
 export default BusTicket;
+

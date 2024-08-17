@@ -84,6 +84,8 @@ function DriverBuses() {
             travel_time: "",
             number_plate: "",
             image: ""
+            number_plate: "",
+            image: ""
         });
         setEditMode(false);
     };
@@ -156,7 +158,7 @@ function DriverBuses() {
             <div className="buses-sidebar">
                 <li><a onClick={() => navigate("/drivers/landing")}>Dashboard</a></li>
                 <li><a onClick={() => navigate("/drivers/buses")}>Buses</a></li>
-                <li><a onClick={() => navigate("/drivers/trips")}>Trips</a></li>
+                <li><a onClick={() => navigate("/drivers/view_scheduled_buses")}>Trips</a></li>
                 <li><a onClick={() => navigate("/drivers/customer-list")}>Customers</a></li>
             </div>
 
@@ -219,10 +221,15 @@ function DriverBuses() {
                             placeholder="Add Bus Name"
                             value={newBus.username}
                             onChange={(e) => setNewBus({ ...newBus, username: e.target.value })}
+                            value={newBus.username}
+                            onChange={(e) => setNewBus({ ...newBus, username: e.target.value })}
                         />
                         <input
                             type="text"
                             placeholder="Add Number Plate"
+                            value={newBus.number_plate}
+                            onChange={(e) => setNewBus({ ...newBus, number_plate: e.target.value })}
+                        />
                             value={newBus.number_plate}
                             onChange={(e) => setNewBus({ ...newBus, number_plate: e.target.value })}
                         />
@@ -251,7 +258,12 @@ function DriverBuses() {
                             onChange={(e) => setNewBus({ ...newBus, travel_time: e.target.value })}
                         />
                         <input
+                        <input
                             type="text"
+                            placeholder="Add Image URL"
+                            value={newBus.image}
+                            onChange={(e) => setNewBus({ ...newBus, image: e.target.value })}
+                        />
                             placeholder="Add Image URL"
                             value={newBus.image}
                             onChange={(e) => setNewBus({ ...newBus, image: e.target.value })}

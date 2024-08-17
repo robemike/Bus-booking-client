@@ -22,7 +22,7 @@ function Trips() {
             <div className="trips-sidebar">
                 <li><a onClick={() => navigate("/drivers/landing")}>Dashboard</a></li>
                 <li><a onClick={() => navigate("/drivers/buses")}>Buses</a></li>
-                <li><a onClick={() => navigate("/drivers/trips")}>Trips</a></li>
+                <li><a onClick={() => navigate("/drivers/view_scheduled_buses")}>Trips</a></li>
                 <li><a onClick={() => navigate("/drivers/customer-list")}>Customers</a></li>
             </div>
             <div className="trips-container">

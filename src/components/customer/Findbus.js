@@ -62,31 +62,28 @@
 // export default FindBus1;
 
 import React, { useEffect, useState } from 'react';
-import { useNavigate, useLocation } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const FindBus1 = () => {
   const [busData, setBusData] = useState([]);
   const navigate = useNavigate();
-  const location = useLocation();
-  const { formData } = location.state; 
 
   useEffect(() => {
     const fetchBusData = async () => {
       try {
         const response = await fetch('https://bus-booking-server.onrender.com/buses');
         const data = await response.json();
-        const filteredBuses = data.filter(bus => bus.route === formData.route); // Filter by route
-        setBusData(filteredBuses);
+        setBusData(data);
       } catch (error) {
         console.error('Error fetching bus data:', error);
       }
     };
 
     fetchBusData();
-  }, [formData.route]); // Dependency on the route to re-fetch if it changes
+  }, []);
 
   const handleBusSelection = (bus) => {
-    navigate(`/seats/${bus.id}`, { state: { formData, bus } }); 
+    navigate(`/seats/${bus.id}`);
   };
 
   return (
