@@ -25,7 +25,7 @@ function BusTicket() {
                 <p><strong>Departure Time:</strong> {formData.departure_time}</p>
                 <p><strong>Selected Seats:</strong> {selectedSeatsString}</p>
                 <p><strong>Total Cost:</strong> ${totalCost}</p>
-                <button className="btn confirm" onClick={handleConfirm}>Confirm</button>
+                <button className="btn confirm" onClick={handleConfirm}>Confirm </button>
             </div>
         </div>
     );
