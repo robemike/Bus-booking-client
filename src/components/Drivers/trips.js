@@ -8,7 +8,7 @@ function Trips() {
 
     useEffect(() => {
        
-        fetch('https://bus-booking-server.onrender.com/view_scheduled_buses')
+        fetch('https://bus-booking-server.onrender.com/drivers/view_scheduled_buses')
             .then(response => response.json())
             .then(data => {
                
@@ -16,6 +16,7 @@ function Trips() {
             })
             .catch(error => console.error('Error fetching trip data:', error));
     }, []);
+   
 
     return (
         <div>
@@ -47,6 +48,7 @@ function Trips() {
             </div>
         </div>
     );
+          
 }
 
 export default Trips;

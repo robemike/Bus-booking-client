@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from "react";
 import './customer.css';
 import { useNavigate } from "react-router-dom";
@@ -8,7 +7,7 @@ function Customers() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch("https://bus-booking-server.onrender.com/customers")
+    fetch("https://bus-booking-server.onrender.com/admin/customers")
       .then(response => {
         if (!response.ok) {
           throw new Error("Network response was not ok");

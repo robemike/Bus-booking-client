@@ -8,7 +8,7 @@ function Buses() {
 
   // Fetch data from the backend
   useEffect(() => {
-    fetch('https://bus-booking-server.onrender.com/buses')
+    fetch('https://bus-booking-server.onrender.com/admin/buses')
       .then(response => response.json())
       .then(data => setBuses(data))
       .catch(error => {
@@ -42,7 +42,9 @@ function Buses() {
             <ul>
               {buses.map((bus, index) => (
                 <li key={index} className="buses-item">
-                  <strong>{bus.username} - {bus.number_plate}</strong>
+                  <strong>{bus.username} - {bus.number_plate}</strong> 
+                  
+                  
                   {/* <strong>{bus}</strong> */}
                 </li>
               ))}

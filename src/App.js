@@ -1,7 +1,7 @@
 import CustomerLogin from "./components/auth/customerlogin";
 import CustomerSignup from "./components/auth/customersignup";
 import Logins from './components/auth/driverlogin'
-import TicketForm from "./components/customer/busticket";
+import BusTicket from "./components/customer/busticket";
 import Customer from "./components/customer/customerpage";
 import './App.css';
 import FindBus1 from './components/customer/Findbus';
@@ -19,6 +19,9 @@ import CustomerList from "./components/Drivers/customerlist";
 import Trips from "./components/Drivers/trips";
 import BusDetails from "./components/Drivers/busdetails";
 import Signup from "./components/auth/driversignup";
+import UploadWidget from "./components/UploadWidget";
+// import Signup from "./components/auth/driversignup";
+
 
 
 function App() {
@@ -34,11 +37,12 @@ function App() {
         <Route path="/admin/drivers" element={<Drivers />} />
         <Route path="/admin/customers" element={<Customers />} />
         <Route path="/admin/buses" element={<Buses />} />
-        <Route path="/seats" element={<Seats />} />
+        <Route path="/buses/:id/seats" element={<Seats />} />
         <Route path="/signup" element={<CustomerSignup />} />
         <Route path="/login" element={<CustomerLogin />} />
-        <Route path="busticket" element={<TicketForm />} />
+        <Route path="busticket" element={<BusTicket />} />
         <Route path="/customer" element={<Customer />} />
+        {/* <Route path="/drivers/signup" element={<Signup />} /> */}
         <Route path="/drivers/login" element={<Logins />} />
         <Route path="/drivers/landing" element={<Landing />} />
         <Route path="/drivers/buses" element={<DriverBuses />} />
@@ -50,7 +54,8 @@ function App() {
         <Route path="/admin/customers" element={<Customers />} />
         <Route path="/admin/buses" element={<Buses />} />
         <Route path="/drivers/signup" element={<Signup />} />
-          
+        <Route path="/bus-ticket" element={<BusTicket />} />
+        <Route path="/upload-widget" element={<UploadWidget />} />
       </Routes>
   </Router>
   );

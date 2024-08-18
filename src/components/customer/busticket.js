@@ -1,81 +1,82 @@
-import React, { useState } from "react";
+import React from "react";
+import { useLocation } from "react-router-dom";
+import { useState,useEffect } from "react";
+
+
 import './busticket.css';
 
 function BusTicket() {
-    const [formData, setFormData] = useState({
-        departure: '',
-        arrival: '',
-        date: '',
-        seat_number: '',
-        total_price: ''
-    });
+    const location = useLocation();
+    const { formData, bus, selectedSeats } = location.state;
+    const totalCost = bus.cost_per_seat * selectedSeats.length;
+    const selectedSeatsString = selectedSeats.join(", ");
+    const [phoneNumber, setPhoneNumber] = useState("");
 
-    const [showPopup, setShowPopup] = useState(false);
+    useEffect(() => {
+        const fetchPhoneNumber = async () => {
+            try {
+                const response = await fetch(`https://bus-booking-server.onrender.com/customers/${formData.customer_id}`);
+                const customerData = await response.json();
+                console.log(customerData);
+                setPhoneNumber(customerData.phone_number);
+;            } catch (error) {
+                console.error("Error fetching phone number:", error);
+            }
+        };
 
-    const handleChange = (e) => {
-        const { name, value } = e.target;
-        setFormData({
-            ...formData,
-            [name]: value
-        });
-    };
-
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        setShowPopup(true);
-    };
+        fetchPhoneNumber();
+    }, [formData.customer_id]);
 
     const handleConfirm = () => {
-        setShowPopup(false);
         console.log("Order confirmed:", formData);
-    
     };
 
-    const handleCancel = () => {
-        setShowPopup(false);
+    const handleMpesaPayment = async () => {
+        try {
+            const response = await fetch('/pay', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    phoneNumber: formData.phone_number,  
+                    amount: totalCost,
+                }),
+            });
+
+            const data = await response.json();
+
+            if (response.ok) {
+                console.log("M-Pesa STK Push initiated:", data);
+                alert('M-Pesa STK Push has been sent. Please complete the payment on your phone.');
+            } else {
+                console.error('M-Pesa STK Push failed:', data);
+                alert('Failed to initiate M-Pesa payment. Please try again.');
+            }
+        } catch (error) {
+            console.error('Error:', error);
+            alert('An error occurred. Please try again.');
+        }
     };
 
     return (
         <div className="bus-ticket">
-            <img className="img" src="https://www.shutterstock.com/image-photo/bus-traveling-on-asphalt-road-600nw-1345741577.jpg" alt="Bus"/>
+            <img className="img" src="https://www.shutterstock.com/image-photo/bus-traveling-on-asphalt-road-600nw-1345741577.jpg" alt="Bus" />
             <h1 className="header">BUS TICKET</h1>
-            <form className="container" onSubmit={handleSubmit}>
-                <label htmlFor="departure">Departure Time:</label>
-                <input type="time" id="departure" name="departure" value={formData.departure} onChange={handleChange} required/>
-
-                <label htmlFor="arrival">Arrival Time:</label>
-                <input type="time" id="arrival" name="arrival" value={formData.arrival} onChange={handleChange} required/>
-
-                <label htmlFor="date">Date:</label>
-                <input type="date" id="date" name="date" value={formData.date} onChange={handleChange} required/>
-
-                <label htmlFor="seat_number">Seat Number:</label>
-                <input type="text" id="seat_number" name="seat_number" value={formData.seat_number} onChange={handleChange} required/>
-
-                <label htmlFor="total_price">Total Price:</label>
-                <input type="text" id="total_price" name="total_price" value={formData.total_price} onChange={handleChange} required/>
-
-                <button type="button" className="mpesa-btn">Pay with Mpesa</button>
-
-                <input type="submit" value="Submit"/>
-            </form>
-
-            {showPopup && (
-                <div className="popup">
-                    <div className="popup-content">
-                        <h2>Confirm Your Ticket</h2>
-                        <p><strong>Departure Time:</strong> {formData.departure}</p>
-                        <p><strong>Arrival Time:</strong> {formData.arrival}</p>
-                        <p><strong>Date:</strong> {formData.date}</p>
-                        <p><strong>Seat Number:</strong> {formData.seat_number}</p>
-                        <p><strong>Total Price:</strong> {formData.total_price}</p>
-                        <button className="btn confirm" onClick={handleConfirm}>Confirm</button>
-                        <button className="btn cancel" onClick={handleCancel}>Cancel</button>
-                    </div>
-                </div>
-            )}
+            <div className="container">
+                <p><strong>Current Address:</strong> {formData.current_address}</p>
+                <p><strong>Destination:</strong> {formData.destination}</p>
+                <p><strong>Booking Date:</strong> {formData.departure_date}</p>
+                <p><strong>Departure Time:</strong> {formData.departure_time}</p>
+                <p><strong>Selected Seats:</strong> {selectedSeatsString}</p>
+                <p><strong>Phone Number:</strong> {setPhoneNumber}</p>              
+                <p><strong>Total Cost:</strong> Ksh{totalCost}</p>
+                <button className="btn confirm" onClick={handleConfirm}>Confirm</button>
+                <button className="btn mpesa" onClick={handleMpesaPayment}>Mpesa</button>
+            </div>
         </div>
     );
 }
 
 export default BusTicket;
+

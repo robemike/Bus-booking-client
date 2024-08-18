@@ -144,7 +144,7 @@ function Signup() {
                 <div className="clearfix">
                     <button type="submit" className="signupbtn">Sign Up</button>
                     <div className="signin-link">
-                        <p>Already have an account? <a onClick={() => navigate("/login")}>Sign in</a>.</p>
+                        <p>Already have an account? <a onClick={() => navigate("/login")}>Login</a>.</p>
                     </div>
                 </div>
             </div>

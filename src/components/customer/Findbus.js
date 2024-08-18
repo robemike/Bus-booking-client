@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 
 const FindBus1 = () => {
   const [busData, setBusData] = useState([]);
   const navigate = useNavigate();
-
+  const location=useLocation()
+  const {formData}=location.state
   useEffect(() => {
     const fetchBusData = async () => {
       try {
@@ -20,7 +22,7 @@ const FindBus1 = () => {
   }, []);
 
   const handleBusSelection = (bus) => {
-    navigate(`/seats/${bus.id}`);
+    navigate(`/seats/${bus.id}`, { state: { formData,bus } }) ;
   };
 
   return (
@@ -40,7 +42,7 @@ const FindBus1 = () => {
               <div className="bus-company">
                 <button onClick={() => handleBusSelection(bus)}>{bus.username}</button>
               </div>
-              <div className="bus-details">Seats: {bus.number_of_seats}, Cost: {bus.cost_per_seat}</div>
+              <div className="bus-details">Seats: {bus.number_of_seats}, Cost: Ksh {bus.cost_per_seat}</div>
               <div className="route">Route: {bus.route}</div>
               <div className="time">
                 <div className="travel-time">{bus.travel_time}</div>

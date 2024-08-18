@@ -11,21 +11,21 @@ function Admin() {
 
   useEffect(() => {
     const fetchDrivers = () => {
-      fetch("https://bus-booking-server.onrender.com/drivers")
+      fetch("https://bus-booking-server.onrender.com/admin/drivers")
         .then(response => response.json())
         .then(data => setDrivers(data))
         .catch(error => console.error("Error fetching drivers:", error));
     };
 
     const fetchBuses = () => {
-      fetch("https://bus-booking-server.onrender.com/buses")
+      fetch("https://bus-booking-server.onrender.com/admin/buses")
         .then(response => response.json())
         .then(data => setBuses(data))
         .catch(error => console.error("Error fetching buses:", error));
     };
 
     const fetchCustomers = () => {
-      fetch("https://bus-booking-server.onrender.com/customers")
+      fetch("https://bus-booking-server.onrender.com/admin/customers")
         .then(response => response.json())
         .then(data => setCustomers(data))
         .catch(error => console.error("Error fetching customers:", error));
@@ -41,10 +41,10 @@ function Admin() {
     <div className="admin-container">
       <div className="admin-row">
         <div className="admin-sidebar">
-          <a onClick={() => navigate("/admin/dashboard")}>Dashboard</a>
-          <a onClick={() => navigate("/admin/drivers")}>Drivers</a>
-          <a onClick={() => navigate("/admin/buses")}>Buses</a>
-          <a onClick={() => navigate("/admin/customers")}>Customers</a>
+          <a href="dashboard" onClick={() => navigate("/admin/dashboard")}>Dashboard</a>
+          <a href="drivers" onClick={() => navigate("/admin/drivers")}>Drivers</a>
+          <a href="buses" onClick={() => navigate("/admin/buses")}>Buses</a>
+          <a href="customers" onClick={() => navigate("/admin/customers")}>Customers</a>
         </div>
 
         <div className="admin-content">
@@ -73,6 +73,3 @@ function Admin() {
 }
 
 export default Admin;
-
-
-

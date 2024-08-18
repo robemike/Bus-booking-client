@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams, useLocation, useNavigate } from "react-router-dom";
 import "./seats.css";
+import Navbar from "./Navbar";
 
 function Seats() {
   const { busId } = useParams();
@@ -13,7 +14,7 @@ function Seats() {
   useEffect(() => {
     const fetchBusData = async () => {
       try {
-        const response = await fetch(`http://127.0.0.1:5555/buses/${busId}/seats`);
+        const response = await fetch(`http://127.0.0.1:5555/buses/${busId}/buses/${busId}/seats`);
         const data = await response.json();
         console.log(data);
         setSeatsData(data);
@@ -79,6 +80,7 @@ console.log(selectedSeats);
   const viewDestinationTable = () => {
     return (
       <div className="container-tickets">
+        <Navbar />
         <table className="destination-table">
           <thead>
             <tr>

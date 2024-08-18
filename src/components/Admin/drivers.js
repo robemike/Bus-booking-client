@@ -8,7 +8,7 @@ function Drivers() {
 
   useEffect(() => {
     const fetchDrivers = () => {
-      fetch("https://bus-booking-server.onrender.com/drivers")
+      fetch("https://bus-booking-server.onrender.com/admin/drivers")
         .then((response) => response.json())
         .then((data) => setDrivers(data))
         .catch((error) => console.error("Error fetching drivers:", error));
@@ -53,4 +53,3 @@ function Drivers() {
 }
 
 export default Drivers;
-

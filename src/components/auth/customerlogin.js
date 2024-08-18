@@ -3,7 +3,7 @@ import './customerlogin.css';
 import { useNavigate } from "react-router-dom";
 
 function Login() {
-    const [username, setUsername] = useState('');
+    const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
     const navigate = useNavigate();
@@ -19,7 +19,7 @@ function Login() {
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify({
-                    email: username,
+                    email: email,
                     password: password,
                 }),
             });
@@ -55,8 +55,8 @@ function Login() {
                     type="text"
                     placeholder="Enter Email Address"
                     name="Email"
-                    value={username}
-                    onChange={(e) => setUsername(e.target.value)}
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
                     required
                 />
 
@@ -72,7 +72,7 @@ function Login() {
                 <div>
                     <button type="submit">Login</button>
                     <div className="signin-link">
-                        <p>Don't have an account? <a href="#" onClick={() => navigate("/signup")}>Sign up</a>.</p>
+                        <p>Don't have an account? <a href="signup" onClick={() => navigate("/signup")}>Sign up</a>.</p>
                     </div>
                 </div>
             </div>

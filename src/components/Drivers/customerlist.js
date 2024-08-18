@@ -11,7 +11,7 @@ function CustomerList() {
 
   useEffect(() => {
     const fetchData = () => {
-      fetch("https://bus-booking-server.onrender.com/customers")
+      fetch("https://bus-booking-server.onrender.com/drivers/customers")
         .then(response => {
           if (!response.ok) {
             setError(`HTTP error! Status: ${response.status}`);
@@ -58,11 +58,14 @@ function CustomerList() {
           <ul>
             {customers.map((customer, index) => (
               <li key={index}>
+                
+                
                 <div className="customerlist-info">
                   <span className="customerlist-name">{customer.firstname} {customer.lastname}</span>
                   <span className="customerlist-number">{customer.email}</span>
                   <span className="customerlist-number">{customer.number}</span>
                 </div>
+               
                
               </li>
             ))}
