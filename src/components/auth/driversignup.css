@@ -1,4 +1,19 @@
+/* Global Styles */
+body, html {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+    background-color: #f0f2f5; /* Light grey background */
+}
 
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Form Styles */
 form {
     width: 100%;
     max-width: 400px;
@@ -30,7 +45,7 @@ hr {
     margin-bottom: 20px;
 }
 
-
+/* Label Styles */
 label {
     color: #555;
     font-weight: bold;
@@ -38,7 +53,7 @@ label {
     display: inline-block;
 }
 
-
+/* Input Styles */
 input[type="text"], input[type="password"] {
     width: 100%;
     padding: 12px;
@@ -55,7 +70,7 @@ input[type="text"]:focus, input[type="password"]:focus {
     outline: none;
 }
 
-
+/* Button Styles */
 .driversignup-btn {
     background-color: #007bff;
     color: white;
@@ -81,6 +96,7 @@ input[type="text"]:focus, input[type="password"]:focus {
     align-items: center;
 }
 
+/* Sign-in Link */
 .driversignup-signin-link {
     margin-top: 20px;
     font-size: 14px;
@@ -96,7 +112,7 @@ input[type="text"]:focus, input[type="password"]:focus {
     text-decoration: underline;
 }
 
-
+/* Responsive Design */
 @media (max-width: 600px) {
     form {
         padding: 20px;
