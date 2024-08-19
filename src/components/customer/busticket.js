@@ -120,7 +120,7 @@ function BusTicket() {
                     type="text" 
                     value={phoneNumber} 
                     onChange={(e) => setPhoneNumber(e.target.value)} 
-                    placeholder="Enter your phone number" 
+                    placeholder="Enter your phone number start with 254" 
                     className="phone-input"
                 />
                 <p><strong>Number of Seats:</strong> {numberOfSeats}</p>

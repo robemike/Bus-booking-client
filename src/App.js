@@ -19,7 +19,7 @@ import CustomerList from "./components/Drivers/customerlist";
 import Trips from "./components/Drivers/trips";
 import BusDetails from "./components/Drivers/busdetails";
 import UploadWidget from "./components/UploadWidget";
-// import Signup from "./components/auth/driversignup";
+import Signup from "./components/auth/driversignup";
 
 
 function App() {
@@ -40,7 +40,7 @@ function App() {
         <Route path="/login" element={<CustomerLogin />} />
         <Route path="busticket" element={<BusTicket />} />
         <Route path="/customer" element={<Customer />} />
-        {/* <Route path="/drivers/signup" element={<Signup />} /> */}
+        <Route path="/drivers/signup" element={<Signup />} />
         <Route path="/drivers/login" element={<Logins />} />
         <Route path="/drivers/landing" element={<Landing />} />
         <Route path="/drivers/buses" element={<DriverBuses />} />
