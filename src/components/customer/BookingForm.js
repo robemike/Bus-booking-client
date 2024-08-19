@@ -7,10 +7,16 @@ const BookingForm = () => {
     destination: '',
     departure_date: '',
     departure_time: '',
+    customer_id: '', // This will be populated with a generated ID
   });
 
   const [errors, setErrors] = useState({});
   const navigate = useNavigate();
+
+  const generateCustomerId = () => {
+    // Simple random number generation for customer_id
+    return Math.floor(Math.random() * 1000000).toString(); // Generates a number between 0 and 999999
+  };
 
   const handleChange = (e) => {
     setFormData({
@@ -19,16 +25,24 @@ const BookingForm = () => {
     });
     setErrors({
       ...errors,
-      [e.target.id]: '', 
+      [e.target.id]: '',
     });
   };
 
   const validate = () => {
     const newErrors = {};
+    const today = new Date();
+    const selectedDate = new Date(formData.departure_date);
+
+    today.setHours(0, 0, 0, 0);
 
     if (!formData.current_address) newErrors.current_address = 'Required';
     if (!formData.destination) newErrors.destination = 'Required';
-    if (!formData.departure_date) newErrors.departure_date = 'Required';
+    if (!formData.departure_date) {
+      newErrors.departure_date = 'Required';
+    } else if (selectedDate < today) {
+      newErrors.departure_date = 'You cannot book a date that has already passed';
+    }
     if (!formData.departure_time) newErrors.departure_time = 'Required';
 
     return newErrors;
@@ -43,12 +57,17 @@ const BookingForm = () => {
       return;
     }
 
-    navigate('/findbus', { state: { formData } });
+    // Generate customer_id before navigating
+    const newCustomerId = generateCustomerId();
+    const updatedFormData = { ...formData, customer_id: newCustomerId };
+
+    navigate('/findbus', { state: { formData: updatedFormData } });
   };
 
   return (
     <div className='max-w-lg mx-auto p-6 bg-gray-100 rounded-lg shadow-md'>
       <form className='flex flex-col' onSubmit={handleSubmit}>
+        {/* Other input fields remain unchanged */}
         <div className='mb-4'>
           <label htmlFor='current_address' className='block text-gray-700 font-bold mb-2'>From</label>
           <input
@@ -93,9 +112,9 @@ const BookingForm = () => {
             className={`w-full px-4 py-2 border ${errors.departure_time ? 'border-red-500' : 'border-gray-300'} rounded focus:outline-none focus:ring-1 focus:ring-blue-500`}
           >
             <option value=''>Select Time</option>
-            <option value='08:00'>08:00</option>
-            <option value='15:00'>15:00</option>
-            <option value='22:00'>22:00</option>
+            <option value='08:00:00'>08:00:00</option>
+            <option value='15:00:00'>15:00:00</option>
+            <option value='22:00:00'>22:00:00</option>
           </select>
           {errors.departure_time && <p className='text-red-500 text-sm mt-1'>{errors.departure_time}</p>}
         </div>

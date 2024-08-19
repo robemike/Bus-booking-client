@@ -53,7 +53,6 @@ function Landing() {
                     <li><a onClick={() => navigate("/drivers/landing")}>Dashboard</a></li>
                     <li><a onClick={() => navigate("/drivers/buses")}>Buses</a></li>
                     <li><a onClick={() => navigate("/drivers/view_scheduled_buses")}>Trips</a></li>
-                    <li><a onClick={() => navigate("/drivers/view_scheduled_buses")}>Trips</a></li>
                     <li><a onClick={() => navigate("/drivers/customer-list")}>Customers</a></li>
                 </div>
                 <div className="landing-content">

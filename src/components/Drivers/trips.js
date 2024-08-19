@@ -34,6 +34,7 @@ function Trips() {
                             services.map((service, index) => (
                                 <div className="trips-service" key={index}>
                                     <h3>{service.bus.username}</h3>
+                                    <p>Travel Date:  {service.travel_date}</p>
                                     <p>Departure: {service.departure_time} | Arrival: {service.arrival_time}</p>
                                     <p>Occupied Seats:  {service.occupied_seats}</p>
                                     <p>Number Plate:  {service.bus.number_plate}</p>

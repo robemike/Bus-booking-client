@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import './buses.css';
 import { useNavigate } from "react-router-dom";
+import UploadWidget from "../UploadWidget"
 
 function DriverBuses() {
     const navigate = useNavigate();
@@ -25,6 +26,7 @@ function DriverBuses() {
         arrival_time: "",
         travel_date: ""
     });
+    const [imageUrl, setImageUrl] = useState("")
 
     useEffect(() => {
         fetch('https://bus-booking-server.onrender.com/drivers/buses')
@@ -35,37 +37,38 @@ function DriverBuses() {
             });
     }, []);
     const handleAddEditBus = () => {
+        const busWithImage = { ...newBus, image: imageUrl}
         if (editMode) {
             fetch(`https://bus-booking-server.onrender.com/drivers/edit-buses/${newBus.id}`, {
                 method: 'PATCH',
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify(newBus),
+                body: JSON.stringify(busWithImage),
             })
             .then(response => response.json())
             .then(updatedBus => {
                 console.log(updatedBus)
                 const updatedBusData = [...busData];
-                updatedBusData[editingIndex] = newBus;
+                updatedBusData[editingIndex] = busWithImage;
                 setBusData(updatedBusData);
             })
             .catch(error => {
                 console.error('Error updating bus data:', error);
             });
         } else {
-            console.log(newBus)
+            console.log(busWithImage)
             // Create new bus
             fetch('https://bus-booking-server.onrender.com/drivers/register/buses', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify(newBus),
+                body: JSON.stringify(busWithImage),
             })
             .then(response => response.json())
             .then(addedBus => {
-                setBusData([...busData, newBus]);
+                setBusData([...busData, busWithImage]);
             })
             .catch(error => {
                 console.error('Error adding new bus:', error);
@@ -82,8 +85,9 @@ function DriverBuses() {
             number_plate: "",
             image: ""
         });
+        setImageUrl("")
         setEditMode(false);
-        setEditMode(false);
+       
     };
 
     const handleEditBus = (index) => {
@@ -92,20 +96,6 @@ function DriverBuses() {
         setEditMode(true);
         setShowBusModal(true);
     };
-
-    // const handleDeleteBus = (index) => {
-    //     console.log(busData[index].id)
-    //     fetch(`https://bus-booking-server.onrender.com/buses/${busData[index].id}`, {
-    //         method: 'DELETE',
-    //     })
-    //     .then(() => {
-    //         const updatedBusData = busData.filter((_, i) => i !== index);
-    //         setBusData(updatedBusData);
-    //     })
-    //     .catch(error => {
-    //         console.error('Error deleting bus:', error);
-    //     });
-    // };
 
     const handleScheduleBus = () => {
         fetch('https://bus-booking-server.onrender.com/drivers/schedule_buses', {
@@ -211,7 +201,6 @@ function DriverBuses() {
                 <div className="buses-modal">
                     <div className="buses-modal-content">
                         <h2>{editMode ? "Edit Bus" : "Add New Bus"}</h2>
-                        <h2>{editMode ? "Edit Bus" : "Add New Bus"}</h2>
                         
                         <input
                             type="text"
@@ -251,13 +240,10 @@ function DriverBuses() {
                             value={newBus.travel_time}
                             onChange={(e) => setNewBus({ ...newBus, travel_time: e.target.value })}
                         />
-                        <input
-                        
-                            type="text"
-                            placeholder="Add Image URL"
-                            value={newBus.image}
-                            onChange={(e) => setNewBus({ ...newBus, image: e.target.value })}
-                        />
+
+
+                        <UploadWidget imageUrl={imageUrl} setImageUrl={setImageUrl} /> {/* Render UploadWidget component */}
+
 
                         <div className="buses-modal-actions">
                             <button className="buses-cancel-button" onClick={() => setShowBusModal(false)}>Cancel</button>
@@ -305,10 +291,10 @@ function DriverBuses() {
                     </div>
                 </div>
             )}
-                            <footer className="buses-footer">© 2024 BUSLINK BUSES</footer>
+                           
 
         </div>
-    );
-}
+    );}
+
 
 export default DriverBuses;

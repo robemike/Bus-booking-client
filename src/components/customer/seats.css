@@ -4,7 +4,6 @@
   align-items: center;
   min-height: 100vh;
   padding: 20px;
-  background: linear-gradient(89.2deg, rgb(0, 0, 0) 10.4%, rgb(255, 0, 0) 37.1%, rgb(255, 216, 51) 64.3%, rgb(255, 255, 255) 90.5%);
 }
 
 .seats-customer {
@@ -53,8 +52,8 @@
 }
 
 .rectangle {
-  display: block; 
-  margin: 5px auto; 
+  display: block;
+  margin: 5px auto;
 }
 
 .occupied {
@@ -99,9 +98,19 @@
   margin: 10px 0;
 }
 
+.seat-pair {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.aisle-space {
+  width: 20px;
+}
+
 .seat:hover {
   background-color: #a1a1a1;
-  transform: scale(1.1); 
+  transform: scale(1.1);
 }
 
 .vertical-space {
