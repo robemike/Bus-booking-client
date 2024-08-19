@@ -17,7 +17,6 @@ import DriverBuses from "./components/Drivers/buses";
 import Landing from "./components/Drivers/landing";
 import CustomerList from "./components/Drivers/customerlist";
 import Trips from "./components/Drivers/trips";
-import BusDetails from "./components/Drivers/busdetails";
 import UploadWidget from "./components/UploadWidget";
 // import Signup from "./components/auth/driversignup";
 
