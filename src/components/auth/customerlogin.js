@@ -70,7 +70,7 @@ function Login() {
                     required
                 />
                 <div>
-                    <button type="submit">Login</button>
+                    <button type="submit" onClick={() => navigate("/customer")}>Login</button>
                     <div className="signin-link">
                         <p>Don't have an account? <a href="signup" onClick={() => navigate("/signup")}>Sign up</a>.</p>
                     </div>
@@ -81,3 +81,5 @@ function Login() {
 }
 
 export default Login;
+
+

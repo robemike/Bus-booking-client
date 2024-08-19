@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
@@ -6,7 +7,7 @@ const BookingForm = () => {
     current_address: '',
     destination: '',
     departure_date: '',
-    departure_time: '',
+    departure_time:'',
   });
 
   const [errors, setErrors] = useState({});
@@ -19,16 +20,22 @@ const BookingForm = () => {
     });
     setErrors({
       ...errors,
-      [e.target.id]: '', 
+      [e.target.id]: '',
     });
   };
 
   const validate = () => {
     const newErrors = {};
+    const today = new Date();
+    const selectedDate = new Date(formData.departure_date);
 
     if (!formData.current_address) newErrors.current_address = 'Required';
     if (!formData.destination) newErrors.destination = 'Required';
-    if (!formData.departure_date) newErrors.departure_date = 'Required';
+    if (!formData.departure_date) {
+      newErrors.departure_date = 'Required';
+    } else if (selectedDate < today) {
+      newErrors.departure_date = 'You cannot book a date that has already passed';
+    }
     if (!formData.departure_time) newErrors.departure_time = 'Required';
 
     return newErrors;
@@ -93,9 +100,9 @@ const BookingForm = () => {
             className={`w-full px-4 py-2 border ${errors.departure_time ? 'border-red-500' : 'border-gray-300'} rounded focus:outline-none focus:ring-1 focus:ring-blue-500`}
           >
             <option value=''>Select Time</option>
-            <option value='08:00'>08:00</option>
-            <option value='15:00'>15:00</option>
-            <option value='22:00'>22:00</option>
+            <option value='08:00:00'>08:00:00</option>
+            <option value='15:00:00'>15:00:00</option>
+            <option value='22:00:00'>22:00:00</option>
           </select>
           {errors.departure_time && <p className='text-red-500 text-sm mt-1'>{errors.departure_time}</p>}
         </div>

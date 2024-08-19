@@ -65,8 +65,7 @@ function CustomerList() {
                   <span className="customerlist-number">{customer.email}</span>
                   <span className="customerlist-number">{customer.number}</span>
                 </div>
-               
-               
+              
               </li>
             ))}
           </ul>
