@@ -12,6 +12,8 @@ function Signup() {
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
     const [address, setAddress] = useState('');
+   
+
 
     const handleSubmit = async (e) => {
         e.preventDefault();

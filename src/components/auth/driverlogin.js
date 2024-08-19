@@ -87,6 +87,9 @@ function Logins() {
                 <div>
                     <button type="submit">Login</button>
                 </div>
+                <div className="driverlogin-signin-link">
+                        <p>Don't have an account? <a href="#" onClick={() => navigate("/drivers/signup")}>Sign in</a>.</p>
+                    </div>
             </div>
         </form>
     );

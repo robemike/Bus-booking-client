@@ -67,17 +67,17 @@
   .drivers-login button[type="submit"]:hover {
     background-color: #0056b3; 
   }
-  
-  .drivers-login .signin-link {
-    margin-top: 20px;
-    text-align: center; 
-  }
-  
-  .drivers-login .signin-link a {
-    color: #007bff; 
-    text-decoration: none; 
-  }
-  
-  .drivers-login .signin-link a:hover {
+
+.driverlogin-signin-link {
+    font-size: 14px;
+    margin-top: 15px;
+}
+
+.driverlogin-signin-link a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.driverlogin-signin-link a:hover {
     text-decoration: underline;
-  }
+}

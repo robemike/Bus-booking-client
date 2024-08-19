@@ -1,34 +1,19 @@
-/* Global Styles */
-body, html {
-    height: 100%;
-    margin: 0;
-    padding: 0;
-    font-family: 'Roboto', sans-serif;
-    background-color: #f0f2f5; /* Light grey background */
-}
 
-body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
 
-/* Form Styles */
-form {
-    width: 100%;
+.driversignup-container {
     max-width: 400px;
-    background-color: #ffffff;
+    margin: 0 auto;
     padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 .driversignup-container h1 {
-    font-size: 26px;
+    font-size: 24px;
     color: #333;
     text-align: center;
     margin-bottom: 20px;
-    font-weight: 700;
 }
 
 .driversignup-container p {
@@ -39,50 +24,45 @@ form {
 }
 
 hr {
-    border: 0;
-    height: 1px;
-    background: #e0e0e0;
+    border: none;
+    border-top: 1px solid #ddd;
     margin-bottom: 20px;
 }
 
-/* Label Styles */
 label {
+    font-weight: 600;
     color: #555;
-    font-weight: bold;
-    margin-bottom: 5px;
-    display: inline-block;
+    display: block;
+    margin-bottom: 8px;
 }
 
-/* Input Styles */
 input[type="text"], input[type="password"] {
     width: 100%;
     padding: 12px;
-    margin: 8px 0;
+    margin-bottom: 20px;
     border: 1px solid #ccc;
-    border-radius: 5px;
+    border-radius: 4px;
     box-sizing: border-box;
-    transition: border-color 0.3s, box-shadow 0.3s;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 input[type="text"]:focus, input[type="password"]:focus {
     border-color: #007bff;
-    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
     outline: none;
 }
 
-/* Button Styles */
 .driversignup-btn {
+    width: 100%;
+    padding: 12px;
     background-color: #007bff;
     color: white;
-    padding: 12px 20px;
     border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    width: 100%;
+    border-radius: 4px;
     font-size: 16px;
-    font-weight: bold;
-    margin-top: 10px;
-    transition: background-color 0.3s, box-shadow 0.3s;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .driversignup-btn:hover {
@@ -91,30 +71,26 @@ input[type="text"]:focus, input[type="password"]:focus {
 }
 
 .driversignup-clearfix {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    text-align: center;
+    margin-top: 20px;
 }
 
-/* Sign-in Link */
 .driversignup-signin-link {
-    margin-top: 20px;
     font-size: 14px;
+    margin-top: 15px;
 }
 
 .driversignup-signin-link a {
     color: #007bff;
     text-decoration: none;
-    font-weight: 500;
 }
 
 .driversignup-signin-link a:hover {
     text-decoration: underline;
 }
 
-/* Responsive Design */
 @media (max-width: 600px) {
-    form {
+    .driversignup-container {
         padding: 20px;
     }
 
@@ -122,16 +98,13 @@ input[type="text"]:focus, input[type="password"]:focus {
         font-size: 22px;
     }
 
-    .driversignup-container p {
-        font-size: 13px;
-    }
-
     input[type="text"], input[type="password"] {
         padding: 10px;
     }
 
     .driversignup-btn {
-        padding: 10px 15px;
+        padding: 10px;
         font-size: 15px;
     }
 }
+

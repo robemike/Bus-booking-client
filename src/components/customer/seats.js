@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams, useLocation, useNavigate } from "react-router-dom";
 import "./seats.css";
-import Navbar from "./Navbar";
+
 
 function Seats() {
   const { busId } = useParams();
@@ -14,9 +14,8 @@ function Seats() {
   useEffect(() => {
     const fetchBusData = async () => {
       try {
-        const response = await fetch(`http://127.0.0.1:5555/buses/${busId}/buses/${busId}/seats`);
+        const response = await fetch(`https://bus-booking-server.onrender.com/buses/${busId}/seats`);
         const data = await response.json();
-        console.log(data);
         setSeatsData(data);
       } catch (error) {
         console.error("Error fetching bus data:", error);
@@ -27,18 +26,14 @@ function Seats() {
   }, [busId]);
 
   const handleSeatClick = (seat) => {
-    console.log(seat);
-    
     if (selectedSeats.includes(seat)) {
       setSelectedSeats(selectedSeats.filter((s) => s !== seat));
     } else {
       setSelectedSeats([...selectedSeats, seat]);
     }
   };
-console.log(selectedSeats);
 
   const handleBooking = () => {
-    
     navigate('/busticket', { state: { formData, bus, selectedSeats } });
   };
 
@@ -77,10 +72,9 @@ console.log(selectedSeats);
     return seatRows;
   };
   
-  const viewDestinationTable = () => {
-    return (
+  const viewDestinationTable = () => (
+    <div>
       <div className="container-tickets">
-        <Navbar />
         <table className="destination-table">
           <thead>
             <tr>
@@ -101,11 +95,12 @@ console.log(selectedSeats);
           </tbody>
         </table>
       </div>
-    );
- }
+    </div>
+  );
 
   return (
     <div className="container-seats">
+     
       <div className="seats-customer">
         <div className="seating-customer">{viewSeats()}</div>
         <div className="seating-destination">{viewDestinationTable()}</div>

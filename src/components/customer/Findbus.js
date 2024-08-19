@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
+import Navbar from './Navbar';
 
 const FindBus1 = () => {
   const [busData, setBusData] = useState([]);
@@ -27,6 +28,7 @@ const FindBus1 = () => {
 
   return (
     <div className="find-bus">
+      <Navbar />
       <div id="headerfd">
         <img 
           className="header-image" 
@@ -37,7 +39,7 @@ const FindBus1 = () => {
       <div className="bus-list">
         {busData.map((bus) => (
           <div className="bus-item" key={bus.id}>
-            <img className="bus-item-image" alt={`${bus.username} Bus`} src={bus.imageUrl} />
+            <img className="bus-item-image" alt={`${bus.username} Bus`} src={bus.image} />
             <div className="bus-info">
               <div className="bus-company">
                 <button onClick={() => handleBusSelection(bus)}>{bus.username}</button>
