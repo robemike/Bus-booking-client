@@ -47,7 +47,7 @@ function Signup() {
             const { token } = data;
 
             localStorage.setItem('jwt', token); 
-            navigate("/drivers/login");
+            navigate("/drivers/landing");
 
         } catch (error) {
             alert(error.message);
