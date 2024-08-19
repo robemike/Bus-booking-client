@@ -41,7 +41,7 @@ function Signup() {
   
     try {
       const response = await fetch(
-        "http://127.0.0.1:5555/signup",
+        "https://bus-booking-server.onrender.com/signup",
         {
           method: "POST",
           headers: {

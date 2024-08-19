@@ -25,7 +25,7 @@ import Signup from "./components/auth/driversignup";
 function App() {
 
   return (
-
+    
     <Router>
       <Routes>
         <Route path="/" element={<HomePage />} />  
