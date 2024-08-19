@@ -1,0 +1,101 @@
+   .bus-ticket {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    background-color: #a8a6a6;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .img {
+    width: 100%;
+    max-width: 600px;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 20px;
+  }
+  
+  .header {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  .container {
+    width: 100%;
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  label {
+    font-size: 14px;
+    font-weight: bold;
+    color: #555;
+  }
+  
+  .mpesa-btn {
+    background-color: #1d72b8;
+    color: white;
+    padding: 15px;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-bottom: 10px;
+  }
+  
+  .mpesa-btn:hover {
+    background-color: #155a8a;
+  }
+  
+  .btn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    margin: 10px;
+  }
+  
+  .btn.confirm:hover {
+    background-color: #388e3c;
+  }
+
+
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .header {
+      font-size: 1.75rem;
+  }
+
+  .container {
+      padding: 15px;
+  }
+
+  .phone-input, .btn {
+      font-size: 0.9rem;
+      padding: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .header {
+      font-size: 1.5rem;
+  }
+
+  .container {
+      padding: 10px;
+  }
+
+  .phone-input, .btn {
+      font-size: 0.85rem;
+      padding: 8px;
+  }
+}
