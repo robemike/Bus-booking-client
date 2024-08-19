@@ -3,6 +3,7 @@ import Navbar from "./Navbar";
 import Destinations from "./Destinations";
 import buses from "../../assets/buses.jpg";
 import BookingForm from "./BookingForm";
+import Footer from "./Footer";
 
 const HomePage = () => {
   return (
@@ -17,6 +18,7 @@ const HomePage = () => {
       </div>
       <BookingForm />
       <Destinations />
+      <Footer />
     </div>
   );
 };

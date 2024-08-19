@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import './busticket.css';
 import Navbar from "./Navbar";
+import Footer from "./Footer";
 
 function BusTicket() {
     const location = useLocation();
@@ -86,8 +87,9 @@ function BusTicket() {
                 <p><strong>Total Cost:</strong> Ksh {totalCost}</p>
                 {/* <button className="btn confirm" onClick={handleConfirm}>Confirm</button> */}
                 <button id="mpesa" className="btn mpesa" onClick={handleMpesaPayment}>Pay with Mpesa</button>
-                
+                 
             </div>
+               <Footer />
         </div>
     );
 }

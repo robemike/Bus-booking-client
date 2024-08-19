@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams, useLocation, useNavigate } from "react-router-dom";
 import "./seats.css";
+import Footer from "./Footer";
 
 
 function Seats() {
@@ -94,10 +95,11 @@ function Seats() {
             </tr>
           </tbody>
         </table>
+        
       </div>
+      
     </div>
   );
-
   return (
     <div className="container-seats">
      
@@ -108,7 +110,11 @@ function Seats() {
       <button onClick={handleBooking} disabled={selectedSeats.length === 0}>
         Book Selected Seats
       </button>
+
+
     </div>
+    
+   
   );
 }
 
