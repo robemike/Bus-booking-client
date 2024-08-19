@@ -43,7 +43,6 @@ function App() {
         <Route path="/drivers/login" element={<Logins />} />
         <Route path="/drivers/landing" element={<Landing />} />
         <Route path="/drivers/buses" element={<DriverBuses />} />
-        <Route path="/drivers/buses/:busName" element={<BusDetails />} />
         <Route path="/drivers/customer-list" element={<CustomerList/>} />
         <Route path="/drivers/view_scheduled_buses" element={<Trips />} />
         <Route path="/admin/dashboard" element={<Admin />} />
