@@ -142,10 +142,10 @@ function DriverBuses() {
     return (
         <div className="buses-container">
             <div className="buses-sidebar">
-                <li><a onClick={() => navigate("/drivers/landing")}>Dashboard</a></li>
-                <li><a onClick={() => navigate("/drivers/buses")}>Buses</a></li>
-                <li><a onClick={() => navigate("/drivers/view_scheduled_buses")}>Trips</a></li>
-                <li><a onClick={() => navigate("/drivers/customer-list")}>Customers</a></li>
+                <li><a href="landing" onClick={() => navigate("/drivers/landing")}>Dashboard</a></li>
+                <li><a href="buses" onClick={() => navigate("/drivers/buses")}>Buses</a></li>
+                <li><a href="view_scheduled_buses" onClick={() => navigate("/drivers/view_scheduled_buses")}>Trips</a></li>
+                <li><a href="customer-list" onClick={() => navigate("/drivers/customer-list")}>Customers</a></li>
             </div>
 
             <div className="buses-content-container">

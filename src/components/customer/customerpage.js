@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "./customerpage.css";
@@ -19,7 +18,6 @@ function Customer() {
         const response = await fetch(`https://bus-booking-server.onrender.com/user-bookings/${userId}`);
         if (response.ok) {
           const data = await response.json();
-          const now = new Date();
           const sortedBookings = data.sort((a, b) => new Date(a.depature_time) - new Date(b.depature_time));
           setBookings(sortedBookings);
         } else {

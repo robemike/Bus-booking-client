@@ -20,10 +20,10 @@ function Drivers() {
   return (
     <div className="drivers-container">
       <div className="driversidebar">
-        <a onClick={() => navigate("/admin/dashboard")}>Dashboard</a>
-        <a onClick={() => navigate("/admin/drivers")}>Drivers</a>
-        <a onClick={() => navigate("/admin/buses")}>Buses</a>
-        <a onClick={() => navigate("/admin/customers")}>Customers</a>
+        <a href="dashboard" onClick={() => navigate("/admin/dashboard")}>Dashboard</a>
+        <a href="drivers" onClick={() => navigate("/admin/drivers")}>Drivers</a>
+        <a href="buses" onClick={() => navigate("/admin/buses")}>Buses</a>
+        <a href="customers" onClick={() => navigate("/admin/customers")}>Customers</a>
       </div>
 
       <div className="driverscontent">
