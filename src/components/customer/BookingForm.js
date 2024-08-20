@@ -47,8 +47,8 @@ const BookingForm = () => {
   };
 
   return (
-    <div className='flex justify-center items-center min-h-screen bg-gray-100'>
-      <form className='flex flex-wrap justify-center space-x-6 bg-white p-8 rounded-lg shadow-md' onSubmit={handleSubmit}>
+    <div className='flex justify-center items-center'>
+      <form className='flex flex-wrap justify-center space-x-6 bg-white p-8 rounded-lg shadow-md border-0.5' onSubmit={handleSubmit}>
         <div className='flex flex-col w-64'>
           <label htmlFor='current_address' className='text-gray-700 font-bold'>From</label>
           <input
@@ -56,7 +56,7 @@ const BookingForm = () => {
             id='current_address'
             value={formData.current_address}
             onChange={handleChange}
-            className={`px-4 py-2 border ${errors.current_address ? 'border-red-500' : 'border-gray-300'} rounded focus:outline-none focus:ring-1 focus:ring-blue-500`}
+            className={`px-4 py-2 border-0.5 ${errors.current_address ? 'border-red-500' : 'border-gray-300'} rounded focus:outline-none focus:ring-1 focus:ring-blue-500`}
             placeholder='Starting point'
           />
           {errors.current_address && <p className='text-red-500 text-sm'>{errors.current_address}</p>}
@@ -68,7 +68,7 @@ const BookingForm = () => {
             id='destination'
             value={formData.destination}
             onChange={handleChange}
-            className={`px-4 py-2 border ${errors.destination ? 'border-red-500' : 'border-gray-300'} rounded focus:outline-none focus:ring-1 focus:ring-blue-500`}
+            className={`px-4 py-2 border-0.5 ${errors.destination ? 'border-red-500' : 'border-gray-300'} rounded focus:outline-none focus:ring-1 focus:ring-blue-500`}
             placeholder='Destination'
           />
           {errors.destination && <p className='text-red-500 text-sm'>{errors.destination}</p>}
@@ -80,7 +80,7 @@ const BookingForm = () => {
             id='departure_date'
             value={formData.departure_date}
             onChange={handleChange}
-            className={`px-4 py-2 border ${errors.departure_date ? 'border-red-500' : 'border-gray-300'} rounded focus:outline-none focus:ring-1 focus:ring-blue-500`}
+            className={`px-4 py-2 border-0.5 ${errors.departure_date ? 'border-red-500' : 'border-gray-300'} rounded focus:outline-none focus:ring-1 focus:ring-blue-500`}
           />
           {errors.departure_date && <p className='text-red-500 text-sm'>{errors.departure_date}</p>}
         </div>
@@ -90,7 +90,7 @@ const BookingForm = () => {
             id='departure_time'
             value={formData.departure_time}
             onChange={handleChange}
-            className={`px-4 py-2 border ${errors.departure_time ? 'border-red-500' : 'border-gray-300'} rounded focus:outline-none focus:ring-1 focus:ring-blue-500`}
+            className={`px-4 py-2 border-0.5 ${errors.departure_time ? 'border-red-500' : 'border-gray-300'} rounded focus:outline-none focus:ring-1 focus:ring-blue-500`}
           >
             <option value=''>Select Time</option>
             <option value='08:00'>08:00</option>
