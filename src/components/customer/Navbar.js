@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { addUser } from '../../features/userSlice';
 
 function Navbar() {
-  const user = useSelector((state) => state.user.user);
+  const user = useSelector((state) => state.user.user || {}); // Default to empty object
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -24,9 +24,14 @@ function Navbar() {
         <Link to="/" className="brand">BusLink</Link>
       </div>
       <div className="navbar-right">
-        {!user.id && <Link to="/signup" className="link">Sign Up</Link>}
-        {!user.id && <Link to="/login" className="link">Log In</Link>}
-        {user.id && <button onClick={handleLogOut} className="link">Log out</button>}
+        {!user.id ? (
+          <>
+            <Link to="/signup" className="link">Sign Up</Link>
+            <Link to="/login" className="link">Log In</Link>
+          </>
+        ) : (
+          <button onClick={handleLogOut} className="link">Log out</button>
+        )}
       </div>
     </nav>
   );
