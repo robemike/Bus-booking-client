@@ -1,85 +1,122 @@
-import React, { useState } from "react";
-import './customerlogin.css';
+import React, { useEffect, useState } from "react";
+import "./customerlogin.css";
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { addUser } from "../../features/userSlice";
 
 function Login() {
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
-    const [error, setError] = useState('');
-    const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
+  const [role, setRole] = useState("");
+  const navigate = useNavigate();
+  console.log(role);
 
-    const handleSubmit = async (event) => {
-        event.preventDefault();
+  const handleSubmit = async (event) => {
+    event.preventDefault();
 
-        try {
-           
-            const response = await fetch('https://bus-booking-server.onrender.com/login', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({
-                    email: email,
-                    password: password,
-                }),
-            });
-
-            const data = await response.json();
-
-            if (response.ok) {
-               
-                localStorage.setItem('token', data.token);
-
-               
-                navigate('/');
-            } else {
-              
-                setError(data.message || 'Invalid credentials. Please try again.');
-            }
-        } catch (error) {
-            console.error('Error during login:', error);
-            setError('An unexpected error occurred. Please try again later.');
+    try {
+      const response = await fetch(
+        "https://bus-booking-server.onrender.com/login",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            email: email,
+            password: password,
+          }),
         }
-    };
+      );
 
-    return (
-        <form onSubmit={handleSubmit}>
-            <div className="customer-login">
-                <h1>Welcome to Buslink</h1>
-                <p>You are just one step away!</p>
-                <h2>Fill in the details below to access your account.</h2>
-                <hr />
-                {error && <div className="error-message">{error}</div>}
-                <label htmlFor="Email"><b>Email</b></label>
-                <input
-                    type="text"
-                    placeholder="Enter Email Address"
-                    name="Email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    required
-                />
+      if (!response.ok) {
+        const errorData = await response.json();
+        setError(errorData.error || "Signup failed");
+        return;
+      }
 
-                <label htmlFor="psw"><b>Password</b></label>
-                <input
-                    type="password"
-                    placeholder="Enter Password"
-                    name="psw"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                    required
-                />
-                <div>
-                    <button type="submit" onClick={() => navigate("/customer")}>Login</button>
-                    <div className="signin-link">
-                        <p>Don't have an account? <a href="signup" onClick={() => navigate("/signup")}>Sign up</a>.</p>
-                    </div>
-                </div>
-            </div>
-        </form>
-    );
+      const data = await response.json();
+      console.log(data);
+      const { access_token } = data;
+
+      // Save tokens in localStorage
+      localStorage.setItem("access_token", access_token);
+      let newUser = data.new_customer;
+      dispatch(addUser(newUser));
+      console.log(localStorage.getItem("access_token"));
+
+      navigate("/customer");
+    } catch (error) {
+      console.error("Error during login:", error);
+      setError("An unexpected error occurred. Please try again later.");
+    }
+  };
+
+  function handleRoleChange(e){
+    setRole(e.target.value);
+  }
+  useEffect(() => {
+    if(role === 'Driver'){
+      navigate('/drivers/login');
+    }
+    else if(role === 'Customer'){
+      navigate('/login');
+    }
+  }, [role]);
+
+  return (
+    <form onSubmit={handleSubmit}>
+      <div className="customer-login">
+        <h1>Welcome to Buslink</h1>
+        <select value={role} onChange={handleRoleChange} required>
+          <option>Select a role</option>
+          <option>Customer</option>
+          <option>Driver</option>
+        </select>
+        <p>You are just one step away!</p>
+        <h2>Fill in the details below to access your account.</h2>
+        <hr />
+        {error && <div className="error-message">{error}</div>}
+        <label htmlFor="Email">
+          <b>Email</b>
+        </label>
+        <input
+          type="text"
+          placeholder="Enter Email Address"
+          name="Email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          required
+        />
+
+        <label htmlFor="psw">
+          <b>Password</b>
+        </label>
+        <input
+          type="password"
+          placeholder="Enter Password"
+          name="psw"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          required
+        />
+        <div>
+          <button type="submit">Login</button>
+          <div className="signin-link">
+            <p>
+              Don't have an account?{" "}
+              <a href="signup" onClick={() => navigate("/signup")}>
+                Sign up
+              </a>
+              .
+            </p>
+          </div>
+        </div>
+      </div>
+    </form>
+  );
 }
 
 export default Login;
-
-

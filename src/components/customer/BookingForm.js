@@ -1,6 +1,7 @@
 
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useSelector } from'react-redux';
 
 const BookingForm = () => {
   const [formData, setFormData] = useState({
@@ -9,6 +10,8 @@ const BookingForm = () => {
     departure_date: '',
     departure_time:'',
   });
+  const user = useSelector((state) => state.user.user);
+  console.log(user);
 
   const [errors, setErrors] = useState({});
   const navigate = useNavigate();
@@ -49,8 +52,12 @@ const BookingForm = () => {
       setErrors(validationErrors);
       return;
     }
-
-    navigate('/findbus', { state: { formData } });
+    if (!user.id) {
+      alert('You must be logged in to book a bus');
+      navigate('/login')
+    }else{
+      navigate('/findbus', { state: { formData } });
+    }
   };
 
   return (

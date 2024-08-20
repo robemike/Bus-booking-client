@@ -3,19 +3,23 @@ import './Navbar.css';
 import { Link } from 'react-router-dom';
 import Logo from '../../assets/logo.jpg';
 import { useNavigate } from 'react-router-dom';
-
+import { addUser } from '../../features/userSlice';
+import { useDispatch, useSelector } from'react-redux';
 
 
 function Navbar () {
-
+  const user = useSelector((state) => state.user.user);
+  console.log(user);
+  const dispatch = useDispatch()
     
-    const navigate = useNavigate()
+  const navigate = useNavigate()
 
-    const handleLogOut = () => {
-        localStorage.removeItem("access_token")
-        
-        navigate("/login")
-    }
+  const handleLogOut = () => {
+    localStorage.removeItem("access_token")
+    dispatch(addUser(''));
+    alert('Logged out successfully');
+    navigate("/")
+  }
 
 
   return (
@@ -28,10 +32,9 @@ function Navbar () {
         <Link to= {'/'}className="brand">BusLink</Link>
       </div>
       <div className="navbar-right">
-        <Link to={'/signup'} className='link'>Sign Up</Link>
-        <Link to={'/login'} className='link'>Log In</Link>
-        <Link to={'/logout'} className='link' onClick={handleLogOut}>Log Out</Link>
-        {/* <Link to={`/buses/${bus.id}/seats`}></Link> */}
+       {!user.id && <Link to={'/signup'} className='link'>Sign Up</Link>}
+        {!user.id && <Link to={'/login'} className='link'>Log In</Link>}
+        {user.id && <button onClick={handleLogOut} className='link' >Log out</button>}
       </div>
     </nav>
   );

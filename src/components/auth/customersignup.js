@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./customersignup.css";
 import { useNavigate } from "react-router-dom";
 import { addUser } from "../../features/userSlice";
 import { useDispatch } from "react-redux";
 
 function Signup() {
+  const [role, setRole] = useState("");
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [firstname, setFirstName] = useState("");
@@ -78,16 +79,31 @@ function Signup() {
       dispatch(addUser(newUser))
       console.log(localStorage.getItem("access_token"));
   
-      navigate("/");
+      navigate("/customer");
     } catch (error) {
       setError("An unexpected error occurred. Please try again.");
     }
   };
+  function handleRoleChange(e) {
+    setRole(e.target.value);
+  }
+  useEffect(() => {
+    if (role === "Driver") {
+      navigate("/drivers/signup");
+    } else if (role === "Customer") {
+      navigate("/signup");
+    }
+  }, [role]);
 
   return (
     <form onSubmit={handleSubmit}>
       <div className="customer-signup">
         <h1>Sign Up</h1>
+        <select value={role} onChange={handleRoleChange} required>
+          <option>Select a role</option>
+          <option>Customer</option>
+          <option>Driver</option>
+        </select>
         <p>Please fill in the details below to create an account.</p>
         <hr />
 

@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from "react";
 import './buses.css';
 import { useNavigate } from "react-router-dom";
@@ -30,7 +29,7 @@ function DriverBuses() {
     const [imageUrl, setImageUrl] = useState("")
 
     useEffect(() => {
-        fetch('https://bus-booking-server.onrender.com/drivers/buses')
+        fetch('https://bus-booking-server.onrender.com/drivers/drivers/buses')
             .then(response => response.json())
             .then(data => setBusData(data))
             .catch(error => {

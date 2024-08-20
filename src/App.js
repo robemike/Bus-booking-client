@@ -1,4 +1,3 @@
-import CustomerLogin from "./components/auth/customerlogin";
 import CustomerSignup from "./components/auth/customersignup";
 import Logins from './components/auth/driverlogin'
 import BusTicket from "./components/customer/busticket";
@@ -22,6 +21,7 @@ import UploadWidget from "./components/UploadWidget";
 import Signup from "./components/auth/driversignup";
 import { useDispatch, useSelector } from "react-redux";
 import { addUser } from "./features/userSlice";
+import Login from "./components/auth/customerlogin";
 
 
 function App() {
@@ -65,7 +65,7 @@ function App() {
         <Route path="/admin/buses" element={<Buses />} />
         <Route path="/buses/:id/seats" element={<Seats />} />
         <Route path="/signup" element={<CustomerSignup />} />
-        <Route path="/login" element={<CustomerLogin />} />
+        <Route path="/login" element={<Login />} />
         <Route path="busticket" element={<BusTicket />} />
         <Route path="/customer" element={<Customer />} />
         <Route path="/drivers/signup" element={<Signup />} />
