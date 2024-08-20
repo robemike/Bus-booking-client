@@ -1,8 +1,11 @@
 import React, { useState } from "react";
 import "./customersignup.css";
 import { useNavigate } from "react-router-dom";
+import { addUser } from "../../features/userSlice";
+import { useDispatch } from "react-redux";
 
 function Signup() {
+  const dispatch = useDispatch();
   const navigate = useNavigate();
   const [firstname, setFirstName] = useState("");
   const [lastname, setLastName] = useState("");
@@ -66,15 +69,16 @@ function Signup() {
       }
   
       const data = await response.json();
-      const { access_token, refresh_token } = data;
+      console.log(data)
+      const { access_token } = data;
   
       // Save tokens in localStorage
       localStorage.setItem("access_token", access_token);
-      localStorage.setItem("refresh_token", refresh_token);
+      let newUser = data.new_customer
+      dispatch(addUser(newUser))
       console.log(localStorage.getItem("access_token"));
-      console.log(localStorage.getItem("refresh_token"));
   
-      navigate("/login");
+      navigate("/");
     } catch (error) {
       setError("An unexpected error occurred. Please try again.");
     }

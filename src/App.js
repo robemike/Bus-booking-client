@@ -11,7 +11,7 @@ import Customers from './components/Admin/customers';
 import Buses from './components/Admin/buses';
 import Seats from './components/customer/seats';
 import HomePage from "./components/customer/HomePage";
-import React from "react";
+import React, {useEffect} from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import DriverBuses from "./components/Drivers/buses";
 import Landing from "./components/Drivers/landing";
@@ -20,10 +20,38 @@ import Trips from "./components/Drivers/trips";
 import BusDetails from "./components/Drivers/busdetails";
 import UploadWidget from "./components/UploadWidget";
 import Signup from "./components/auth/driversignup";
+import { useDispatch, useSelector } from "react-redux";
+import { addUser } from "./features/userSlice";
 
 
 function App() {
-
+  const dispatch = useDispatch();
+  useEffect(() => {
+    const token = localStorage.getItem("access_token");
+    console.log(token);
+    if (token) {
+      fetch("https://bus-booking-server.onrender.com/check_session", {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
+        .then((response) => {
+          if (!response.ok) {
+            throw new Error("Failed to verify token");
+          }
+          return response.json();
+        })
+        .then((userData) => {
+          dispatch(addUser(userData));
+          console.log(userData);
+        })
+        .catch((error) => {
+          console.error("Token verification failed:", error);
+        });
+    }
+  }, [dispatch]);
+  const user = useSelector((state) => state.user.user);
+  console.log(user);
   return (
     
     <Router>
