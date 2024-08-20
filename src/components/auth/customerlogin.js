@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import './customerlogin.css';
 import { useNavigate } from "react-router-dom";
+import Footer from "../customer/Footer";
+import Navbar from "../customer/Navbar";
 
 function Login() {
     const [email, setEmail] = useState('');
@@ -44,6 +46,7 @@ function Login() {
 
     return (
         <form onSubmit={handleSubmit}>
+            <Navbar />
             <div className="customer-login">
                 <h1>Welcome to Buslink</h1>
                 <p>You are just one step away!</p>
@@ -75,8 +78,11 @@ function Login() {
                         <p>Don't have an account? <a href="signup" onClick={() => navigate("/signup")}>Sign up</a>.</p>
                     </div>
                 </div>
+
             </div>
+            <Footer />
         </form>
+        
     );
 }
 

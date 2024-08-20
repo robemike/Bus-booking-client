@@ -95,7 +95,9 @@ function Seats() {
             </tr>
           </tbody>
         </table>
-        
+         <button className = "seats-button" onClick={handleBooking} disabled={selectedSeats.length === 0}>
+        Book Selected Seats
+      </button>
       </div>
       
     </div>
@@ -107,9 +109,7 @@ function Seats() {
         <div className="seating-customer">{viewSeats()}</div>
         <div className="seating-destination">{viewDestinationTable()}</div>
       </div>
-      <button onClick={handleBooking} disabled={selectedSeats.length === 0}>
-        Book Selected Seats
-      </button>
+     
 
 
     </div>

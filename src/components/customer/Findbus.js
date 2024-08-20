@@ -45,6 +45,7 @@ const FindBus1 = () => {
               <div className="bus-company">
                 <button onClick={() => handleBusSelection(bus)}>{bus.username}</button>
               </div>
+              
               <div className="bus-details">Seats: {bus.number_of_seats}, Cost: Ksh {bus.cost_per_seat}</div>
               <div className="route">Route: {bus.route}</div>
               <div className="time">

@@ -68,9 +68,9 @@ function BusTicket() {
     return (
         <div className="bus-ticket">
             <Navbar />
-            <img className="img" src="https://www.shutterstock.com/image-photo/bus-traveling-on-asphalt-road-600nw-1345741577.jpg" alt="Bus" />
-            <h1 className="header">BUS TICKET</h1>
-            <div className="container">
+            <img className="bustickets-img" src="https://www.shutterstock.com/image-photo/bus-traveling-on-asphalt-road-600nw-1345741577.jpg" alt="Bus" />
+            <h1 className="bustickets-header">BUS TICKET</h1>
+            <div className="bustickets-container">
                 <p><strong>Current Address:</strong> {formData.current_address}</p>
                 <p><strong>Destination:</strong> {formData.destination}</p>
                 <p><strong>Booking Date:</strong> {formData.departure_date}</p>

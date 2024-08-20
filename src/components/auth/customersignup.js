@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import './customersignup.css'; 
 import { useNavigate } from "react-router-dom";
+import Navbar from "../customer/Navbar";
+import Footer from "../customer/Footer";
 
 function Signup() {
     const navigate = useNavigate();
@@ -58,6 +60,7 @@ function Signup() {
 
     return (
         <form onSubmit={handleSubmit}>
+            <Navbar />
             <div className="customer-signup">
                 <h1>Sign Up</h1>
                 <p>Please fill in the details below to create an account.</p>
@@ -147,9 +150,11 @@ function Signup() {
                     <button type="submit" className="signupbtn">Sign Up</button>
                     <div className="signin-link">
                         <p>Already have an account? <a onClick={() => navigate("/login")}>Login</a>.</p>
+
                     </div>
                 </div>
             </div>
+            <Footer />
         </form>
     );
 }

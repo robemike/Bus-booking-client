@@ -4,7 +4,7 @@
   align-items: center;
   min-height: 100vh;
   padding: 20px;
-  background: linear-gradient(89.2deg, rgb(0, 0, 0) 10.4%, rgb(255, 0, 0) 37.1%, rgb(255, 216, 51) 64.3%, rgb(255, 255, 255) 90.5%);
+  
 }
 
 .seats-customer {
@@ -13,6 +13,7 @@
   align-items: flex-start;
   width: 90%;
   max-width: 1200px;
+
 }
 
 .seating-customer {
@@ -24,6 +25,8 @@
   padding: 20px;
   background-color: white;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 20px; 
+  border: 2px solid black;
 }
 
 .seating-destination {
@@ -34,6 +37,8 @@
   padding: 20px;
   background-color: white;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 20px;
+  border: 2px solid black;
 }
 
 .container-tickets {
@@ -70,7 +75,7 @@
 }
 
 .available {
-  background-color: #4caf50;
+  background-color: #ADDBE6;
   width: 40px;
   height: 40px;
   margin: 5px;
@@ -106,4 +111,9 @@
 
 .vertical-space {
   width: 20px;
+}
+
+.seats-button {
+  background-color: #ea9dea;
+  
 }

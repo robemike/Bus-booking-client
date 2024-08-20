@@ -8,11 +8,12 @@
     align-items: center;
     padding: 15px 30px;
     color: white;
-    background: linear-gradient(to right, darkred, rgba(255, 0, 0, 0.7));
+    background: linear-gradient(to right, rgb(104, 55, 90), rgba(0, 63, 66, 0.7));
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     border: 2px solid black; 
     z-index: 1000;
     font-family: 'Poppins', sans-serif; 
+    border-radius: 25px;
 }
 
 .navbar-left {
