@@ -1,121 +1,10 @@
-/* .container-seats {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-top: 150px;
-
-}
-
-.seats-customer {
-  display: flex;
-  justify-content: space-between;
-  width: 80%;
-  margin-bottom: 20px;
-}
-
-.seating-customer {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.seat-row {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 10px;
-}
-
-.seat {
-  width: 50px;
-  height: 50px;
-  margin: 5px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 18px;
-  font-weight: bold;
-  color: white;
-  transition: background-color 0.3s ease;
-}
-
-.occupied {
-  background-color: red;
-  cursor: not-allowed;
-}
-
-.available {
-  background-color: green;
-}
-
-.selected {
-  background-color: yellow;
-}
-
-.seating-destination {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.container-tickets {
-  margin-top: 20px;
-}
-
-.destination-table {
-  border-collapse: collapse;
-}
-
-.destination-table th,
-.destination-table td {
-  padding: 10px;
-  text-align: center;
-}
-
-.rectangle {
-  width: 20px;
-  height: 20px;
-  display: inline-block;
-  margin-right: 5px;
-  border-radius: 3px;
-}
-
-.rectangle.occupied {
-  background-color: red;
-}
-
-.rectangle.available {
-  background-color: green;
-}
-
-.rectangle.selected {
-  background-color: yellow;
-}
-
-button {
-  padding: 10px 20px;
-  background-color: blue;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 16px;
-  transition: background-color 0.3s ease;
-}
-
-button:disabled {
-  background-color: gray;
-  cursor: not-allowed;
-}
- */
-
- .container-seats {
+.container-seats {
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
   padding: 20px;
+  
 }
 
 .seats-customer {
@@ -124,6 +13,7 @@ button:disabled {
   align-items: flex-start;
   width: 90%;
   max-width: 1200px;
+
 }
 
 .seating-customer {
@@ -135,6 +25,8 @@ button:disabled {
   padding: 20px;
   background-color: white;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 20px; 
+  border: 2px solid black;
 }
 
 .seating-destination {
@@ -145,6 +37,8 @@ button:disabled {
   padding: 20px;
   background-color: white;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 20px;
+  border: 2px solid black;
 }
 
 .container-tickets {
@@ -181,7 +75,7 @@ button:disabled {
 }
 
 .available {
-  background-color: #4caf50;
+  background-color: #ADDBE6;
   width: 40px;
   height: 40px;
   margin: 5px;
@@ -210,16 +104,6 @@ button:disabled {
   margin: 10px 0;
 }
 
-.seat-pair {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-}
-
-.aisle-space {
-  width: 20px;
-}
-
 .seat:hover {
   background-color: #a1a1a1;
   transform: scale(1.1); 
@@ -229,78 +113,7 @@ button:disabled {
   width: 20px;
 }
 
-
-/* seats.css */
-
-
-/* 
-.seat {
-  width: 40px;
-  height: 40px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  border-radius: 4px;
-  margin: 5px;
-  text-align: center;
-  font-size: 14px;
+.seats-button {
+  background-color: #ea9dea;
+  
 }
-
-
-.available {
-  background-color: green; 
-  color: white;
-}
-
-.occupied {
-  background-color: red; 
-  color: white;
-}
-
-.selected {
-  background-color: yellow; 
-  color: black;
-}
-
-
-.seat-row {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 10px;
-}
-
-.seat-pair {
-  display: flex;
-}
-
-.aisle-space {
-  width: 20px;
-}
-
-.container-seats {
-  padding: 20px;
-}
-
-.seats-customer {
-  display: flex;
-  flex-direction: column;
-}
-
-.seating-destination {
-  margin-top: 20px;
-}
-
-.seat-info {
-  margin-top: 20px;
-}
-
-.error-message {
-  color: red;
-  font-weight: bold;
-}
-
-.fully-booked {
-  color: red;
-  font-weight: bold;
-} */

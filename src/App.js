@@ -16,7 +16,7 @@ import DriverBuses from "./components/Drivers/buses";
 import Landing from "./components/Drivers/landing";
 import CustomerList from "./components/Drivers/customerlist";
 import Trips from "./components/Drivers/trips";
-import BusDetails from "./components/Drivers/busdetails";
+// import BusDetails from "./components/Drivers/busdetails";
 import UploadWidget from "./components/UploadWidget";
 import Signup from "./components/auth/driversignup";
 import { useDispatch, useSelector } from "react-redux";
@@ -72,7 +72,7 @@ function App() {
         <Route path="/drivers/login" element={<Logins />} />
         <Route path="/drivers/landing" element={<Landing />} />
         <Route path="/drivers/buses" element={<DriverBuses />} />
-        <Route path="/drivers/buses/:busName" element={<BusDetails />} />
+        {/* <Route path="/drivers/buses/:busName" element={<BusDetails />} /> */}
         <Route path="/drivers/customer-list" element={<CustomerList/>} />
         <Route path="/drivers/view_scheduled_buses" element={<Trips />} />
         <Route path="/admin/dashboard" element={<Admin />} />

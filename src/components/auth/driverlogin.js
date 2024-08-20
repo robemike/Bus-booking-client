@@ -3,6 +3,8 @@ import "./driverslogin.css";
 import { useNavigate } from "react-router-dom";
 import { addUser } from "../../features/userSlice";
 import { useDispatch } from "react-redux";
+import Navbar from "../customer/Navbar";
+import Footer from "../customer/Footer";
 
 function Logins() {
   const dispatch = useDispatch();
@@ -75,6 +77,7 @@ function Logins() {
 
   return (
     <form onSubmit={handleSubmit}>
+      <Navbar />
       <div className="drivers-login">
         <h1>Welcome to Buslink</h1>
         <select value={role} onChange={handleRoleChange} required>
@@ -122,7 +125,15 @@ function Logins() {
         <div>
           <button type="submit">Login</button>
         </div>
+        <p>
+              Don't have an account?{" "}
+              <a href="#" onClick={() => navigate("/drivers/signup")}>
+                Sign Up
+              </a>
+              .
+            </p>
       </div>
+      <Footer />
     </form>
   );
 }

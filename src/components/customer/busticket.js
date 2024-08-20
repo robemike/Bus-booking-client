@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import './busticket.css';
 import Navbar from "./Navbar";
+import Footer from "./Footer";
 
 function BusTicket() {
     const location = useLocation();
@@ -107,9 +108,9 @@ function BusTicket() {
         <div>
             <Navbar/>
         <div className="bus-ticket">
-            <img className="img" src="https://www.shutterstock.com/image-photo/bus-traveling-on-asphalt-road-600nw-1345741577.jpg" alt="Bus" />
-            <h1 className="header">BUS TICKET</h1>
-            <div className="container">
+            <img className="bustickets-img" src="https://www.shutterstock.com/image-photo/bus-traveling-on-asphalt-road-600nw-1345741577.jpg" alt="Bus" />
+            <h1 className="bustickets-header">BUS TICKET</h1>
+            <div className="bustickets-container">
                 <p><strong>Current Address:</strong> {formData.current_address}</p>
                 <p><strong>Destination:</strong> {formData.destination}</p>
                 <p><strong>Booking Date:</strong> {formData.departure_date}</p>
@@ -131,6 +132,7 @@ function BusTicket() {
 
             </div>
         </div>
+        <Footer />
         </div>
     );
 }

@@ -6,7 +6,8 @@
     max-width: 400px; 
     margin: 0 auto; 
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
-    margin-top: 50px;
+    margin-top: 150px;
+    margin-bottom: 300px;
   }
   
   .drivers-login h1 {
@@ -81,3 +82,4 @@
   .drivers-login .signin-link a:hover {
     text-decoration: underline;
   }
+  

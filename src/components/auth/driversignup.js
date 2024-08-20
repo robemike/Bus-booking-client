@@ -3,6 +3,8 @@ import "./driversignup.css";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { addUser } from "../../features/userSlice";
+import Navbar from "../customer/Navbar";
+import Footer from "../customer/Footer";
 
 function Signup() {
   const [role, setRole] = useState("");
@@ -80,6 +82,7 @@ function Signup() {
 
   return (
     <form onSubmit={handleSubmit}>
+      <Navbar />
       <div className="driversignup-container">
         <h1>Sign Up</h1>
         <select value={role} onChange={handleRoleChange} required>
@@ -190,7 +193,7 @@ function Signup() {
           <button type="submit" className="driversignup-btn">
             Sign Up
           </button>
-          <div className="driversignup-signin-link">
+          <div className="driversignin-signup-link">
             <p>
               Already have an account?{" "}
               <a href="#" onClick={() => navigate("/drivers/login")}>
@@ -201,6 +204,7 @@ function Signup() {
           </div>
         </div>
       </div>
+      <Footer />
     </form>
   );
 }

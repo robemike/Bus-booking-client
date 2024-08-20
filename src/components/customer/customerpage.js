@@ -1,18 +1,16 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "./customerpage.css";
+import { useParams } from "react-router-dom";
 
 function Customer() {
+  const {userId} = useParams();
   const [bookings, setBookings] = useState([]);
   const navigate = useNavigate();
-  const userId = localStorage.getItem("customerId"); 
+
 
   useEffect(() => {
     const fetchBookings = async () => {
-      if (!userId) {
-        console.error("No user ID found");
-        return;
-      }
 
       try {
         const response = await fetch(`https://bus-booking-server.onrender.com/user-bookings/${userId}`);

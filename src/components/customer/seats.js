@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams, useLocation, useNavigate } from "react-router-dom";
 import "./seats.css";
-import Navbar from "./Navbar";
+
 
 function Seats() {
   // Parameters and state
@@ -158,7 +158,6 @@ function Seats() {
 
   return (
     <div className="container-seats">
-      <Navbar/>
       <div className="seats-customer">
         <div className="seating-customer">{viewSeats()}</div>
         <div className="seating-destination">
@@ -181,10 +180,13 @@ function Seats() {
                   </td>
                 </tr>
               </tbody>
-            </table>
-          </div>
-        </div>
-      </div>
+              <button className="seats-button" 
+        onClick={handleBooking} 
+        disabled={selectedSeats.length === 0 || selectedSeats.length > availableSeats}
+      >
+        Book Selected Seats
+      </button>
+      
       <div className="seat-info">
         <p>Selected Seats: {selectedSeats.length}</p>
         <p>Available Seats: {availableSeats}</p>
@@ -195,12 +197,12 @@ function Seats() {
           <p className="error-message">{errorMessage}</p>
         )}
       </div>
-      <button 
-        onClick={handleBooking} 
-        disabled={selectedSeats.length === 0 || selectedSeats.length > availableSeats}
-      >
-        Book Selected Seats
-      </button>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      
     </div>
   );
 }

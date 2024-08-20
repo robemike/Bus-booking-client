@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import Navbar from './Navbar';
+import Footer from './Footer';
 
 const FindBus1 = () => {
   const [busData, setBusData] = useState([]);
@@ -62,6 +63,7 @@ const FindBus1 = () => {
           </div>
         )) : <p>No buses available for the selected route and time.</p>}
       </div>
+      <Footer />
     </div>
   );
 };

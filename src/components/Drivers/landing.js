@@ -13,7 +13,7 @@ function Landing() {
     useEffect(() => {
         const fetchBuses = async () => {
             try {
-                const response = await fetch('https://bus-booking-server.onrender.com/drivers/buses');
+                const response = await fetch('https://bus-booking-server.onrender.com/drivers/drivers/buses');
                 const data = await response.json();
                 setBuses(data);
             } catch (error) {

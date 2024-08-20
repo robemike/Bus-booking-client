@@ -3,6 +3,8 @@ import "./customersignup.css";
 import { useNavigate } from "react-router-dom";
 import { addUser } from "../../features/userSlice";
 import { useDispatch } from "react-redux";
+import Footer from "../customer/Footer";
+import Navbar from "../customer/Navbar";
 
 function Signup() {
   const [role, setRole] = useState("");
@@ -97,6 +99,7 @@ function Signup() {
 
   return (
     <form onSubmit={handleSubmit}>
+      <Navbar />  
       <div className="customer-signup">
         <h1>Sign Up</h1>
         <select value={role} onChange={handleRoleChange} required>
@@ -217,6 +220,7 @@ function Signup() {
           </div>
         </div>
       </div>
+      <Footer />
     </form>
   );
 }

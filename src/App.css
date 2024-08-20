@@ -1,13 +1,36 @@
-/* body {
+
+.navbar {
+  position: relative;
+  z-index: 1000; 
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 10px 20px;
+  color: white;
+  font-size: 18px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar a {
+  color: white;
+  text-decoration: none;
+  padding: 8px 16px;
+}
+
+.navbar a:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+}
+
+body {
   background: linear-gradient(68.6deg, rgb(252, 165, 241) 1.8%, rgb(181, 255, 255) 100.5%);
-} */
+
+}
 
 .find-bus {
-  background-color: #f5f5f5; 
   padding: 20px; 
   border-radius: 8px; 
 }
-
 
 .find-bus #headerfd {
   position: relative;
@@ -19,6 +42,8 @@
   height: 300px; 
   object-fit: cover; 
   border-radius: 8px; 
+  margin-top: 50px;
+  border: 5px solid #4f1859;
 }
 
 .find-bus .header-text {
@@ -41,12 +66,13 @@
 }
 
 .find-bus .bus-item {
-  background-color: white; 
-  border-radius: 8px; 
+  background-color: rgb(190, 245, 245); 
+  border-radius: 20px; 
   overflow: hidden; 
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
   width: calc(25% - 20px); 
   transition: transform 0.3s ease; 
+  border: 5px solid #4f1859;
 }
 
 .find-bus .bus-item:hover {
@@ -58,6 +84,7 @@
   height: 180px; 
   object-fit: cover;
   border-bottom: 1px solid #ddd; 
+  border-radius: 20px;
 }
 
 .find-bus .bus-info {
@@ -65,7 +92,7 @@
 }
 
 .find-bus .bus-company button {
-  background-color: #007bff; 
+  background-color: #683260; 
   color: white; 
   border: none; 
   border-radius: 4px; 
@@ -76,7 +103,7 @@
 }
 
 .find-bus .bus-company button:hover {
-  background-color: #0056b3; 
+  background-color: #9f168f; 
 }
 
 .find-bus .bus-details {

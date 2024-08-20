@@ -3,6 +3,8 @@ import "./customerlogin.css";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { addUser } from "../../features/userSlice";
+import Navbar from "../customer/Navbar";
+import Footer from "../customer/Footer";
 
 function Login() {
   const dispatch = useDispatch();
@@ -43,7 +45,7 @@ function Login() {
 
       // Save tokens in localStorage
       localStorage.setItem("access_token", access_token);
-      let newUser = data.new_customer;
+      let newUser = data.user;
       dispatch(addUser(newUser));
       console.log(localStorage.getItem("access_token"));
 
@@ -68,6 +70,7 @@ function Login() {
 
   return (
     <form onSubmit={handleSubmit}>
+      <Navbar />
       <div className="customer-login">
         <h1>Welcome to Buslink</h1>
         <select value={role} onChange={handleRoleChange} required>
@@ -115,6 +118,7 @@ function Login() {
           </div>
         </div>
       </div>
+      <Footer />
     </form>
   );
 }
