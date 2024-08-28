@@ -68,12 +68,17 @@ function Logins() {
     setRole(e.target.value);
   }
   useEffect(() => {
-    if (role === "Driver") {
-      navigate("/drivers/login");
-    } else if (role === "Customer") {
-      navigate("/login");
+    if(role === 'Driver'){
+      navigate('/drivers/login');
+    }
+    else if(role === 'Customer'){
+      navigate('/login');
+    }
+    else if(role == 'Admin'){
+      navigate('/admin/login')
     }
   }, [role]);
+
 
   return (
     <form onSubmit={handleSubmit}>
@@ -84,6 +89,7 @@ function Logins() {
           <option>Select a role</option>
           <option>Customer</option>
           <option>Driver</option>
+          <option>Admin</option>
         </select>
         <p>You are just one step away!</p>
         <h2>Fill in the details below to access your account.</h2>
