@@ -22,6 +22,7 @@ import Signup from "./components/auth/driversignup";
 import { useDispatch, useSelector } from "react-redux";
 import { addUser } from "./features/userSlice";
 import Login from "./components/auth/customerlogin";
+import AdminLogin from "./components/auth/adminlogin";
 
 
 function App() {
@@ -43,7 +44,6 @@ function App() {
         })
         .then((userData) => {
           dispatch(addUser(userData));
-          console.log(userData);
         })
         .catch((error) => {
           console.error("Token verification failed:", error);
@@ -59,6 +59,7 @@ function App() {
         <Route path="/" element={<HomePage />} />  
         <Route path="/findbus" element={<FindBus1 />} />
         <Route path="/seats/:busId" element={<Seats />} />
+        <Route path="/admin/login" element={<AdminLogin />} />
         <Route path="/admin/dashboard" element={<Admin />} />
         <Route path="/admin/drivers" element={<Drivers />} />
         <Route path="/admin/customers" element={<Customers />} />
