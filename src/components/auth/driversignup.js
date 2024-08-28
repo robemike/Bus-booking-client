@@ -197,7 +197,7 @@ function Signup() {
             <p>
               Already have an account?{" "}
               <a href="#" onClick={() => navigate("/drivers/login")}>
-                Sign in
+                Login
               </a>
               .
             </p>
