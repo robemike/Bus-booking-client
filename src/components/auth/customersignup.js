@@ -90,17 +90,12 @@ function Signup() {
     setRole(e.target.value);
   }
   useEffect(() => {
-    if(role === 'Driver'){
-      navigate('/drivers/login');
-    }
-    else if(role === 'Customer'){
-      navigate('/login');
-    }
-    else if(role == 'Admin'){
-      navigate('/admin/login')
+    if (role === "Driver") {
+      navigate("/drivers/signup");
+    } else if (role === "Customer") {
+      navigate("/signup");
     }
   }, [role]);
-
 
   return (
     <form onSubmit={handleSubmit}>
@@ -111,7 +106,7 @@ function Signup() {
           <option>Select a role</option>
           <option>Customer</option>
           <option>Driver</option>
-          <option>Admin</option>
+          
         </select>
         <p>Please fill in the details below to create an account.</p>
         <hr />
