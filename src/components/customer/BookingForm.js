@@ -32,7 +32,10 @@ const BookingForm = () => {
     const newErrors = {};
     const today = new Date();
     const selectedDate = new Date(formData.departure_date);
-
+  
+    today.setHours(0, 0, 0, 0);
+    selectedDate.setHours(0, 0, 0, 0);
+  
     if (!formData.current_address) newErrors.current_address = 'Required';
     if (!formData.destination) newErrors.destination = 'Required';
     if (!formData.departure_date) {
@@ -41,7 +44,7 @@ const BookingForm = () => {
       newErrors.departure_date = 'You cannot book a date that has already passed';
     }
     if (!formData.departure_time) newErrors.departure_time = 'Required';
-
+  
     return newErrors;
   };
 
