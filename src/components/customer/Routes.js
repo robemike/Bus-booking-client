@@ -6,7 +6,7 @@ const Routes = () => {
 
     // Fetch scheduled buses
     useEffect(() => {
-        fetch('https://bus-booking-server.onrender.com/drivers/view_scheduled_buses')
+        fetch('https://bus-booking-server-1.onrender.com//drivers/view_scheduled_buses')
             .then((response) => {
                 if (!response.ok) {
                     throw new Error('Network response was not ok');
@@ -19,7 +19,7 @@ const Routes = () => {
 
     // Fetch bus route information
     useEffect(() => {
-        fetch('https://bus-booking-server.onrender.com/buses')
+        fetch('https://bus-booking-server-1.onrender.com//buses')
             .then((response) => {
                 if (!response.ok) {
                     throw new Error('Network response was not ok');

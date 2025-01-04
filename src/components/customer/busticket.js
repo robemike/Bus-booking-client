@@ -18,7 +18,7 @@ function BusTicket() {
         if (formData?.customer_id) {
             const fetchPhoneNumber = async () => {
                 try {
-                    const response = await fetch(`https://bus-booking-server.onrender.com/customers/${formData.customer_id}`);
+                    const response = await fetch(`https://bus-booking-server-1.onrender.com//customers/${formData.customer_id}`);
                     if (!response.ok) {
                         throw new Error(`Error: ${response.statusText}`);
                     }
@@ -36,7 +36,7 @@ function BusTicket() {
 
     const handleConfirm = async () => {
         try {
-            const response = await fetch('https://bus-booking-server.onrender.com/bookings', {
+            const response = await fetch('https://bus-booking-server-1.onrender.com//bookings', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -68,7 +68,7 @@ function BusTicket() {
         }
 
         try {
-            const response = await fetch(`https://bus-booking-server.onrender.com/pay?phone_number=${phoneNumber}&amount=${totalCost}`, {
+            const response = await fetch(`https://bus-booking-server-1.onrender.com//pay?phone_number=${phoneNumber}&amount=${totalCost}`, {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',

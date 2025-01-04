@@ -13,7 +13,7 @@
 //     useEffect(() => {
 //         const fetchTripDetails = async () => {
 //             try {
-//                 const response = await fetch(`https://bus-booking-server.onrender.com/drivers/view_scheduled_buses/${tripId}`);
+//                 const response = await fetch(`https://bus-booking-server-1.onrender.com//drivers/view_scheduled_buses/${tripId}`);
 //                 if (!response.ok) {
 //                     throw new Error('Network response was not ok');
 //                 }
@@ -85,7 +85,7 @@
 //     useEffect(() => {
 //         const fetchTripDetails = async () => {
 //             try {
-//                 const response = await fetch(`https://bus-booking-server.onrender.com/drivers/view_scheduled_buses/${tripId}`);
+//                 const response = await fetch(`https://bus-booking-server-1.onrender.com//drivers/view_scheduled_buses/${tripId}`);
 //                 if (!response.ok) {
 //                     throw new Error('Network response was not ok');
 //                 }
@@ -155,7 +155,7 @@
 //     useEffect(() => {
 //         const fetchTripDetails = async () => {
 //             try {
-//                 const response = await fetch(`https://bus-booking-server.onrender.com/drivers/view_scheduled_buses/${tripId}`);
+//                 const response = await fetch(`https://bus-booking-server-1.onrender.com//drivers/view_scheduled_buses/${tripId}`);
 //                 if (!response.ok) {
 //                     throw new Error('Network response was not ok');
 //                 }
@@ -234,7 +234,7 @@
 //     useEffect(() => {
 //         const fetchTripDetails = async () => {
 //             try {
-//                 const response = await fetch(`https://bus-booking-server.onrender.com/drivers/view_scheduled_buses/${tripId}`);
+//                 const response = await fetch(`https://bus-booking-server-1.onrender.com//drivers/view_scheduled_buses/${tripId}`);
 //                 if (!response.ok) {
 //                     throw new Error('Network response was not ok');
 //                 }

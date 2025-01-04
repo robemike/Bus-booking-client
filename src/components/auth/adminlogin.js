@@ -19,7 +19,7 @@ function AdminLogin() {
 
     try {
       const response = await fetch(
-        "https://bus-booking-server.onrender.com/admin/login",
+        "https://bus-booking-server-1.onrender.com//admin/login",
         {
           method: "POST",
           headers: {

@@ -25,7 +25,7 @@ function Logins() {
       license_number: licenseNo,
     };
     console.log(credentials);
-    fetch("https://bus-booking-server.onrender.com/drivers/login", {
+    fetch("https://bus-booking-server-1.onrender.com//drivers/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

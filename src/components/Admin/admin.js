@@ -11,21 +11,21 @@ function Admin() {
 
   useEffect(() => {
     const fetchDrivers = () => {
-      fetch("https://bus-booking-server.onrender.com/admin/view_drivers")
+      fetch("https://bus-booking-server-1.onrender.com//admin/view_drivers")
         .then(response => response.json())
         .then(data => setDrivers(data))
         .catch(error => console.error("Error fetching drivers:", error));
     };
 
     const fetchBuses = () => {
-      fetch("https://bus-booking-server.onrender.com/admin/buses")
+      fetch("https://bus-booking-server-1.onrender.com//admin/buses")
         .then(response => response.json())
         .then(data => setBuses(data))
         .catch(error => console.error("Error fetching buses:", error));
     };
 
     const fetchCustomers = () => {
-      fetch("https://bus-booking-server.onrender.com/admin/customers")
+      fetch("https://bus-booking-server-1.onrender.com//admin/customers")
         .then(response => response.json())
         .then(data => setCustomers(data))
         .catch(error => console.error("Error fetching customers:", error));

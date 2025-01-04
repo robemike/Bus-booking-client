@@ -8,7 +8,7 @@ function Buses() {
 
   // Fetch data from the backend
   useEffect(() => {
-    fetch('https://bus-booking-server.onrender.com/admin/buses')
+    fetch('https://bus-booking-server-1.onrender.com//admin/buses')
       .then(response => response.json())
       .then(data => setBuses(data))
       .catch(error => {

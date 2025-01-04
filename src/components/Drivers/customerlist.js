@@ -11,7 +11,7 @@ function CustomerList() {
 
   useEffect(() => {
     const fetchData = () => {
-      fetch("https://bus-booking-server.onrender.com/drivers/customers")
+      fetch("https://bus-booking-server-1.onrender.com//drivers/customers")
         .then(response => {
           if (!response.ok) {
             setError(`HTTP error! Status: ${response.status}`);

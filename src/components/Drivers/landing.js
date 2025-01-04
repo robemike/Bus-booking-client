@@ -13,7 +13,7 @@ function Landing() {
     useEffect(() => {
         const fetchBuses = async () => {
             try {
-                const response = await fetch('https://bus-booking-server.onrender.com/drivers/drivers/buses');
+                const response = await fetch('https://bus-booking-server-1.onrender.com//drivers/drivers/buses');
                 const data = await response.json();
                 setBuses(data);
             } catch (error) {
@@ -23,7 +23,7 @@ function Landing() {
 
         const fetchTrips = async () => {
             try {
-                const response = await fetch('https://bus-booking-server.onrender.com/drivers/view_scheduled_buses');
+                const response = await fetch('https://bus-booking-server-1.onrender.com//drivers/view_scheduled_buses');
                 const data = await response.json();
                 setTrips(data);
             } catch (error) {
@@ -33,7 +33,7 @@ function Landing() {
 
         const fetchCustomers = async () => {
             try {
-                const response = await fetch('https://bus-booking-server.onrender.com/drivers/customers');
+                const response = await fetch('https://bus-booking-server-1.onrender.com//drivers/customers');
                 const data = await response.json();
                 setCustomers(data);
             } catch (error) {

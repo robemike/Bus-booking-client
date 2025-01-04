@@ -9,7 +9,7 @@ function Trips() {
     const navigate = useNavigate();
 
     useEffect(() => {
-        fetch('https://bus-booking-server.onrender.com/drivers/view_scheduled_buses')
+        fetch('https://bus-booking-server-1.onrender.com//drivers/view_scheduled_buses')
             .then(response => response.json())
             .then(data => {
                 setServices(data);

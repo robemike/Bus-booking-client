@@ -13,7 +13,7 @@ const FindBus1 = () => {
   useEffect(() => {
     const fetchBusData = async () => {
       try {
-        const response = await fetch('https://bus-booking-server.onrender.com/buses');
+        const response = await fetch('https://bus-booking-server-1.onrender.com//buses');
         const data = await response.json();
 
         const userRoute = `${formData.current_address} to ${formData.destination}`;

@@ -29,7 +29,7 @@ function DriverBuses() {
     const [imageUrl, setImageUrl] = useState("")
 
     useEffect(() => {
-        fetch('https://bus-booking-server.onrender.com/drivers/drivers/buses')
+        fetch('https://bus-booking-server-1.onrender.com//drivers/drivers/buses')
             .then(response => response.json())
             .then(data => setBusData(data))
             .catch(error => {
@@ -39,7 +39,7 @@ function DriverBuses() {
     const handleAddEditBus = () => {
         const busWithImage = { ...newBus, image: imageUrl}
         if (editMode) {
-            fetch(`https://bus-booking-server.onrender.com/drivers/edit-buses/${newBus.id}`, {
+            fetch(`https://bus-booking-server-1.onrender.com//drivers/edit-buses/${newBus.id}`, {
                 method: 'PATCH',
                 headers: {
                     'Content-Type': 'application/json',
@@ -59,7 +59,7 @@ function DriverBuses() {
         } else {
             console.log(busWithImage)
             // Create new bus
-            fetch('https://bus-booking-server.onrender.com/drivers/register/buses', {
+            fetch('https://bus-booking-server-1.onrender.com//drivers/register/buses', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -98,7 +98,7 @@ function DriverBuses() {
     };
 
     const handleScheduleBus = () => {
-        fetch('https://bus-booking-server.onrender.com/drivers/schedule_buses', {
+        fetch('https://bus-booking-server-1.onrender.com//drivers/schedule_buses', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

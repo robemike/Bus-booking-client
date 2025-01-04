@@ -30,7 +30,7 @@ function Signup() {
 
     try {
       const response = await fetch(
-        "https://bus-booking-server.onrender.com/drivers/signup",
+        "https://bus-booking-server-1.onrender.com//drivers/signup",
         {
           method: "POST",
           headers: {
