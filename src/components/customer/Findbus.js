@@ -13,14 +13,24 @@ const FindBus1 = () => {
   useEffect(() => {
     const fetchBusData = async () => {
       try {
-        const response = await fetch('https://bus-booking-server-1.onrender.com//buses');
+        const response = await fetch('https://bus-booking-server-1.onrender.com/drivers/view_scheduled_buses');
         const data = await response.json();
 
-        const userRoute = `${formData.current_address} to ${formData.destination}`;
-
-        const filteredBuses = data.filter(bus => 
-          bus.travel_time === formData.departure_time && bus.route === userRoute
-        );
+        const userRoute = `${formData.current_address} to ${formData.destination}`;     
+    
+        const filteredBuses = data.filter(bus => {
+          const timeMatch = bus.travel_time === formData.departure_time;
+          const routeMatch = bus.route === userRoute;
+        
+          console.log("bus.travel_time:", bus.travel_time, typeof bus.travel_time);
+          console.log("formData.departure_time:", formData.departure_time, typeof formData.departure_time);
+          console.log("bus.route:", bus.route, typeof bus.route);
+          console.log("userRoute:", userRoute, typeof userRoute);
+          console.log("Time Match:", timeMatch);
+          console.log("Route Match:", routeMatch);
+        
+          return timeMatch && routeMatch;
+        });
 
         setBusData(filteredBuses);
       } catch (error) {

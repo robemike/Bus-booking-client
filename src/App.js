@@ -30,7 +30,7 @@ function App() {
     const token = localStorage.getItem("access_token");
     console.log(token);
     if (token) {
-      fetch("https://bus-booking-server-1.onrender.com//check_session", {
+      fetch("https://bus-booking-server-1.onrender.com/check_session", {
         headers: {
           Authorization: `Bearer ${token}`,
         },

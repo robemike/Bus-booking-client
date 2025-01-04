@@ -51,17 +51,17 @@ function Admin() {
           <div className="admin-cards-container">
             <div className="admin-card" onClick={() => navigate("/admin/drivers")}>
               <h2>Drivers</h2>
-              <p>View and manage drivers.</p>
+              <p>View drivers.</p>
               <p>Number of drivers: {drivers.length}</p>
             </div>
             <div className="admin-card" onClick={() => navigate("/admin/buses")}>
               <h2>Buses</h2>
-              <p>View and manage buses.</p>
+              <p>View buses.</p>
               <p>Number of buses: {buses.length}</p>
             </div>
             <div className="admin-card" onClick={() => navigate("/admin/customers")}>
               <h2>Customers</h2>
-              <p>View and manage customers.</p>
+              <p>View customers.</p>
               <p>Number of customers: {customers.length}</p>
             </div>
           </div>

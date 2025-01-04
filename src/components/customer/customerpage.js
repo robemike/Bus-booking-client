@@ -13,7 +13,7 @@ function Customer() {
     const fetchBookings = async () => {
 
       try {
-        const response = await fetch(`https://bus-booking-server-1.onrender.com//view_bookings/${userId}`);
+        const response = await fetch(`https://bus-booking-server-1.onrender.com/view_bookings/${userId}`);
         if (response.ok) {
           const data = await response.json();
           const sortedBookings = data.sort((a, b) => new Date(a.depature_time) - new Date(b.depature_time));

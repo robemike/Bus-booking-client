@@ -20,7 +20,7 @@ function Login() {
 
     try {
       const response = await fetch(
-        "https://bus-booking-server-1.onrender.com//login",
+        "https://bus-booking-server-1.onrender.com/login",
         {
           method: "POST",
           headers: {
