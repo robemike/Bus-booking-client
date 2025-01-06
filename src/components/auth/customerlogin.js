@@ -13,42 +13,39 @@ function Login() {
   const [error, setError] = useState("");
   const [role, setRole] = useState("");
   const navigate = useNavigate();
-  console.log(role);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+    setError(""); // Clear any previous errors
 
     try {
-      const response = await fetch(
-        "https://bus-booking-server-1.onrender.com/login",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            email: email,
-            password: password,
-          }),
-        }
-      );
+      const response = await fetch("https://bus-booking-server-1.onrender.com/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          email,
+          password,
+        }),
+      });
 
       if (!response.ok) {
         const errorData = await response.json();
-        setError(errorData.error || "Signup failed");
+        setError(errorData.error || "Login failed. Please check your credentials.");
         return;
       }
 
       const data = await response.json();
-      console.log(data);
-      const { access_token } = data;
+      const { access_token, user } = data;
 
       // Save tokens in localStorage
       localStorage.setItem("access_token", access_token);
-      let newUser = data.user;
-      dispatch(addUser(newUser));
-      console.log(localStorage.getItem("access_token"));
 
+      // Dispatch user data to the Redux store
+      dispatch(addUser(user));
+
+      // Redirect based on role or default to the customer dashboard
       navigate("/customer");
     } catch (error) {
       console.error("Error during login:", error);
@@ -56,20 +53,19 @@ function Login() {
     }
   };
 
-  function handleRoleChange(e){
+  const handleRoleChange = (e) => {
     setRole(e.target.value);
-  }
+  };
+
   useEffect(() => {
-    if(role === 'Driver'){
-      navigate('/drivers/login');
+    if (role === "Driver") {
+      navigate("/drivers/login");
+    } else if (role === "Customer") {
+      navigate("/login");
+    } else if (role === "Admin") {
+      navigate("/admin/login");
     }
-    else if(role === 'Customer'){
-      navigate('/login');
-    }
-    else if(role == 'Admin'){
-      navigate('/admin/login')
-    }
-  }, [role]);
+  }, [role, navigate]);
 
   return (
     <form onSubmit={handleSubmit}>
@@ -77,44 +73,45 @@ function Login() {
       <div className="customer-login">
         <h1>Welcome to Buslink</h1>
         <select value={role} onChange={handleRoleChange} required>
-          <option>Select a role</option>
-          <option>Customer</option>
-          <option>Driver</option>
-          <option>Admin</option>
+          <option value="">Select a role</option>
+          <option value="Customer">Customer</option>
+          <option value="Driver">Driver</option>
+          <option value="Admin">Admin</option>
         </select>
         <p>You are just one step away!</p>
         <h2>Fill in the details below to access your account.</h2>
         <hr />
         {error && <div className="error-message">{error}</div>}
-        <label htmlFor="Email">
+        <label htmlFor="email">
           <b>Email</b>
         </label>
         <input
-          type="text"
+          type="email"
           placeholder="Enter Email Address"
-          name="Email"
+          name="email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           required
         />
 
-        <label htmlFor="psw">
+        <label htmlFor="password">
           <b>Password</b>
         </label>
         <input
           type="password"
           placeholder="Enter Password"
-          name="psw"
+          name="password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           required
         />
+
         <div>
           <button type="submit">Login</button>
           <div className="signin-link">
             <p>
               Don't have an account?{" "}
-              <a href="signup" onClick={() => navigate("/signup")}>
+              <a href="/signup" onClick={() => navigate("/signup")}>
                 Sign up
               </a>
               .

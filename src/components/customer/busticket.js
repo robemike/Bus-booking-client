@@ -36,7 +36,7 @@ function BusTicket() {
 
     const handleConfirm = async () => {
         try {
-            const response = await fetch('https://bus-booking-server-1.onrender.com//bookings', {
+            const response = await fetch('https://bus-booking-server-1.onrender.com/bookings', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

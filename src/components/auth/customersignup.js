@@ -22,15 +22,15 @@ function Signup() {
 
   const validateInputs = () => {
     if (phone_number.length !== 10 || !/^\d+$/.test(phone_number)) {
-      return "Phone number must be exactly 10 digits and numeric";
+      return "Phone number must be exactly 10 digits and numeric.";
     }
 
     if (id_or_passport.length !== 8 || !/^\d+$/.test(id_or_passport)) {
-      return "ID or Passport must be exactly 8 digits and numeric";
+      return "ID or Passport must be exactly 8 digits and numeric.";
     }
 
     if (password !== confirmPassword) {
-      return "Passwords do not match";
+      return "Passwords do not match.";
     }
 
     return null;
@@ -38,75 +38,73 @@ function Signup() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-  
+    setError(null); // Clear previous errors
+
     const validationError = validateInputs();
     if (validationError) {
       setError(validationError);
       return;
     }
-  
+
     try {
-      const response = await fetch(
-        "https://bus-booking-server-1.onrender.com/signup",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            firstname,
-            lastname,
-            email,
-            address,
-            phone_number,
-            id_or_passport,
-            password,
-          }),
-        }
-      );
-  
+      const response = await fetch("https://bus-booking-server-1.onrender.com/signup", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          firstname,
+          lastname,
+          email,
+          address,
+          phone_number,
+          id_or_passport,
+          password,
+        }),
+      });
+
       if (!response.ok) {
         const errorData = await response.json();
-        setError(errorData.error || "Signup failed");
+        setError(errorData.error || "Signup failed.");
         return;
       }
-  
+
       const data = await response.json();
-      console.log(data)
-      const { access_token } = data;
-  
+      const { access_token, new_customer } = data;
+
       // Save tokens in localStorage
       localStorage.setItem("access_token", access_token);
-      let newUser = data.new_customer
-      dispatch(addUser(newUser))
-      console.log(localStorage.getItem("access_token"));
-  
+
+      // Dispatch user data to the Redux store
+      dispatch(addUser(new_customer));
+
       navigate("/customer");
     } catch (error) {
       setError("An unexpected error occurred. Please try again.");
     }
   };
-  function handleRoleChange(e) {
+
+  const handleRoleChange = (e) => {
     setRole(e.target.value);
-  }
+  };
+
   useEffect(() => {
     if (role === "Driver") {
       navigate("/drivers/signup");
     } else if (role === "Customer") {
       navigate("/signup");
     }
-  }, [role]);
+  }, [role, navigate]);
 
   return (
     <form onSubmit={handleSubmit}>
-      <Navbar />  
+      <Navbar />
       <div className="customer-signup">
         <h1>Sign Up</h1>
         <select value={role} onChange={handleRoleChange} required>
-          <option>Select a role</option>
-          <option>Customer</option>
-          <option>Driver</option>
-          
+          <option value="">Select a role</option>
+          <option value="Customer">Customer</option>
+          <option value="Driver">Driver</option>
         </select>
         <p>Please fill in the details below to create an account.</p>
         <hr />
@@ -141,7 +139,7 @@ function Signup() {
           <b>Email</b>
         </label>
         <input
-          type="text"
+          type="email"
           placeholder="Enter Email"
           name="email"
           value={email}
@@ -197,26 +195,27 @@ function Signup() {
           required
         />
 
-        <label htmlFor="psw-repeat">
+        <label htmlFor="confirm-psw">
           <b>Confirm Password</b>
         </label>
         <input
           type="password"
           placeholder="Confirm Password"
-          name="psw-repeat"
+          name="confirm-psw"
           value={confirmPassword}
           onChange={(e) => setConfirmPassword(e.target.value)}
           required
         />
 
-        <div className="clearfix">
-          <button type="submit" className="signupbtn">
-            Sign Up
-          </button>
+        <div>
+          <button type="submit">Sign Up</button>
           <div className="signin-link">
             <p>
               Already have an account?{" "}
-              <a onClick={() => navigate("/")}>Login</a>.
+              <a href="/login" onClick={() => navigate("/login")}>
+                Login
+              </a>
+              .
             </p>
           </div>
         </div>

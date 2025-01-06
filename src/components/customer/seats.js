@@ -19,7 +19,7 @@ function Seats() {
     const fetchBusData = async () => {
       try {
         const response = await fetch(
-          `https://bus-booking-server-1.onrender.com//buses/${busId}/seats`
+          `https://bus-booking-server-1.onrender.com/buses/${busId}/seats`
         );
         if (!response.ok) throw new Error("Network response was not ok");
         const data = await response.json();
@@ -52,7 +52,7 @@ function Seats() {
 
     try {
       const response = await fetch(
-        "https://bus-booking-server-1.onrender.com//book-seats",
+        "https://bus-booking-server-1.onrender.com/book-seats",
         {
           method: "POST",
           headers: {

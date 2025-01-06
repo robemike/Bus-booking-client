@@ -50,19 +50,25 @@ const BookingForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
+  
     const validationErrors = validate();
+    console.log('Validation Errors:', validationErrors);
+  
     if (Object.keys(validationErrors).length > 0) {
       setErrors(validationErrors);
       return;
     }
-    if (!user.id) {
+  
+    console.log('User:', user);
+    if (!user || !user.id) {
       alert('You must be logged in to book a bus');
       navigate('/login');
     } else {
+      console.log('Form Data:', formData);
       navigate('/findbus', { state: { formData } });
     }
   };
+  
 
   return (
     <div className='bookingform-container flex justify-center items-center'>
